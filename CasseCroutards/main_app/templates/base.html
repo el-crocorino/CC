@@ -1,0 +1,30 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="{% static 'bootstrap.min.css' %}" />
+        <link rel="stylesheet" type="text/css" href="{% static 'bootstrap-theme.min.css' %}" />
+        <link rel="stylesheet" type="text/css" href="{% static 'bootstrap-custom.css' %}" />
+        <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
+	<title>Les Casse-Croûtards - {% block title %}{% endblock %}</title>
+</head>
+<body>
+	<header>
+		{% block header %}
+		{% endblock %}
+	</header>
+        <nav class="navbar navbar-default navbar-static-top text-center">
+	</nav>
+	<main class="container container--mw700" role="main">
+		{% block content %}
+		{% endblock %}
+	</main>
+	<footer>
+		{% block footer %}
+		{% endblock %}
+	</footer>
+        <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+        <script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>
