@@ -3,4 +3,14 @@
 
 {% block content %}
 Hello Petit CasseCroûtard ! 
+Voici les voyages disponibles : 
+{% for trip in trips %}
+<hr>
+<h2>{{ trip.date }}</h2>
+<ul>
+	<li>Départ: {{ trip.city_start }}</li>
+	<li>Arrivée: {{ trip.city_end }}</li>
+</ul>
+{% endfor %}
+
 {% endblock %}
