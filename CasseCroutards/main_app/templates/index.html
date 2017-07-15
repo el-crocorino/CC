@@ -1,6 +1,9 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
 
+{% block title %}
+Accueil
+{% endblock %}
 {% block content %}
 Hello Petit CasseCroûtard ! 
 Voici les voyages disponibles : 
@@ -8,8 +11,10 @@ Voici les voyages disponibles :
 <hr>
 <h2>{{ trip.date }}</h2>
 <ul>
+	<li>{{ trip.user.first_name }}</li>
 	<li>Départ: {{ trip.city_start }}</li>
 	<li>Arrivée: {{ trip.city_end }}</li>
+	<li>Description: {{ trip.comment }}</li>
 </ul>
 {% endfor %}
 
