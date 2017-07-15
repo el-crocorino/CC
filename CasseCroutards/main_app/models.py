@@ -9,8 +9,18 @@ class Trip( models.Model):
     city_start = models.CharField( max_length = 100)
     city_end = models.CharField( max_length = 100)
     max_amount = models.DecimalField( max_digits = 6, decimal_places = 2)
+    comment = models.TextField( max_length = 1500, default = '')
     created = models.DateTimeField( auto_now_add = True)
     updated = models.DateTimeField( auto_now_add = True)
+    
+    def __str__( self):
+        description = self.date.strftime("%B %d, %Y") + ' ' + self.city_start[:10]
+        if len(self.city_start) > 10:
+            description += '...'
+        description += '-' + self.city_end[:10]
+        if len(self.city_end) > 10:
+            description += '...'
+        return description
     
 class Order( models.Model):
     user = models.ForeignKey(User)
