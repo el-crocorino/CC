@@ -1,6 +1,10 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
+{% load i18n %}
 
+{% block title %}
+{% trans "Welcome" %}
+{% endblock %}
 {% block content %}
-Hello Petit CasseCroûtard ! 
+{% trans "Hi there, fellow Hitchsnacker!" %}
 {% endblock %}
