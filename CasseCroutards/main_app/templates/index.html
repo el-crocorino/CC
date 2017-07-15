@@ -18,4 +18,10 @@
 	<li>{% trans "Description"%}: {{ trip.comment }}</li>
 </ul>
 {% endfor %}
+<h3>{% trans "AddTrip" %}</h3>
+<form enctype="multipart/form-data" action="trip/new/" method="POST">
+    {% csrf_token %}
+    {{ addTripForm.as_p }}
+    <input type="submit" value="Submit">
+</form>
 {% endblock %}
