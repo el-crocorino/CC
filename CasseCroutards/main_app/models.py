@@ -33,5 +33,10 @@ class Item( models.Model):
 
 class Appointment( models.Model):
     order = models.ForeignKey(Order)
+
+class UserProfile( models.Model):
+    user = models.OneToOneField(User)
+    email = models.EmailField( max_length = 254)
+    avatar = models.ImageField( upload_to = 'profile_images', default = 'media/default.png')
     
     
