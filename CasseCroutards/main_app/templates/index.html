@@ -1,11 +1,12 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
+{% load i18n %}
 
 {% block title %}
-Accueil
+{% trans "WelcomeTitle" %}
 {% endblock %}
 {% block content %}
-Hello Petit CasseCroûtard ! 
+{% trans "WelcomeMessage" %} 
 Voici les voyages disponibles : 
 {% for trip in trips %}
 <hr>
@@ -17,5 +18,4 @@ Voici les voyages disponibles :
 	<li>Description: {{ trip.comment }}</li>
 </ul>
 {% endfor %}
-
 {% endblock %}
