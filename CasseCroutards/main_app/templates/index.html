@@ -9,7 +9,7 @@ Hello Petit CasseCroûtard !
 Voici les voyages disponibles : 
 {% for trip in trips %}
 <hr>
-<h2>{{ trip.date }}</h2>
+<h2><a href="/trip/{{ trip.id }}">{{ trip.date }}</a></h2>
 <ul>
 	<li>{{ trip.user.first_name }}</li>
 	<li>Départ: {{ trip.city_start }}</li>

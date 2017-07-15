@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load i18n %}
+
+{% block title %}
+{% trans "Voyage" %}
+{% endblock %}
+{% block content %}
+<ul>
+	<li>{% trans "Traveler" %} : {{ trip.user.first_name }}</li>
+	<li>{% trans "Date" %} : {{ trip.date }}</li>
+	<li>{% trans "Start" %} : {{ trip.city_start }}</li>
+	<li>{% trans "Destination" %} : {{ trip.city_end }}</li>
+	<li>{% trans "Summary" %} : {{ trip.comment }}</li>
+	<li>{% trans "Participants" %} : </li>
+</ul>
+{% endblock %}
