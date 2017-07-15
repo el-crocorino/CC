@@ -13,5 +13,4 @@ media
 
 ### venv ###
 cc_venv
-
-
+\.fuse_*
