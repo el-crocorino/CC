@@ -6,5 +6,16 @@
 {% trans "WelcomeTitle" %}
 {% endblock %}
 {% block content %}
-{% trans "WelcomeMessage" %}
+{% trans "WelcomeMessage" %} 
+{% trans "AvailableTrips" %} : 
+{% for trip in trips %}
+<hr>
+<h2>{{ trip.date }}</h2>
+<ul>
+	<li>{{ trip.user.first_name }}</li>
+	<li>{% trans "Start"%}: {{ trip.city_start }}</li>
+	<li>{% trans "Destination"%}: {{ trip.city_end }}</li>
+	<li>{% trans "Description"%}: {{ trip.comment }}</li>
+</ul>
+{% endfor %}
 {% endblock %}
