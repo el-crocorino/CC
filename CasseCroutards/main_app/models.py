@@ -39,4 +39,5 @@ class UserProfile( models.Model):
     email = models.EmailField( max_length = 254)
     avatar = models.ImageField( upload_to = 'profile_images', default = 'media/default.png')
     
-    
+    def __str__(self):
+        return self.user.username
