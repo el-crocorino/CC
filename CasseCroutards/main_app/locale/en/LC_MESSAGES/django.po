@@ -27,7 +27,7 @@ msgstr "Welcome!"
 
 #: templates/index.html:9
 msgid "WelcomeMessage"
-msgstr "Hi there, fellow hitschsnacker!"
+msgstr "Hi there, fellow hitchsnacker!"
 
 #: templates/index.html:10
 msgid "AvailableTrips"
