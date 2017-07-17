@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-17 19:05+0200\n"
+"POT-Creation-Date: 2017-07-17 20:48+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -44,27 +44,27 @@ msgstr "Bonjour petit Casse-Croûtard !"
 msgid "Login"
 msgstr "Connexion"
 
-#: templates/index.html:15
+#: templates/index.html:16
 msgid "AvailableTrips"
 msgstr "Prochains voyages à venir"
 
-#: templates/index.html:21 templates/trip_detail.html:12
+#: templates/index.html:22 templates/trip_detail.html:12
 msgid "Start"
 msgstr "Départ"
 
-#: templates/index.html:22 templates/trip_detail.html:13
+#: templates/index.html:23 templates/trip_detail.html:13
 msgid "Destination"
 msgstr "Arrivée"
 
-#: templates/index.html:23
+#: templates/index.html:24
 msgid "Description"
 msgstr "Description"
 
-#: templates/index.html:26
+#: templates/index.html:32
 msgid "AddTrip"
 msgstr "Proposer un nouveau voyage"
 
-#: templates/trip_detail.html:6
+#: templates/trip_detail.html:6 templates/trip_update.html:6
 #, fuzzy
 #| msgid "AddTrip"
 msgid "Trip"
@@ -85,6 +85,10 @@ msgstr "Présentation"
 #: templates/trip_detail.html:15
 msgid "Participants"
 msgstr "Participants"
+
+#: templates/trip_update.html:11
+msgid "UpdateTrip"
+msgstr "Mettre à jour le voyage"
 
 #~ msgid "Voyage"
 #~ msgstr "Voyage"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-17 19:05+0200\n"
+"POT-Creation-Date: 2017-07-17 20:48+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -42,27 +42,27 @@ msgstr ""
 msgid "Login"
 msgstr ""
 
-#: templates/index.html:15
+#: templates/index.html:16
 msgid "AvailableTrips"
 msgstr ""
 
-#: templates/index.html:21 templates/trip_detail.html:12
+#: templates/index.html:22 templates/trip_detail.html:12
 msgid "Start"
 msgstr ""
 
-#: templates/index.html:22 templates/trip_detail.html:13
+#: templates/index.html:23 templates/trip_detail.html:13
 msgid "Destination"
 msgstr ""
 
-#: templates/index.html:23
+#: templates/index.html:24
 msgid "Description"
 msgstr ""
 
-#: templates/index.html:26
+#: templates/index.html:32
 msgid "AddTrip"
 msgstr ""
 
-#: templates/trip_detail.html:6
+#: templates/trip_detail.html:6 templates/trip_update.html:6
 msgid "Trip"
 msgstr ""
 
@@ -80,4 +80,8 @@ msgstr ""
 
 #: templates/trip_detail.html:15
 msgid "Participants"
+msgstr ""
+
+#: templates/trip_update.html:11
+msgid "UpdateTrip"
 msgstr ""

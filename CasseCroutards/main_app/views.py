@@ -36,7 +36,18 @@ def trip_delete( request, tripId):
 	return HttpResponseRedirect('/')
 		
 def trip_update( request, tripId):
-	pass
+
+	trip = Trip.objects.get( id = tripId)
+	addTripForm = TripForm( initial = {
+		'date' : trip.date, 
+		'city_start' : trip.city_start, 
+		'city_end' : trip.city_end, 
+		'amount_limit' : trip.amount_limit, 
+		'participants_limit' : trip.participants_limit, 
+		'comment' : trip.comment
+		})
+	
+	return render(request, 'trip_update.html', {'trip': trip,'addTripForm' : addTripForm})
 
 def profile( request, username):
 	pass
