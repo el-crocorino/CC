@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth import authenticate, login, logout
 
-from .models import Trip
+from .models import Trip, UserProfile
 from .forms import TripForm
 
 
@@ -13,11 +13,23 @@ def index( request):
 	addTripForm = TripForm
 	return render(request, 'index.html', {'trips': trips, 'addTripForm' : addTripForm})
 
+def user_create( request):
+	pass
+
+def user_profile( request):
+	pass
+
+def user_update( request):
+	pass
+
+def user_delete( request):
+	pass
+
 def trip_detail( request, tripId):
 	trip = Trip.objects.get(id = tripId)
 	return render(request, 'trip_detail.html', {'trip': trip})
 		
-def trip_add( request):
+def trip_create( request):
 
 	form = TripForm( request.POST)
 

@@ -35,9 +35,12 @@ class Appointment( models.Model):
     order = models.ForeignKey(Order)
 
 class UserProfile( models.Model):
+    # TODO : move email adress out of Profile and make it mandatory when creating a new user
     user = models.OneToOneField(User)
     email = models.EmailField( max_length = 254)
     avatar = models.ImageField( upload_to = 'profile_images', default = 'media/default.png')
+    home_city = models.CharField( max_length = 100)
+    bio = models.TextField( max_length = 1500, default = '')
     
     def __str__(self):
         return self.user.username
