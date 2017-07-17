@@ -3,15 +3,20 @@
 {% load i18n %}
 
 {% block title %}
-{% trans "Voyage" %}
+	{% trans "Trip" %}
 {% endblock %}
 {% block content %}
-<ul>
-	<li>{% trans "Traveler" %} : {{ trip.user.first_name }}</li>
-	<li>{% trans "Date" %} : {{ trip.date }}</li>
-	<li>{% trans "Start" %} : {{ trip.city_start }}</li>
-	<li>{% trans "Destination" %} : {{ trip.city_end }}</li>
-	<li>{% trans "Summary" %} : {{ trip.comment }}</li>
-	<li>{% trans "Participants" %} : </li>
-</ul>
+	<ul>
+		<li>{% trans "Traveler" %} : {{ trip.user.first_name }}</li>
+		<li>{% trans "Date" %} : {{ trip.date }}</li>
+		<li>{% trans "Start" %} : {{ trip.city_start }}</li>
+		<li>{% trans "Destination" %} : {{ trip.city_end }}</li>
+		<li>{% trans "Summary" %} : {{ trip.comment }}</li>
+		<li>{% trans "Participants" %} : </li>
+		{% if request.user.is_authenticated %}
+			{% if trip.user.id == request.user.id %}
+				<li><a href="/trip/delete/{{ trip.id }}">delete</a> | <a href="/trip/update/{{ trip.id }}">update</a></li>
+			{% endif %}
+		{% endif %}
+	</ul>
 {% endblock %}
