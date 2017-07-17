@@ -3,7 +3,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth import authenticate, login, logout
 
 from .models import Trip, UserProfile
-from .forms import TripForm
+from .forms import TripForm, UserProfileForm
 
 
 # Create your views here.
@@ -14,6 +14,15 @@ def index( request):
 	return render(request, 'index.html', {'trips': trips, 'addTripForm' : addTripForm})
 
 def user_create( request):
+
+	form = UserProfileForm( request.POST)
+
+	if form.is_valid():
+		userProfile = form.save( commit = False)
+		userProfile.user = request.user
+		userProfile.save()
+
+	return HttpResponseRedirect('/')
 	pass
 
 def user_profile( request):
