@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-15 12:47+0200\n"
+"POT-Creation-Date: 2017-07-17 19:05+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,22 +26,65 @@ msgstr "Les Casse-Croûtards"
 msgid "WelcomeTitle"
 msgstr "Bienvenue !"
 
-#: templates/index.html:9
+#: templates/index.html:11
+#, fuzzy
+#| msgid "WelcomeMessage"
+msgid "LoggedInWelcomeMessage"
+msgstr "Bonjour "
+
+#: templates/index.html:11
+msgid "Logout"
+msgstr "Déconnexion"
+
+#: templates/index.html:13
 msgid "WelcomeMessage"
 msgstr "Bonjour petit Casse-Croûtard !"
 
-#: templates/index.html:10
+#: templates/index.html:13
+msgid "Login"
+msgstr "Connexion"
+
+#: templates/index.html:15
 msgid "AvailableTrips"
 msgstr "Prochains voyages à venir"
 
-#: templates/index.html:16
+#: templates/index.html:21 templates/trip_detail.html:12
 msgid "Start"
 msgstr "Départ"
 
-#: templates/index.html:17
+#: templates/index.html:22 templates/trip_detail.html:13
 msgid "Destination"
 msgstr "Arrivée"
 
-#: templates/index.html:18
+#: templates/index.html:23
 msgid "Description"
 msgstr "Description"
+
+#: templates/index.html:26
+msgid "AddTrip"
+msgstr "Proposer un nouveau voyage"
+
+#: templates/trip_detail.html:6
+#, fuzzy
+#| msgid "AddTrip"
+msgid "Trip"
+msgstr "Proposer un nouveau voyage"
+
+#: templates/trip_detail.html:10
+msgid "Traveler"
+msgstr "Voyageur"
+
+#: templates/trip_detail.html:11
+msgid "Date"
+msgstr "Date"
+
+#: templates/trip_detail.html:14
+msgid "Summary"
+msgstr "Présentation"
+
+#: templates/trip_detail.html:15
+msgid "Participants"
+msgstr "Participants"
+
+#~ msgid "Voyage"
+#~ msgstr "Voyage"
