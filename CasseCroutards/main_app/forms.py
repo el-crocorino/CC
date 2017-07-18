@@ -15,12 +15,13 @@ class TripForm( forms.ModelForm):
 class UserProfileForm( forms.ModelForm):
     class Meta:
         model = UserProfile
-        fields = ['birth_date', 'location', 'bio', 'avatar']
+        fields = ['location', 'bio', 'avatar']
 
 
 class SignUpForm( UserCreationForm):
-    birth_date = forms.DateField( help_text = 'Required. Format: YYYY-MM-DD')
+    birth_date = forms.DateField( help_text = 'Format: YYYY-MM-DD')
+    email = forms.EmailField( help_text = 'Required')
 
     class Meta:
         model = User
-        fields = ('username', 'birth_date', 'password1', 'password2', )
+        fields = ('first_name', 'last_name', 'username', 'password1', 'password2', 'email', 'birth_date')
