@@ -16,30 +16,30 @@ function getCookie(name) {
 var csrftoken = getCookie('csrftoken');
 
 function crsfSafeMethod(method) {
-	// No csrf protection needed for these methods
-	return(/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+    // No csrf protection needed for these methods
+    return(/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
 }
 
 $.ajaxSetup({
-	beforeSend: function( xhr, settings) {
-		if( ! crsfSafeMethod(settins.type) && ! this.crossDomain) {
-			xhr.setRequestHeader("X-CSRFToken", csrftoken)
-		}
-	}
+    beforeSend: function( xhr, settings) {
+        if( ! crsfSafeMethod(settins.type) && ! this.crossDomain) {
+            xhr.setRequestHeader("X-CSRFToken", csrftoken)
+        }
+    }
 });
 
 $('button').on('click', function(event) {
 
-	event.preventDefault();
-	var element = $(this);
+    event.preventDefault();
+    var element = $(this);
 
-	$.ajax({
-		url: '/like_treasure/',
-		type: 'POST',
-		data: {treasure_id : element.attr("data-id")},
-		success: function(response){
-			element.html(' ' + response);
-		}
-	});
+    $.ajax({
+        url: '/like_treasure/',
+        type: 'POST',
+        data: {treasure_id : element.attr("data-id")},
+        success: function(response){
+            element.html(' ' + response);
+        }
+    });
 
 });
