@@ -3,33 +3,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
+    <meta charset="UTF-8">
         <link rel="stylesheet" type="text/css" href="{% static 'bootstrap.min.css' %}" />
         <link rel="stylesheet" type="text/css" href="{% static 'bootstrap-theme.min.css' %}" />
         <link rel="stylesheet" type="text/css" href="{% static 'bootstrap-custom.css' %}" />
         <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
-	<title>{% trans "PageTitle" %} - {% block title %}{% endblock %}</title>
+    <title>{% trans "PageTitle" %} - {% block title %}{% endblock %}</title>
 </head>
 <body>
-	<header>
-		{% block header %}
-		{% endblock %}
-		{% if request.user.is_authenticated %}
-			{{ request.user.username }}<a href="">Logout</a>
-		{% else %}
-			<a href="">Login</a>
-		{% endif %}
-	</header>
+    <header>
+        {% block header %}
+        {% endblock %}
+        {% if request.user.is_authenticated %}
+            <a href="/user/profile/{{ user.id }}">{{ user.username }}</a><a href="{% url 'logout' %}">Logout</a>
+        {% else %}
+            <a href="{% url 'login' %}">Login</a>
+        {% endif %}
+    </header>
         <nav class="navbar navbar-default navbar-static-top text-center">
-	</nav>
-	<main class="container container--mw700" role="main">
-		{% block content %}
-		{% endblock %}
-	</main>
-	<footer>
-		{% block footer %}
-		{% endblock %}
-	</footer>
+    </nav>
+    <main class="container container--mw700" role="main">
+        {% block content %}
+        {% endblock %}
+    </main>
+    <footer>
+        {% block footer %}
+        {% endblock %}
+    </footer>
         <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
         <script src="{% static 'js/main.js' %}"></script>
 </body>
