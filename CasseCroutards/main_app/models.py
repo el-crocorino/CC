@@ -38,7 +38,6 @@ class Appointment( models.Model):
 
 class UserProfile( models.Model):
     user = models.OneToOneField( User, on_delete = models.CASCADE)
-    birth_date = models.DateField( null = True, blank = True)
     location = models.CharField( max_length = 100, blank = True)
     bio = models.TextField( max_length = 1500, blank = True)
     avatar = models.ImageField( upload_to = 'profile_images', default = 'media/default-avatar.svg')

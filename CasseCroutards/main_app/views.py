@@ -47,13 +47,12 @@ def user_create( request):
         userProfile_form = UserProfileForm( request.POST)
 
         if user_form.is_valid() and userProfile_form.is_valid():
-
+            # TODO : update form handling to remove username field from form and use email instead
             user = user_form.save()
-            user.refresh_from_db()      
-                                                    # This will load the Profile created by the Signal
+            user.refresh_from_db()                                                          # This will load the Profile created by the Signal
             userProfile_form = UserProfileForm( request.POST, instance = user.userprofile)  # Reload the profile form with the profile instance
-            userProfile_form.full_clean()                                              # Manually clean the form. Implicitly called by "is_valid()" method
-            userProfile_form.save()                                                  # Save the form
+            userProfile_form.full_clean()                                                   # Manually clean the form. Implicitly called by "is_valid()" method
+            userProfile_form.save()                                                         # Save the form
 
             u = user_form.cleaned_data['username']
             p = user_form.cleaned_data['password1']
@@ -71,16 +70,6 @@ def user_create( request):
         'user_form': user_form,
         'userProfile_form': userProfile_form
     })
-
-    #form = UserProfileForm( request.POST)
-
-    #if form.is_valid():
-    #    userProfile = form.save( commit = False)
-    #    userProfile.user = request.user
-    #    userProfile.save()
-
-    #return HttpResponseRedirect('/')
-    #pass
 
 def user_profile( request):
     pass
