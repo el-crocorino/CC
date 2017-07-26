@@ -1,14 +1,11 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse, HttpResponseRedirect
-from django.contrib.auth import authenticate, login, logout
-from django.db import transaction
 
-from .models import Trip, UserProfile
-from .forms import TripForm, UserProfileForm, SignUpForm, LoginForm
-
+from .models import Trip
+from .forms import TripForm, SignUpForm, LoginForm
+#from .forms import TripForm, UserProfileForm, SignUpForm, LoginForm
 
 # Create your views here.
-
 def index( request):
     trips = Trip.objects.all
     addTripForm = TripForm
@@ -36,49 +33,7 @@ def login_view( request):
 def logout_view( request):
     print('Kikoo')
     logout( request)
-    return HttpResponseRedirect('/')
-
-@transaction.atomic
-def user_create( request):
-
-    if request.method == 'POST':
-        
-        user_form = SignUpForm( request.POST)
-        userProfile_form = UserProfileForm( request.POST)
-
-        if user_form.is_valid() and userProfile_form.is_valid():
-            # TODO : update form handling to remove username field from form and use email instead
-            user = user_form.save()
-            user.refresh_from_db()                                                          # This will load the Profile created by the Signal
-            userProfile_form = UserProfileForm( request.POST, instance = user.userprofile)  # Reload the profile form with the profile instance
-            userProfile_form.full_clean()                                                   # Manually clean the form. Implicitly called by "is_valid()" method
-            userProfile_form.save()                                                         # Save the form
-
-            u = user_form.cleaned_data['username']
-            p = user_form.cleaned_data['password1']
-            user = authenticate( username = u, password = p)
-
-            if user is not None:
-                if user.is_active:
-                    login( request, user)
-                    return HttpResponseRedirect('/')
-
-    else:
-        user_form = SignUpForm()
-        userProfile_form = UserProfileForm()
-    return render(request, 'user/user_create.html', {
-        'user_form': user_form,
-        'userProfile_form': userProfile_form
-    })
-
-def user_profile( request):
-    pass
-
-def user_update( request):
-    pass
-
-def user_delete( request):
-    pass
+    return HttpResponseRedirect('/')    
 
 def trip_detail( request, tripId):
     trip = Trip.objects.get(id = tripId)
@@ -114,8 +69,4 @@ def trip_update( request, tripId):
         'comment' : trip.comment
         })
     
-    return render(request, 'trip/trip_update.html', {'trip': trip,'addTripForm' : addTripForm})
-
-def profile( request, username):
-    pass
-    
+    return render(request, 'trip/trip_update.html', {'trip': trip,'addTripForm' : addTripForm})    
