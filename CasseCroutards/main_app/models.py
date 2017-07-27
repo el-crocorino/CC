@@ -9,6 +9,9 @@ from .managers import UserManager
 
 
 class User( AbstractBaseUser, PermissionsMixin):
+    '''
+    User Model
+    '''
 
     email = models.EmailField( _( 'email address'), unique = True)
     first_name = models.CharField( _( 'first name'), max_length=30, blank = True)
@@ -61,7 +64,9 @@ class User( AbstractBaseUser, PermissionsMixin):
         send_mail( subject, message, from_email, [self.email], **kwargs)
 
 class Trip( models.Model):
-
+    '''
+    Trip Model
+    '''
     user = models.ForeignKey( settings.AUTH_USER_MODEL, on_delete=models.CASCADE,)
     date = models.DateField()
     city_start = models.CharField( max_length = 100)
@@ -82,12 +87,21 @@ class Trip( models.Model):
         return description
     
 class Order( models.Model):
+    '''
+    Order Model
+    '''
     user = models.ForeignKey( settings.AUTH_USER_MODEL, on_delete=models.CASCADE,)
     
 
 class Item( models.Model):
+    '''
+    Item Model
+    '''
     order = models.ForeignKey( Order)
     
 
 class Appointment( models.Model):
+    '''
+    Appointment Model
+    '''
     order = models.ForeignKey( Order)

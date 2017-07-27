@@ -8,6 +8,7 @@ urlpatterns = [
     url(r'^logout/$', views.logout_view, name = 'logout'),  
 
     url( r'^user/new/$', views.user_create, name = 'user_add'),
+    url( r'^user/profile/([0-9]+)/$', views.user_profile, name = 'user_profile'),
 
     url( r'^trip/([0-9]+)/$', views.trip_detail, name = 'trip_detail'), 
     url( r'^trip/new/$', views.trip_create, name = 'trip_add'), 
@@ -15,6 +16,3 @@ urlpatterns = [
     url( r'^trip/update/([0-9]+)$', views.trip_update, name = 'trip_update'), 
     url( r'^$', views.index, name = 'index'), 
 ]
-
-
-    #url( r'^user/profile/([0-9]+)/$', views.user_profile, name = 'user_profile'), 

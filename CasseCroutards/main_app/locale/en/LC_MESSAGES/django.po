@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-17 20:48+0200\n"
+"POT-Creation-Date: 2017-07-27 19:39+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,6 +16,48 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+
+#: models.py:16
+msgid "email address"
+msgstr "Email address"
+
+#: models.py:17
+msgid "first name"
+msgstr "First name"
+
+#: models.py:18
+msgid "last name"
+msgstr "Last name"
+
+#: models.py:19
+msgid "date joined"
+msgstr "Date joined"
+
+#: models.py:21
+msgid "staff status"
+msgstr "Staff status"
+
+#: models.py:23
+msgid "Designates whether the user can log into this admin site."
+msgstr "Designates whether the user can log into this admin site"
+
+#: models.py:26
+msgid "active"
+msgstr "active"
+
+#: models.py:29
+msgid ""
+"Designates whether this user should be treated as active. Unselect this "
+"instead of deleting accounts."
+msgstr "Designates whether this user should be treated as active. Unselect this instead of deleting accounts."
+
+#: models.py:44
+msgid "user"
+msgstr "User"
+
+#: models.py:45
+msgid "users"
+msgstr "Users"
 
 #: templates/base.html:11
 msgid "PageTitle"
@@ -33,25 +75,29 @@ msgstr "Hi there, "
 
 #: templates/index.html:11
 msgid "Logout"
-msgstr "logout"
+msgstr "Logout"
 
 #: templates/index.html:13
 msgid "WelcomeMessage"
 msgstr "Hi there, fellow hitchsnacker!"
 
 #: templates/index.html:13
-msgid "Login"
-msgstr "login"
+msgid "SignIn"
+msgstr "Sign in"
+
+#: templates/index.html:13
+msgid "SignUp"
+msgstr "Sign up"
 
 #: templates/index.html:16
 msgid "AvailableTrips"
 msgstr "Next trips to come"
 
-#: templates/index.html:22 templates/trip_detail.html:12
+#: templates/index.html:22 templates/trip/trip_detail.html:12
 msgid "Start"
 msgstr "Start"
 
-#: templates/index.html:23 templates/trip_detail.html:13
+#: templates/index.html:23 templates/trip/trip_detail.html:13
 msgid "Destination"
 msgstr "Destination"
 
@@ -63,28 +109,31 @@ msgstr "Description"
 msgid "AddTrip"
 msgstr "Propose a new trip"
 
-#: templates/trip_detail.html:6 templates/trip_update.html:6
+#: templates/trip/trip_detail.html:6 templates/trip/trip_update.html:6
 #, fuzzy
 #| msgid "AddTrip"
 msgid "Trip"
 msgstr "Trip"
 
-#: templates/trip_detail.html:10
+#: templates/trip/trip_detail.html:10
 msgid "Traveler"
 msgstr "Traveler"
 
-#: templates/trip_detail.html:11
+#: templates/trip/trip_detail.html:11
 msgid "Date"
 msgstr "Date"
 
-#: templates/trip_detail.html:14
+#: templates/trip/trip_detail.html:14
 msgid "Summary"
 msgstr "Summary"
 
-#: templates/trip_detail.html:15
+#: templates/trip/trip_detail.html:15
 msgid "Participants"
 msgstr "Participants"
 
-#: templates/trip_update.html:11
+#: templates/trip/trip_update.html:11
 msgid "UpdateTrip"
 msgstr "Update trip informations"
+
+#~ msgid "Login"
+#~ msgstr "login"

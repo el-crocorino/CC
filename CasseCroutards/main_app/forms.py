@@ -1,8 +1,6 @@
 from django import forms
 from .models import Trip
-#from .models import UserProfile
 from django.contrib.auth.forms import UserCreationForm
-#from django.contrib.auth.models import User
 from django.contrib.auth import get_user_model
         
 class LoginForm( forms.Form):
@@ -13,12 +11,6 @@ class TripForm( forms.ModelForm):
     class Meta:
         model = Trip
         fields = ['date', 'city_start', 'city_end', 'amount_limit', 'participants_limit', 'comment']
-
-'''class UserProfileForm( forms.ModelForm):
-    class Meta:
-        model = UserProfile
-        fields = ['location', 'bio', 'avatar']'''
-
 
 class SignUpForm( UserCreationForm):
     birth_date = forms.DateField( help_text = 'Format: YYYY-MM-DD')
