@@ -27,6 +27,7 @@ class User( AbstractBaseUser, PermissionsMixin):
             'Unselect this instead of deleting accounts.'
         ),
     )
+    
     location = models.CharField( max_length = 100, blank = True)
     bio = models.TextField( max_length = 1500, blank = True)
     avatar = models.ImageField( upload_to = 'avatars/', default = 'media/default-avatar.svg')
