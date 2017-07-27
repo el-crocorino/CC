@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load i18n %}
+
+{% block title %}
+    {% trans "Trip" %}
+{% endblock %}
+{% block content %}
+    <ul>
+        <li>{% trans "email" %} : {{ user.email }}</li>
+        <li>{% trans "first name" %} : {{ user.first_name }}</li>
+        <li>{% trans "last name" %} : {{ user.last_name }}</li>
+        <li>{% trans "date joined" %} : {{ user.date_joined }}</li>
+        <li>{% trans "birth date" %} : {{ user.birth_date }}</li>
+    </ul>
+    {% if request.user.is_authenticated %}
+        {% if user.id == request.user.id %}
+            <h3>{% trans "UpdateProfile" %}</h3>
+            <form enctype="multipart/form-data" action="/user/update/{{ user.id }}/" method="POST">
+                {% csrf_token %}
+                {{ updateUserForm.as_p }}
+                <input type="submit" value="Submit">
+            </form>
+        {% endif %}
+    {% endif %}
+    <a href="">Update profile</a>
+{% endblock %}

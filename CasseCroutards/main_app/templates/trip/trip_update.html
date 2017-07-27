@@ -11,7 +11,7 @@
             <h3>{% trans "UpdateTrip" %}</h3>
             <form enctype="multipart/form-data" action="trip/new/" method="POST">
                 {% csrf_token %}
-                {{ addTripForm.as_p }}
+                {{ updateTripForm.as_p }}
                 <input type="submit" value="Submit">
             </form>
         {% endif %}

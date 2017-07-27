@@ -9,6 +9,7 @@ urlpatterns = [
 
     url( r'^user/new/$', views.user_create, name = 'user_add'),
     url( r'^user/profile/([0-9]+)/$', views.user_profile, name = 'user_profile'),
+    url( r'^user/update/([0-9]+)/$', views.user_update, name = 'user_update'),
 
     url( r'^trip/([0-9]+)/$', views.trip_detail, name = 'trip_detail'), 
     url( r'^trip/new/$', views.trip_create, name = 'trip_add'), 
