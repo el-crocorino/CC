@@ -4,7 +4,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth import get_user_model
 
 from .models import Trip
-from .forms import TripForm, SignUpForm, LoginForm
+from .forms import TripForm, SignUpForm, LoginForm, UserUpdateForm
 #from .forms import TripForm, UserProfileForm, SignUpForm, LoginForm
 
 # Create your views here.
@@ -21,11 +21,16 @@ def login_view( pRequest):
     Login view
     '''
     if pRequest.method == 'POST':    
+
         form = LoginForm( pRequest.POST)
+
         if form.is_valid():
+
             u = form.cleaned_data['email']
             p = form.cleaned_data['password']
+
             user = authenticate( username = u, password = p)
+
             if user is not None:
                 if user.is_active:
                     login( pRequest, user)
@@ -42,7 +47,6 @@ def logout_view( pRequest):
     '''
     Logout
     '''
-    print('Kikoo')
     logout( pRequest)
     return HttpResponseRedirect('/')
 
@@ -67,6 +71,10 @@ def user_create( pRequest):
                 if user.is_active:
                     login( pRequest, user)
                     return HttpResponseRedirect('/')
+                else:
+                    print("The account is not active")
+            else:
+                print("Username and password don't match")
 
     else:
         user_form = SignUpForm()
@@ -75,10 +83,42 @@ def user_create( pRequest):
     })
 
 def user_profile( pRequest, pUserId):
-    pass    
+    '''
+    Detailed user view
 
-def user_update( pRequest):
-    pass
+    @param int pUserId User id
+    '''
+    user = get_user_model().objects.get( id = pUserId)
+    return render(pRequest, 'user/profile.html', {'user': user})
+
+def user_update( pRequest, pUserId):
+
+    user = get_user_model().objects.get( id = pUserId)
+
+    if pRequest.user.id == user.id:
+
+        if pRequest.method == 'POST':
+
+            userUpdateForm = UserUpdateForm( pRequest.POST)
+
+            if userUpdateForm.is_valid():
+
+                user.location = userUpdateForm.cleaned_data['location']
+                user.bio = userUpdateForm.cleaned_data['bio']
+                user.avatar = userUpdateForm.cleaned_data['avatar']
+                user.save()
+                return render(pRequest, 'user/profile.html', {'user': user})
+
+        else :
+            
+            updateUserForm = UserUpdateForm( initial = {
+                'location': user.location,
+                'bio': user.bio,
+                'avatar': user.avatar
+                })
+            return render( pRequest, 'user/profile_update.html', {'user' : user, 'updateUserForm': updateUserForm})
+    else:
+        return HttpResponseRedirect('/')
 
 def user_delete( pRequest):
     pass
@@ -113,7 +153,7 @@ def trip_delete( pRequest, pTripId):
 def trip_update( pRequest, pTripId):
 
     trip = Trip.objects.get( id = pTripId)
-    addTripForm = TripForm( initial = {
+    updateTripForm = TripForm( initial = {
         'date' : trip.date, 
         'city_start' : trip.city_start, 
         'city_end' : trip.city_end, 
@@ -122,4 +162,4 @@ def trip_update( pRequest, pTripId):
         'comment' : trip.comment
         })
     
-    return render(pRequest, 'trip/trip_update.html', {'trip': trip,'addTripForm' : addTripForm})    
+    return render(pRequest, 'trip/trip_update.html', {'trip': trip,'updateTripForm' : updateTripForm})    

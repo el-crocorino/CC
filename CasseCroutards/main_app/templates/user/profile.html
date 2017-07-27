@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load i18n %}
+
+{% block title %}
+    {% trans "Trip" %}
+{% endblock %}
+{% block content %}
+    <ul>
+        <li>{% trans "email" %} : {{ user.email }}</li>
+        <li>{% trans "first name" %} : {{ user.first_name }}</li>
+        <li>{% trans "last name" %} : {{ user.last_name }}</li>
+        <li>{% trans "date joined" %} : {{ user.date_joined }}</li>
+        <li>{% trans "birth date" %} : {{ user.birth_date }}</li>
+        <li>{% trans "location" %} : {{ user.location }}</li>
+        <li>{% trans "bio" %} : {{ user.bio }}</li>
+        <li>{% trans "avatar" %} : <img src="{{ user.avatar }}" alt=""></li>
+        <li>{% trans "ratio" %} : {{ user.ratio }}</li>
+    </ul>
+    <a href="/user/update/{{ user.id }}">{% trans "Update profile" %}</a>
+{% endblock %}

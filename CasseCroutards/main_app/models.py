@@ -1,3 +1,5 @@
+import datetime
+
 from django.db import models
 from django.conf import settings
 from django.core.mail import send_mail
@@ -31,9 +33,11 @@ class User( AbstractBaseUser, PermissionsMixin):
         ),
     )
     
-    location = models.CharField( max_length = 100, blank = True)
-    bio = models.TextField( max_length = 1500, blank = True)
-    avatar = models.ImageField( upload_to = 'avatars/', default = 'media/default-avatar.svg')
+    location = models.CharField( _( 'location'), max_length = 100, blank = True)
+    birth_date = models.DateField( _( 'birth date'), default = datetime.date.today)
+    bio = models.TextField( _( 'presentation'), max_length = 1500, blank = True)
+    avatar = models.ImageField( _( 'avatar'), upload_to = 'avatars/', default = 'media/default-avatar.svg', blank = True)
+    ratio = models.DecimalField( _( 'ratio'), default=0, max_digits = 6, decimal_places = 2)
 
     objects = UserManager()
 
