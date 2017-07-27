@@ -47,7 +47,6 @@ def logout_view( pRequest):
     return HttpResponseRedirect('/')
 
 def user_create( pRequest):
-
     '''
     User creation
     '''
@@ -55,19 +54,13 @@ def user_create( pRequest):
     if pRequest.method == 'POST':
         
         user_form = SignUpForm( pRequest.POST)
-        #userProfile_form = UserProfileForm( pRequest.POST)
 
         if user_form.is_valid():
-        #if user_form.is_valid() and userProfile_form.is_valid():
-            # TODO : update form handling to remove username field from form and use email instead
-            user = user_form.save()
-            #user.refresh_from_db()                                                          # This will load the Profile created by the Signal
-            #userProfile_form = UserProfileForm( pRequest.POST, instance = user.userprofile)  # Reload the profile form with the profile instance
-            #userProfile_form.full_clean()                                                   # Manually clean the form. Implicitly called by "is_valid()" method
-            #userProfile_form.save()                                                         # Save the form
 
+            user = user_form.save()
             e = user_form.cleaned_data['email']
             p = user_form.cleaned_data['password1']
+
             user = authenticate( email = e, password = p)
 
             if user is not None:
@@ -77,14 +70,9 @@ def user_create( pRequest):
 
     else:
         user_form = SignUpForm()
-        #userProfile_form = UserProfileForm()
     return render(pRequest, 'user/user_create.html', {
         'user_form': user_form
     })
-    '''return render(pRequest, 'user/user_create.html', {
-        'user_form': user_form,
-        'userProfile_form': userProfile_form
-    })'''
 
 def user_profile( pRequest, pUserId):
     pass    
