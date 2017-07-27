@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-17 20:48+0200\n"
+"POT-Creation-Date: 2017-07-27 19:39+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,48 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: models.py:16
+msgid "email address"
+msgstr "Email"
+
+#: models.py:17
+msgid "first name"
+msgstr "Prénom"
+
+#: models.py:18
+msgid "last name"
+msgstr "Nom"
+
+#: models.py:19
+msgid "date joined"
+msgstr "Date d'inscription"
+
+#: models.py:21
+msgid "staff status"
+msgstr "Modérateur"
+
+#: models.py:23
+msgid "Designates whether the user can log into this admin site."
+msgstr "Indique si l'utilisateur peu accéder à l'administration du site."
+
+#: models.py:26
+msgid "active"
+msgstr "Actif"
+
+#: models.py:29
+msgid ""
+"Designates whether this user should be treated as active. Unselect this "
+"instead of deleting accounts."
+msgstr "Indique si cet utilisateur doit être considéré comme actif. À déselectionner plutôt que de supprimer un compte."
+
+#: models.py:44
+msgid "user"
+msgstr "Utilisateur"
+
+#: models.py:45
+msgid "users"
+msgstr "Utilisateurs"
 
 #: templates/base.html:11
 msgid "PageTitle"
@@ -41,18 +83,22 @@ msgid "WelcomeMessage"
 msgstr "Bonjour petit Casse-Croûtard !"
 
 #: templates/index.html:13
-msgid "Login"
-msgstr "Connexion"
+msgid "SignIn"
+msgstr "Se connecter"
+
+#: templates/index.html:13
+msgid "SignUp"
+msgstr "S'enregistrer"
 
 #: templates/index.html:16
 msgid "AvailableTrips"
 msgstr "Prochains voyages à venir"
 
-#: templates/index.html:22 templates/trip_detail.html:12
+#: templates/index.html:22 templates/trip/trip_detail.html:12
 msgid "Start"
 msgstr "Départ"
 
-#: templates/index.html:23 templates/trip_detail.html:13
+#: templates/index.html:23 templates/trip/trip_detail.html:13
 msgid "Destination"
 msgstr "Arrivée"
 
@@ -64,31 +110,34 @@ msgstr "Description"
 msgid "AddTrip"
 msgstr "Proposer un nouveau voyage"
 
-#: templates/trip_detail.html:6 templates/trip_update.html:6
+#: templates/trip/trip_detail.html:6 templates/trip/trip_update.html:6
 #, fuzzy
 #| msgid "AddTrip"
 msgid "Trip"
 msgstr "Proposer un nouveau voyage"
 
-#: templates/trip_detail.html:10
+#: templates/trip/trip_detail.html:10
 msgid "Traveler"
 msgstr "Voyageur"
 
-#: templates/trip_detail.html:11
+#: templates/trip/trip_detail.html:11
 msgid "Date"
 msgstr "Date"
 
-#: templates/trip_detail.html:14
+#: templates/trip/trip_detail.html:14
 msgid "Summary"
 msgstr "Présentation"
 
-#: templates/trip_detail.html:15
+#: templates/trip/trip_detail.html:15
 msgid "Participants"
 msgstr "Participants"
 
-#: templates/trip_update.html:11
+#: templates/trip/trip_update.html:11
 msgid "UpdateTrip"
 msgstr "Mettre à jour le voyage"
+
+#~ msgid "Login"
+#~ msgstr "Connexion"
 
 #~ msgid "Voyage"
 #~ msgstr "Voyage"
