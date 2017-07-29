@@ -16,8 +16,8 @@ class User( AbstractBaseUser, PermissionsMixin):
     '''
 
     email = models.EmailField( _( 'email address'), unique = True)
-    first_name = models.CharField( _( 'first name'), max_length=30, blank = True)
-    last_name = models.CharField( _( 'last name'), max_length=30, blank = True)
+    first_name = models.CharField( _( 'first name'), max_length = 30, blank = True)
+    last_name = models.CharField( _( 'last name'), max_length = 30, blank = True)
     date_joined = models.DateTimeField( _( 'date joined'), auto_now_add = True)
     is_staff = models.BooleanField(
         _('staff status'),
@@ -37,7 +37,7 @@ class User( AbstractBaseUser, PermissionsMixin):
     birth_date = models.DateField( _( 'birth date'), default = datetime.date.today)
     bio = models.TextField( _( 'presentation'), max_length = 1500, blank = True)
     avatar = models.ImageField( _( 'avatar'), upload_to = 'avatars/', default = 'media/default-avatar.svg', blank = True)
-    ratio = models.DecimalField( _( 'ratio'), default=0, max_digits = 6, decimal_places = 2)
+    ratio = models.DecimalField( _( 'ratio'), default = 0, max_digits = 6, decimal_places = 2)
 
     objects = UserManager()
 
@@ -62,7 +62,7 @@ class User( AbstractBaseUser, PermissionsMixin):
         '''
         return self.first_name
 
-    def email_user( self, subject, message, from_email=None, **kwargs):
+    def email_user( self, subject, message, from_email = None, **kwargs):
         '''
         Sends an email to this User.
         '''
@@ -72,7 +72,7 @@ class Trip( models.Model):
     '''
     Trip Model
     '''
-    user = models.ForeignKey( settings.AUTH_USER_MODEL, on_delete=models.CASCADE,)
+    user = models.ForeignKey( settings.AUTH_USER_MODEL, on_delete = models.CASCADE)
     date = models.DateField()
     city_start = models.CharField( max_length = 100)
     city_end = models.CharField( max_length = 100)
@@ -98,7 +98,12 @@ class Order( models.Model):
     '''
     Order Model
     '''
-    user = models.ForeignKey( settings.AUTH_USER_MODEL, on_delete=models.CASCADE,)
+    user = models.ForeignKey( settings.AUTH_USER_MODEL, on_delete = models.CASCADE)
+    trip = models.ForeignKey( Trip, on_delete = models.CASCADE)
+    comment = models.TextField( max_lenght = 1500, default = '')
+    amount = models.DecimalField( max_digits = 5, decimal_places = 2)
+    created = models.DateTimeField( auto_now_add = True)
+    updated = models.DateTimeField( auto_now_add = True)
 
     class Meta:
         app_label = 'main_app'
