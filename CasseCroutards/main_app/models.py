@@ -38,6 +38,8 @@ class User( AbstractBaseUser, PermissionsMixin):
     bio = models.TextField( _( 'presentation'), max_length = 1500, blank = True)
     avatar = models.ImageField( _( 'avatar'), upload_to = 'avatars/', default = 'media/default-avatar.svg', blank = True)
     ratio = models.DecimalField( _( 'ratio'), default = 0, max_digits = 6, decimal_places = 2)
+    created = models.DateTimeField( auto_now_add = True)
+    updated = models.DateTimeField( auto_now_add = True)
 
     objects = UserManager()
 

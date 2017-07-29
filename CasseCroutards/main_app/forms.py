@@ -1,5 +1,5 @@
 from django import forms
-from .models import Trip
+from .models import Trip, Order
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import get_user_model
 
@@ -45,5 +45,5 @@ class OrderForm( forms.ModelForm):
 
     class Meta:
         app_label = 'main_app'
-        model = get_user_model()
-        fields = ( 'location', 'bio', 'avatar')
+        model = Order
+        fields = ( 'comment', 'amount')

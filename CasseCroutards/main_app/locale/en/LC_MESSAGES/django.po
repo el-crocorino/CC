@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-29 16:15+0200\n"
+"POT-Creation-Date: 2017-07-29 17:34+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -55,11 +55,11 @@ msgstr ""
 
 #: models.py:36 templates/user/item.html:15
 msgid "location"
-msgstr ""
+msgstr "Location"
 
 #: models.py:37 templates/user/item.html:14 templates/user/update.html:14
 msgid "birth date"
-msgstr ""
+msgstr "Birth date"
 
 #: models.py:38
 #, fuzzy
@@ -69,23 +69,37 @@ msgstr "Destination"
 
 #: models.py:39 templates/user/item.html:17
 msgid "avatar"
-msgstr ""
+msgstr "Avatar"
 
 #: models.py:40 templates/user/item.html:18
 msgid "ratio"
-msgstr ""
+msgstr "Ratio"
 
-#: models.py:49
+#: models.py:51
 msgid "user"
 msgstr "User"
 
-#: models.py:50
+#: models.py:52
 msgid "users"
 msgstr "Users"
 
 #: templates/base.html:11
 msgid "PageTitle"
 msgstr "The Hitchsnackers"
+
+#: templates/base.html:28 templates/index.html:13 templates/user/create.html:5
+msgid "SignUp"
+msgstr "Sign up"
+
+#: templates/base.html:33 templates/index.html:11
+#, fuzzy
+#| msgid "SignIn"
+msgid "SignOut"
+msgstr "Sign out"
+
+#: templates/base.html:35 templates/index.html:13 templates/user/login.html:5
+msgid "SignIn"
+msgstr "Sign in"
 
 #: templates/index.html:6
 msgid "WelcomeTitle"
@@ -97,23 +111,9 @@ msgstr "Welcome!"
 msgid "LoggedInWelcomeMessage"
 msgstr "Hi there, "
 
-#: templates/index.html:11
-#, fuzzy
-#| msgid "SignIn"
-msgid "SignOut"
-msgstr "Sign out"
-
 #: templates/index.html:13
 msgid "WelcomeMessage"
 msgstr "Hi there, fellow hitchsnacker!"
-
-#: templates/index.html:13
-msgid "SignIn"
-msgstr "Sign in"
-
-#: templates/index.html:13
-msgid "SignUp"
-msgstr "Sign up"
 
 #: templates/index.html:16
 msgid "AvailableTrips"
@@ -131,16 +131,33 @@ msgstr "Destination"
 msgid "Description"
 msgstr "Description"
 
-#: templates/index.html:32
+#: templates/index.html:27
+#, fuzzy
+#| msgid "UpdateTrip"
+msgid "DeleteTrip"
+msgstr "Update trip informations"
+
+#: templates/index.html:27 templates/trip/update.html:11
+msgid "UpdateTrip"
+msgstr "Update trip informations"
+
+#: templates/index.html:29 templates/order/create.html:5
+msgid "PlaceOrder"
+msgstr "Place order"
+
+#: templates/index.html:29
+msgid "CancelOrder"
+msgstr "Cancel order"
+
+#: templates/index.html:34
 msgid "AddTrip"
 msgstr "Propose a new trip"
 
-#: templates/index.html:36 templates/trip/update.html:15
+#: templates/index.html:38 templates/trip/update.html:15
 msgid "Save"
 msgstr "Save"
 
 #: templates/trip/item.html:6 templates/trip/update.html:6
-#: templates/user/item.html:6 templates/user/update.html:6
 #, fuzzy
 #| msgid "AddTrip"
 msgid "Trip"
@@ -162,22 +179,30 @@ msgstr "Summary"
 msgid "Participants"
 msgstr "Participants"
 
-#: templates/trip/update.html:11
-msgid "UpdateTrip"
+#: templates/user/item.html:6
+#, fuzzy
+#| msgid "UpdateTrip"
+msgid "UserProfile"
 msgstr "Update trip informations"
 
 #: templates/user/item.html:10 templates/user/update.html:10
 msgid "email"
-msgstr ""
+msgstr "Email"
 
 #: templates/user/item.html:16
 msgid "bio"
-msgstr ""
+msgstr "Presentation"
 
 #: templates/user/item.html:20
 #, fuzzy
 #| msgid "UpdateTrip"
 msgid "Update profile"
+msgstr "Update trip informations"
+
+#: templates/user/update.html:6
+#, fuzzy
+#| msgid "UpdateTrip"
+msgid "UpdateUserProfile"
 msgstr "Update trip informations"
 
 #: templates/user/update.html:18

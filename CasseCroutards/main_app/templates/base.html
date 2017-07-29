@@ -25,14 +25,14 @@
                 {% if request.user.is_authenticated %}
                     <a href="/user/profile/{{ user.id }}">{{ user.first_name }}</a>
                 {% else %}
-                    <a href="{% url 'user_add' %}">Sign up</a>
+                    <a href="{% url 'user_create' %}">{% trans "SignUp" %}</a>
                 {% endif %}
               </li>
               <li class="nav-item">
                 {% if request.user.is_authenticated %}
-                    <a href="{% url 'logout' %}">Sign out</a>
+                    <a href="{% url 'logout' %}">{% trans "SignOut" %}</a>
                 {% else %}
-                    <a href="{% url 'login' %}">Sign in</a>
+                    <a href="{% url 'login' %}">{% trans "SignIn" %}</a>
                 {% endif %}
               </li>
             </ul>

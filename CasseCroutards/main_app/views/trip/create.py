@@ -3,8 +3,6 @@ from django.http import HttpResponseRedirect
 #from main_app.models import Trip
 from main_app.forms import TripForm
 
-
-
 def trip_create( pRequest):
 
     form = TripForm( pRequest.POST)

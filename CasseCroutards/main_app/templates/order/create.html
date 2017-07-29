@@ -1,11 +1,12 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
+{% load i18n %}
 
 {% block content %}
-  <h2>{% trans "SignUp" %}</h2>
+  <h2>{% trans "PlaceOrder" %}</h2>
   <form method="POST" action=".">
     {% csrf_token %}
-        {{ user_form.as_p }}
+        {{ orderForm.as_p }}
     <input type="submit" value="Submit" />
   </form>
 {% endblock %}
