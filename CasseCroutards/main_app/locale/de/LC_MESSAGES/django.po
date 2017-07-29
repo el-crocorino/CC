@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-29 16:15+0200\n"
+"POT-Creation-Date: 2017-07-29 17:34+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -72,16 +72,28 @@ msgstr ""
 msgid "ratio"
 msgstr ""
 
-#: models.py:49
+#: models.py:51
 msgid "user"
 msgstr ""
 
-#: models.py:50
+#: models.py:52
 msgid "users"
 msgstr ""
 
 #: templates/base.html:11
 msgid "PageTitle"
+msgstr ""
+
+#: templates/base.html:28 templates/index.html:13 templates/user/create.html:5
+msgid "SignUp"
+msgstr ""
+
+#: templates/base.html:33 templates/index.html:11
+msgid "SignOut"
+msgstr ""
+
+#: templates/base.html:35 templates/index.html:13 templates/user/login.html:5
+msgid "SignIn"
 msgstr ""
 
 #: templates/index.html:6
@@ -92,20 +104,8 @@ msgstr ""
 msgid "LoggedInWelcomeMessage"
 msgstr ""
 
-#: templates/index.html:11
-msgid "SignOut"
-msgstr ""
-
 #: templates/index.html:13
 msgid "WelcomeMessage"
-msgstr ""
-
-#: templates/index.html:13
-msgid "SignIn"
-msgstr ""
-
-#: templates/index.html:13
-msgid "SignUp"
 msgstr ""
 
 #: templates/index.html:16
@@ -124,16 +124,31 @@ msgstr ""
 msgid "Description"
 msgstr ""
 
-#: templates/index.html:32
+#: templates/index.html:27
+msgid "DeleteTrip"
+msgstr ""
+
+#: templates/index.html:27 templates/trip/update.html:11
+msgid "UpdateTrip"
+msgstr ""
+
+#: templates/index.html:29 templates/order/create.html:5
+msgid "PlaceOrder"
+msgstr ""
+
+#: templates/index.html:29
+msgid "CancelOrder"
+msgstr ""
+
+#: templates/index.html:34
 msgid "AddTrip"
 msgstr ""
 
-#: templates/index.html:36 templates/trip/update.html:15
+#: templates/index.html:38 templates/trip/update.html:15
 msgid "Save"
 msgstr ""
 
 #: templates/trip/item.html:6 templates/trip/update.html:6
-#: templates/user/item.html:6 templates/user/update.html:6
 msgid "Trip"
 msgstr ""
 
@@ -153,8 +168,8 @@ msgstr ""
 msgid "Participants"
 msgstr ""
 
-#: templates/trip/update.html:11
-msgid "UpdateTrip"
+#: templates/user/item.html:6
+msgid "UserProfile"
 msgstr ""
 
 #: templates/user/item.html:10 templates/user/update.html:10
@@ -167,6 +182,10 @@ msgstr ""
 
 #: templates/user/item.html:20
 msgid "Update profile"
+msgstr ""
+
+#: templates/user/update.html:6
+msgid "UpdateUserProfile"
 msgstr ""
 
 #: templates/user/update.html:18

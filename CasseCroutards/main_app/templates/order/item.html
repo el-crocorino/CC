@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load i18n %}
+
+{% block title %}
+    {% trans "Order" %}
+{% endblock %}
+{% block content %}
+    <h2>{% trans "Trip" %}</h2>
+    <ul>
+        <li>{% trans "Traveler" %} : {{ trip.user.first_name }}</li>
+        <li>{% trans "Date" %} : {{ trip.date }}</li>
+        <li>{% trans "Start" %} : {{ trip.city_start }}</li>
+        <li>{% trans "Destination" %} : {{ trip.city_end }}</li>
+        <li>{% trans "Summary" %} : {{ trip.comment }}</li>
+        <li>{% trans "Participants" %} : </li>
+    </ul>    
+    <h2>{% trans "MyOrder" %}</h2>
+    <ul>
+        <li>{% trans "Date" %} : {{ order.created }}</li>
+        <li>{% trans "Comment" %} : {{ order.comment }}</li>
+        <li>{% trans "Amount" %} : {{ order.amount }}</li>
+    </ul>
+{% endblock %}
