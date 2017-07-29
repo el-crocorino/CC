@@ -100,8 +100,8 @@ class Order( models.Model):
     '''
     user = models.ForeignKey( settings.AUTH_USER_MODEL, on_delete = models.CASCADE)
     trip = models.ForeignKey( Trip, on_delete = models.CASCADE)
-    comment = models.TextField( max_lenght = 1500, default = '')
-    amount = models.DecimalField( max_digits = 5, decimal_places = 2)
+    comment = models.TextField( max_length = 1500, default = '')
+    amount = models.DecimalField( max_digits = 5, decimal_places = 2, default = 0.00)
     created = models.DateTimeField( auto_now_add = True)
     updated = models.DateTimeField( auto_now_add = True)
 
