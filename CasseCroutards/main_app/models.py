@@ -45,6 +45,7 @@ class User( AbstractBaseUser, PermissionsMixin):
     REQUIRED_FIELDS = []
 
     class Meta:
+        app_label = 'main_app'
         verbose_name = _( 'user')
         verbose_name_plural = _( 'users')
 
@@ -80,6 +81,9 @@ class Trip( models.Model):
     comment = models.TextField( max_length = 1500, default = '')
     created = models.DateTimeField( auto_now_add = True)
     updated = models.DateTimeField( auto_now_add = True)
+
+    class Meta:
+        app_label = 'main_app'
     
     def __str__( self):
         description = self.date.strftime("%B %d, %Y") + ' ' + self.city_start[:10]
@@ -95,6 +99,9 @@ class Order( models.Model):
     Order Model
     '''
     user = models.ForeignKey( settings.AUTH_USER_MODEL, on_delete=models.CASCADE,)
+
+    class Meta:
+        app_label = 'main_app'
     
 
 class Item( models.Model):
@@ -102,6 +109,9 @@ class Item( models.Model):
     Item Model
     '''
     order = models.ForeignKey( Order)
+
+    class Meta:
+        app_label = 'main_app'
     
 
 class Appointment( models.Model):
@@ -109,3 +119,6 @@ class Appointment( models.Model):
     Appointment Model
     '''
     order = models.ForeignKey( Order)
+
+    class Meta:
+        app_label = 'main_app'
