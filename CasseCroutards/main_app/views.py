@@ -149,17 +149,28 @@ def trip_delete( pRequest, pTripId):
     trip.delete()
 
     return HttpResponseRedirect('/')
-        
+    
 def trip_update( pRequest, pTripId):
 
-    trip = Trip.objects.get( id = pTripId)
-    updateTripForm = TripForm( initial = {
-        'date' : trip.date, 
-        'city_start' : trip.city_start, 
-        'city_end' : trip.city_end, 
-        'amount_limit' : trip.amount_limit, 
-        'participants_limit' : trip.participants_limit, 
-        'comment' : trip.comment
-        })
-    
-    return render(pRequest, 'trip/trip_update.html', {'trip': trip,'updateTripForm' : updateTripForm})    
+    if pRequest.method == 'POST': 
+
+        form = TripForm( pRequest.POST)
+
+        if form.is_valid():
+            trip = form.save( commit = False)
+            trip.user = pRequest.user
+            trip.save()
+            return render(pRequest, 'trip/trip_detail.html', {'trip': trip})
+
+    else:
+        trip = Trip.objects.get( id = pTripId)
+        updateTripForm = TripForm( initial = {
+            'date' : trip.date, 
+            'city_start' : trip.city_start, 
+            'city_end' : trip.city_end, 
+            'amount_limit' : trip.amount_limit, 
+            'participants_limit' : trip.participants_limit, 
+            'comment' : trip.comment
+            })
+        
+        return render(pRequest, 'trip/trip_update.html', {'trip': trip,'updateTripForm' : updateTripForm}) 
