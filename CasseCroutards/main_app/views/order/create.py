@@ -20,7 +20,7 @@ def order_create( pRequest, pTripId):
             order.user = pRequest.user
             order.save()
 
-            return render(pRequest, 'order/item.html', {'order': order})
+            return render(pRequest, 'order/item.html', {'order': order, 'trip': orderTrip})
     else:
         orderForm = OrderForm()        
         return render(pRequest, 'order/create.html', {'orderForm' : orderForm}) 
