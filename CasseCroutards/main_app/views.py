@@ -149,7 +149,7 @@ def trip_delete( pRequest, pTripId):
     trip.delete()
 
     return HttpResponseRedirect('/')
-    
+
 def trip_update( pRequest, pTripId):
 
     if pRequest.method == 'POST': 
@@ -157,8 +157,16 @@ def trip_update( pRequest, pTripId):
         form = TripForm( pRequest.POST)
 
         if form.is_valid():
-            trip = form.save( commit = False)
-            trip.user = pRequest.user
+
+            trip = Trip.objects.get( id = pTripId)
+
+            trip.date = form.cleaned_data['date']
+            trip.city_start = form.cleaned_data['city_start']
+            trip.city_end = form.cleaned_data['city_end']
+            trip.amount_limit = form.cleaned_data['amount_limit']
+            trip.participants_limit = form.cleaned_data['participants_limit']
+            trip.comment = form.cleaned_data['comment']
+
             trip.save()
             return render(pRequest, 'trip/trip_detail.html', {'trip': trip})
 
