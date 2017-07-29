@@ -8,7 +8,7 @@
 
 {% block content %}
     {% if user.is_authenticated %}
-        {% trans "LoggedInWelcomeMessage" %} <a href="/user/profile/{{ user.id }}">{{ user.first_name }}</a>! <a href="{% url 'logout' %}">{% trans "Logout" %}</a>
+        {% trans "LoggedInWelcomeMessage" %} <a href="/user/profile/{{ user.id }}">{{ user.first_name }}</a>! <a href="{% url 'logout' %}">{% trans "SignOut" %}</a>
     {% else %}            
         {% trans "WelcomeMessage" %}<a href="{% url 'login' %}">{% trans "SignIn" %}</a> or <a href="/user/new">{% trans "SignUp" %}</a>
     {% endif %}
