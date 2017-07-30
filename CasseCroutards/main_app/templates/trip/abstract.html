@@ -1,9 +1,11 @@
 {% load staticfiles %}
 {% load i18n %}
-{{ trip }}
-<h2><a href="/trip/{{ trip.id }}">{{ trip.date }}</a></h2>
+
+<h3><a href="/trip/{{ trip.id }}">{{ trip }}</a></h3>
 <ul>
-    <li>{{ trip.user.first_name }}</li>
+    {% if showTripUser %}
+        <li>{{ trip.user.first_name }}</li>
+    {% endif %}
     <li>{% trans "Start" %}: {{ trip.city_start }}</li>
     <li>{% trans "Destination" %}: {{ trip.city_end }}</li>
     <li>{% trans "Description" %}: {{ trip.comment }}</li>
@@ -15,7 +17,7 @@
         {% endif %}
     {% endif %}
 </ul>
-<p>{% trans "Participants" %} :</p> 
+<p>{% trans "Orders" %} :</p> 
 {% for order in trip.orders %}
     {% include "order/abstract.html" %}
 {% endfor %} 

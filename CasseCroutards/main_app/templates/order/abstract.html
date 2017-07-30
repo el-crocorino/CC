@@ -1,8 +1,15 @@
 {% load staticfiles %}
 {% load i18n %}
-<div>
-    {% include "user/abstract.html" with user=order.user only%}
-</div>
+{% if showOrderUser %}
+    <div>
+        {% include "user/abstract.html" with user=order.user only%}
+    </div>
+{% endif %}
+{% if showOrderTrip %}
+    <div>
+        <a href="/trip/{{ order.trip.id }}">{{ order.trip }}</a>
+    </div>
+{% endif %}
 <ul>
     <li>{{ order.amount }}</li>
     <li>{{ order.comment }}</li>
