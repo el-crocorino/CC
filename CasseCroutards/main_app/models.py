@@ -110,6 +110,9 @@ class Order( models.Model):
     class Meta:
         app_label = 'main_app'
     
+    def __str__( self):
+        return self.user.first_name + ' - ' + str(self.amount)
+    
 
 class Item( models.Model):
     '''

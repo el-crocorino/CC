@@ -1,0 +1,9 @@
+{% load staticfiles %}
+{% load i18n %}
+<div>
+    {% include "user/abstract.html" with user=order.user only%}
+</div>
+<ul>
+    <li>{{ order.amount }}</li>
+    <li>{{ order.comment }}</li>
+</ul>
