@@ -1,23 +1,25 @@
 {% load staticfiles %}
 {% load i18n %}
-
-<h3><a href="/trip/{{ trip.id }}">{{ trip }}</a></h3>
-<ul>
-    {% if showTripUser %}
-        <li>{{ trip.user.first_name }}</li>
-    {% endif %}
-    <li>{% trans "Start" %}: {{ trip.city_start }}</li>
-    <li>{% trans "Destination" %}: {{ trip.city_end }}</li>
-    <li>{% trans "Description" %}: {{ trip.comment }}</li>
-    {% if request.user.is_authenticated %}
-        {% if trip.user.id == request.user.id %}
-            <li><a href="/trip/delete/{{ trip.id }}">{% trans "DeleteTrip" %}</a> | <a href="/trip/update/{{ trip.id }}">{% trans "UpdateTrip" %}</a></li>
-        {% else %}
-            <li><a href="/order/new/{{ trip.id }}">{% trans "PlaceOrder" %}</a> | <a href="/order/cancel/{{ trip.id }}">{% trans "CancelOrder" %}</a></li>
+<div style="background-color: #ffffcc">
+    <h3><a href="/trip/{{ trip.id }}">{{ trip }}</a></h3>
+    <ul>
+        {% if showTripUser and trip.user.id != request.user.id %}
+            <li>{{ trip.user.first_name }}</li>
         {% endif %}
-    {% endif %}
-</ul>
-<p>{% trans "Orders" %} :</p> 
-{% for order in trip.orders %}
-    {% include "order/abstract.html" %}
-{% endfor %} 
+        <li>{% trans "Start" %}: {{ trip.city_start }}</li>
+        <li>{% trans "Destination" %}: {{ trip.city_end }}</li>
+        <li>{% trans "Description" %}: {{ trip.comment|truncatechars:100 }}</li>
+        {% if request.user.is_authenticated %}
+            {% if trip.user.id == request.user.id %}
+                <li><a href="/trip/delete/{{ trip.id }}">{% trans "DeleteTrip" %}</a> | <a href="/trip/update/{{ trip.id }}">{% trans "UpdateTrip" %}</a></li>
+            {% else %}
+                <li><a href="/order/new/{{ trip.id }}">{% trans "PlaceOrder" %}</a> | <a href="/order/cancel/{{ trip.id }}">{% trans "CancelOrder" %}</a></li>
+            {% endif %}
+        {% endif %}
+    </ul>
+    <p>{% trans "Orders" %} :</p> 
+    {% for order in trip.orders %}
+        {% include "order/abstract.html" %}
+    {% endfor %}    
+</div>
+ 

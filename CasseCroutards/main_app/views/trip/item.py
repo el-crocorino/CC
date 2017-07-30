@@ -12,4 +12,9 @@ def trip_item( pRequest, pTripId):
     trip.orders = Order.objects.filter( trip = pTripId)
     print(trip.orders)
     print(trip.__dict__)
-    return render(pRequest, 'trip/item.html', {'trip': trip})
+    return render(pRequest, 'trip/item.html', {
+        'trip': trip, 
+        'showTripUser': True, 
+        'showOrderUser': True,
+        'showOrderTrip': False
+        })

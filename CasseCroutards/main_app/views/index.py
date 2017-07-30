@@ -11,4 +11,10 @@ def index( pRequest):
         trip.orders = Order.objects.filter( trip = trip.id)
 
     addTripForm = TripForm
-    return render(pRequest, 'index.html', {'trips': trips, 'addTripForm' : addTripForm})
+    return render(pRequest, 'index.html', {
+        'trips': trips, 
+        'addTripForm' : addTripForm, 
+        'showTripUser': True, 
+        'showOrderUser': True,
+        'showOrderTrip': False
+        })
