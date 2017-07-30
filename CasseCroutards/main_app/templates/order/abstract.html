@@ -1,0 +1,24 @@
+{% load staticfiles %}
+{% load i18n %}
+
+<div style="background-color: #ccffcc">
+    {% if showOrderTrip %}
+        <div>
+            <a href="/trip/{{ order.trip.id }}">{{ order.trip }} - {{ order.trip.user.first_name }}</a>
+        </div>
+    {% endif %}
+    {% if showOrderUser and order.user.id != request.user.id %}
+        <div>
+            {% include "user/abstract.html" with user=order.user only%}
+        </div>
+    {% endif %}
+    <ul>
+        <li>{{ order.amount }}</li>
+        <li>{{ order.comment|truncatechars:100 }}</li>
+        {% if request.user.is_authenticated %}
+            {% if order.user.id == request.user.id %}
+                <li><a href="/order/cancel/{{ order.id }}">{% trans "CancelOrder" %}</a> | <a href="/order/update/{{ order.id }}">{% trans "UpdateOrder" %}</a></li>
+            {% endif %}
+        {% endif %}
+    </ul>
+</div>

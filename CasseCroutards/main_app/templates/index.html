@@ -15,21 +15,8 @@
     <br />
     {% trans "AvailableTrips" %} : 
     {% for trip in trips %}
-    <hr>
-    <h2><a href="/trip/{{ trip.id }}">{{ trip.date }}</a></h2>
-    <ul>
-        <li>{{ trip.user.first_name }}</li>
-        <li>{% trans "Start" %}: {{ trip.city_start }}</li>
-        <li>{% trans "Destination" %}: {{ trip.city_end }}</li>
-        <li>{% trans "Description" %}: {{ trip.comment }}</li>
-        {% if request.user.is_authenticated %}
-            {% if trip.user.id == request.user.id %}
-                <li><a href="/trip/delete/{{ trip.id }}">{% trans "DeleteTrip" %}</a> | <a href="/trip/update/{{ trip.id }}">{% trans "UpdateTrip" %}</a></li>
-            {% else %}
-                <li><a href="/order/new/{{ trip.id }}">{% trans "PlaceOrder" %}</a> | <a href="/order/cancel/{{ trip.id }}">{% trans "CancelOrder" %}</a></li>
-            {% endif %}
-        {% endif %}
-    </ul>
+        <hr>
+        {% include "trip/abstract.html" %}
     {% endfor %}
     <h3>{% trans "AddTrip" %}</h3>
     <form enctype="multipart/form-data" action="trip/new/" method="POST">

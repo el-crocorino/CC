@@ -6,6 +6,8 @@
     {% trans "UserProfile" %}
 {% endblock %}
 {% block content %}
+
+    <h2>{{ user.first_name }}</h2>
     <ul>
         <li>{% trans "email" %} : {{ user.email }}</li>
         <li>{% trans "first name" %} : {{ user.first_name }}</li>
@@ -18,4 +20,15 @@
         <li>{% trans "ratio" %} : {{ user.ratio }}</li>
     </ul>
     <a href="/user/update/{{ user.id }}">{% trans "Update profile" %}</a>
+
+    <h2>{% trans "Trips" %}</h2>
+    {% for trip in trips %}
+        {% include "trip/abstract.html" %}
+    {% endfor %}
+    <h2>{% trans "Orders" %}</h2>
+    {% for order in orders %}
+        {% include "order/abstract.html" %}
+    {% endfor %}
+
 {% endblock %}
+

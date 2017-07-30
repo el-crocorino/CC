@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from main_app.models import Trip
+from main_app.models import Trip, Order
 
 
 def trip_item( pRequest, pTripId):
@@ -9,4 +9,12 @@ def trip_item( pRequest, pTripId):
     @param int pTripId Trip id
     '''
     trip = Trip.objects.get( id = pTripId)
-    return render(pRequest, 'trip/item.html', {'trip': trip})
+    trip.orders = Order.objects.filter( trip = pTripId)
+    print(trip.orders)
+    print(trip.__dict__)
+    return render(pRequest, 'trip/item.html', {
+        'trip': trip, 
+        'showTripUser': True, 
+        'showOrderUser': True,
+        'showOrderTrip': False
+        })
