@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-29 17:34+0200\n"
+"POT-Creation-Date: 2017-08-01 07:32+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,15 +22,15 @@ msgstr ""
 msgid "email address"
 msgstr ""
 
-#: models.py:19 templates/user/item.html:11 templates/user/update.html:11
+#: models.py:19 templates/user/item.html:13 templates/user/update.html:11
 msgid "first name"
 msgstr ""
 
-#: models.py:20 templates/user/item.html:12 templates/user/update.html:12
+#: models.py:20 templates/user/item.html:14 templates/user/update.html:12
 msgid "last name"
 msgstr ""
 
-#: models.py:21 templates/user/item.html:13 templates/user/update.html:13
+#: models.py:21 templates/user/item.html:15 templates/user/update.html:13
 msgid "date joined"
 msgstr ""
 
@@ -52,11 +52,11 @@ msgid ""
 "instead of deleting accounts."
 msgstr ""
 
-#: models.py:36 templates/user/item.html:15
+#: models.py:36 templates/user/item.html:17
 msgid "location"
 msgstr ""
 
-#: models.py:37 templates/user/item.html:14 templates/user/update.html:14
+#: models.py:37 templates/user/item.html:16 templates/user/update.html:14
 msgid "birth date"
 msgstr ""
 
@@ -64,11 +64,11 @@ msgstr ""
 msgid "presentation"
 msgstr ""
 
-#: models.py:39 templates/user/item.html:17
+#: models.py:39 templates/user/item.html:19
 msgid "avatar"
 msgstr ""
 
-#: models.py:40 templates/user/item.html:18
+#: models.py:40 templates/user/item.html:20
 msgid "ratio"
 msgstr ""
 
@@ -84,7 +84,7 @@ msgstr ""
 msgid "PageTitle"
 msgstr ""
 
-#: templates/base.html:28 templates/index.html:13 templates/user/create.html:5
+#: templates/base.html:28 templates/index.html:13 templates/user/create.html:6
 msgid "SignUp"
 msgstr ""
 
@@ -92,7 +92,7 @@ msgstr ""
 msgid "SignOut"
 msgstr ""
 
-#: templates/base.html:35 templates/index.html:13 templates/user/login.html:5
+#: templates/base.html:35 templates/index.html:13 templates/user/login.html:6
 msgid "SignIn"
 msgstr ""
 
@@ -112,76 +112,106 @@ msgstr ""
 msgid "AvailableTrips"
 msgstr ""
 
-#: templates/index.html:22 templates/trip/item.html:12
-msgid "Start"
-msgstr ""
-
-#: templates/index.html:23 templates/trip/item.html:13
-msgid "Destination"
-msgstr ""
-
-#: templates/index.html:24
-msgid "Description"
-msgstr ""
-
-#: templates/index.html:27
-msgid "DeleteTrip"
-msgstr ""
-
-#: templates/index.html:27 templates/trip/update.html:11
-msgid "UpdateTrip"
-msgstr ""
-
-#: templates/index.html:29 templates/order/create.html:5
-msgid "PlaceOrder"
-msgstr ""
-
-#: templates/index.html:29
-msgid "CancelOrder"
-msgstr ""
-
-#: templates/index.html:34
+#: templates/index.html:21
 msgid "AddTrip"
 msgstr ""
 
-#: templates/index.html:38 templates/trip/update.html:15
+#: templates/index.html:25 templates/order/update.html:16
+#: templates/trip/update.html:15
 msgid "Save"
 msgstr ""
 
+#: templates/order/abstract.html:20 templates/trip/abstract.html:22
+msgid "CancelOrder"
+msgstr ""
+
+#: templates/order/abstract.html:20 templates/order/update.html:11
+msgid "UpdateOrder"
+msgstr ""
+
+#: templates/order/create.html:6 templates/trip/abstract.html:22
+msgid "PlaceOrder"
+msgstr ""
+
+#: templates/order/item.html:6
+msgid "Order"
+msgstr ""
+
+#: templates/order/item.html:9 templates/order/update.html:6
 #: templates/trip/item.html:6 templates/trip/update.html:6
 msgid "Trip"
 msgstr ""
 
-#: templates/trip/item.html:10
+#: templates/order/item.html:11
 msgid "Traveler"
 msgstr ""
 
-#: templates/trip/item.html:11
+#: templates/order/item.html:12 templates/order/item.html:20
 msgid "Date"
 msgstr ""
 
-#: templates/trip/item.html:14
+#: templates/order/item.html:13 templates/trip/abstract.html:15
+msgid "Start"
+msgstr ""
+
+#: templates/order/item.html:14 templates/trip/abstract.html:16
+msgid "Destination"
+msgstr ""
+
+#: templates/order/item.html:15
 msgid "Summary"
 msgstr ""
 
-#: templates/trip/item.html:15
+#: templates/order/item.html:16
 msgid "Participants"
+msgstr ""
+
+#: templates/order/item.html:18
+msgid "MyOrder"
+msgstr ""
+
+#: templates/order/item.html:21
+msgid "Comment"
+msgstr ""
+
+#: templates/order/item.html:22
+msgid "Amount"
+msgstr ""
+
+#: templates/trip/abstract.html:17
+msgid "Description"
+msgstr ""
+
+#: templates/trip/abstract.html:20
+msgid "DeleteTrip"
+msgstr ""
+
+#: templates/trip/abstract.html:20 templates/trip/update.html:11
+msgid "UpdateTrip"
+msgstr ""
+
+#: templates/trip/abstract.html:26 templates/user/item.html:28
+msgid "Orders"
 msgstr ""
 
 #: templates/user/item.html:6
 msgid "UserProfile"
 msgstr ""
 
-#: templates/user/item.html:10 templates/user/update.html:10
+#: templates/user/item.html:12 templates/user/update.html:10
 msgid "email"
 msgstr ""
 
-#: templates/user/item.html:16
+#: templates/user/item.html:18
 msgid "bio"
 msgstr ""
 
-#: templates/user/item.html:20
+#: templates/user/item.html:22
 msgid "Update profile"
+msgstr ""
+
+#: templates/user/item.html:24
+msgid "Trips"
 msgstr ""
 
 #: templates/user/update.html:6
