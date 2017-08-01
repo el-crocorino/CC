@@ -16,7 +16,7 @@
         <li>{% trans "birth date" %} : {{ user.birth_date }}</li>
         <li>{% trans "location" %} : {{ user.location }}</li>
         <li>{% trans "bio" %} : {{ user.bio }}</li>
-        <li>{% trans "avatar" %} : <img src="{{ user.avatar }}" alt=""></li>
+        <li>{% trans "avatar" %} : <img src="{{ user.avatar.url }}" alt=""></li>
         <li>{% trans "ratio" %} : {{ user.ratio }}</li>
     </ul>
     <a href="/user/update/{{ user.id }}">{% trans "Update profile" %}</a>

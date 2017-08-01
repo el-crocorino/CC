@@ -36,7 +36,7 @@ class User( AbstractBaseUser, PermissionsMixin):
     location = models.CharField( _( 'location'), max_length = 100, blank = True)
     birth_date = models.DateField( _( 'birth date'), default = datetime.date.today)
     bio = models.TextField( _( 'presentation'), max_length = 1500, blank = True)
-    avatar = models.ImageField( _( 'avatar'), upload_to = 'avatars/', default = 'media/default-avatar.svg', blank = True)
+    avatar = models.ImageField( _( 'avatar'), upload_to = 'media/avatars/', default = 'media/default-avatar.png', blank = True)
     ratio = models.DecimalField( _( 'ratio'), default = 0, max_digits = 6, decimal_places = 2)
     created = models.DateTimeField( auto_now_add = True)
     updated = models.DateTimeField( auto_now_add = True)
