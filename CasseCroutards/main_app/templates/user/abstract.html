@@ -1,7 +1,7 @@
 {% load staticfiles %}
 {% load i18n %}
 <div style="background-color: #669999">
-    <img src="{{ user.avatar }}" alt="">
+    <img src="{{ user.avatar.url }}" alt="">
     <ul>
         <li>{{ user.first_name }} {{ user.last_name }}</li>
         <li>{{ user.location }}</li>
