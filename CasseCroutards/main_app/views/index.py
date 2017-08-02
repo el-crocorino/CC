@@ -15,6 +15,7 @@ def index( pRequest):
         'trips': trips, 
         'addTripForm' : addTripForm, 
         'showTripUser': True, 
+        'showTripOrder': True, 
         'showOrderUser': True,
         'showOrderTrip': False
         })

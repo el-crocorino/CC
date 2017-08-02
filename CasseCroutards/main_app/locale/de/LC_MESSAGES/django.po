@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-01 07:32+0200\n"
+"POT-Creation-Date: 2017-08-02 07:01+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,10 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: forms.py:51
+msgid "OrderDeleteCheckbox"
+msgstr ""
 
 #: models.py:18
 msgid "email address"
@@ -121,7 +125,7 @@ msgstr ""
 msgid "Save"
 msgstr ""
 
-#: templates/order/abstract.html:20 templates/trip/abstract.html:22
+#: templates/order/abstract.html:20 templates/trip/abstract.html:19
 msgid "CancelOrder"
 msgstr ""
 
@@ -129,17 +133,26 @@ msgstr ""
 msgid "UpdateOrder"
 msgstr ""
 
-#: templates/order/create.html:6 templates/trip/abstract.html:22
+#: templates/order/create.html:6 templates/trip/abstract.html:19
 msgid "PlaceOrder"
+msgstr ""
+
+#: templates/order/delete.html:6 templates/order/item.html:9
+#: templates/order/update.html:6 templates/trip/item.html:6
+#: templates/trip/update.html:6
+msgid "Trip"
+msgstr ""
+
+#: templates/order/delete.html:11
+msgid "DeleteOrder"
+msgstr ""
+
+#: templates/order/delete.html:17
+msgid "ConfirmOrderDeletion"
 msgstr ""
 
 #: templates/order/item.html:6
 msgid "Order"
-msgstr ""
-
-#: templates/order/item.html:9 templates/order/update.html:6
-#: templates/trip/item.html:6 templates/trip/update.html:6
-msgid "Trip"
 msgstr ""
 
 #: templates/order/item.html:11
@@ -150,11 +163,11 @@ msgstr ""
 msgid "Date"
 msgstr ""
 
-#: templates/order/item.html:13 templates/trip/abstract.html:15
+#: templates/order/item.html:13 templates/trip/abstract.html:12
 msgid "Start"
 msgstr ""
 
-#: templates/order/item.html:14 templates/trip/abstract.html:16
+#: templates/order/item.html:14 templates/trip/abstract.html:13
 msgid "Destination"
 msgstr ""
 
@@ -178,19 +191,19 @@ msgstr ""
 msgid "Amount"
 msgstr ""
 
-#: templates/trip/abstract.html:17
+#: templates/trip/abstract.html:14
 msgid "Description"
 msgstr ""
 
-#: templates/trip/abstract.html:20
+#: templates/trip/abstract.html:17
 msgid "DeleteTrip"
 msgstr ""
 
-#: templates/trip/abstract.html:20 templates/trip/update.html:11
+#: templates/trip/abstract.html:17 templates/trip/update.html:11
 msgid "UpdateTrip"
 msgstr ""
 
-#: templates/trip/abstract.html:26 templates/user/item.html:28
+#: templates/trip/abstract.html:24 templates/user/item.html:28
 msgid "Orders"
 msgstr ""
 

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-01 07:32+0200\n"
+"POT-Creation-Date: 2017-08-02 07:01+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,10 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: forms.py:51
+msgid "OrderDeleteCheckbox"
+msgstr "Je souhaite annuler cette commande"
 
 #: models.py:18
 msgid "email address"
@@ -129,7 +133,7 @@ msgstr "Proposer un nouveau voyage"
 msgid "Save"
 msgstr "Enregistrer"
 
-#: templates/order/abstract.html:20 templates/trip/abstract.html:22
+#: templates/order/abstract.html:20 templates/trip/abstract.html:19
 msgid "CancelOrder"
 msgstr "Annuler ma commande"
 
@@ -139,22 +143,33 @@ msgstr "Annuler ma commande"
 msgid "UpdateOrder"
 msgstr "Mettre à jour le voyage"
 
-#: templates/order/create.html:6 templates/trip/abstract.html:22
+#: templates/order/create.html:6 templates/trip/abstract.html:19
 msgid "PlaceOrder"
 msgstr "Passer commande"
+
+#: templates/order/delete.html:6 templates/order/item.html:9
+#: templates/order/update.html:6 templates/trip/item.html:6
+#: templates/trip/update.html:6
+#, fuzzy
+#| msgid "AddTrip"
+msgid "Trip"
+msgstr "Proposer un nouveau voyage"
+
+#: templates/order/delete.html:11
+#, fuzzy
+#| msgid "PlaceOrder"
+msgid "DeleteOrder"
+msgstr "Passer commande"
+
+#: templates/order/delete.html:17
+msgid "ConfirmOrderDeletion"
+msgstr "Annuler commande"
 
 #: templates/order/item.html:6
 #, fuzzy
 #| msgid "PlaceOrder"
 msgid "Order"
 msgstr "Passer commande"
-
-#: templates/order/item.html:9 templates/order/update.html:6
-#: templates/trip/item.html:6 templates/trip/update.html:6
-#, fuzzy
-#| msgid "AddTrip"
-msgid "Trip"
-msgstr "Proposer un nouveau voyage"
 
 #: templates/order/item.html:11
 msgid "Traveler"
@@ -164,11 +179,11 @@ msgstr "Voyageur"
 msgid "Date"
 msgstr "Date"
 
-#: templates/order/item.html:13 templates/trip/abstract.html:15
+#: templates/order/item.html:13 templates/trip/abstract.html:12
 msgid "Start"
 msgstr "Départ"
 
-#: templates/order/item.html:14 templates/trip/abstract.html:16
+#: templates/order/item.html:14 templates/trip/abstract.html:13
 msgid "Destination"
 msgstr "Arrivée"
 
@@ -192,21 +207,21 @@ msgstr "Commentaire"
 msgid "Amount"
 msgstr "Montant"
 
-#: templates/trip/abstract.html:17
+#: templates/trip/abstract.html:14
 msgid "Description"
 msgstr "Description"
 
-#: templates/trip/abstract.html:20
+#: templates/trip/abstract.html:17
 #, fuzzy
 #| msgid "UpdateTrip"
 msgid "DeleteTrip"
 msgstr "Mettre à jour le voyage"
 
-#: templates/trip/abstract.html:20 templates/trip/update.html:11
+#: templates/trip/abstract.html:17 templates/trip/update.html:11
 msgid "UpdateTrip"
 msgstr "Mettre à jour le voyage"
 
-#: templates/trip/abstract.html:26 templates/user/item.html:28
+#: templates/trip/abstract.html:24 templates/user/item.html:28
 #, fuzzy
 #| msgid "PlaceOrder"
 msgid "Orders"

@@ -18,6 +18,7 @@ urlpatterns = [
 
     url( r'^order/new/([0-9]+)/$', views.order_create, name = 'order_create'), 
     url( r'^order/update/([0-9]+)$', views.order_update, name = 'order_update'), 
+    url( r'^order/delete/([0-9]+)$', views.order_delete, name = 'order_delete'), 
 
     url( r'^$', views.index, name = 'index'), 
 ]

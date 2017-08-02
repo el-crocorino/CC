@@ -2,6 +2,7 @@ from django import forms
 from .models import Trip, Order
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import get_user_model
+from django.utils.translation import ugettext_lazy as _
 
 
 '''
@@ -16,8 +17,6 @@ class LoginForm( forms.Form):
         app_label = 'main_app'
 
 class SignUpForm( UserCreationForm):
-    '''birth_date = forms.DateField( help_text = 'Format: YYYY-MM-DD')
-    email = forms.EmailField( help_text = 'Required')'''
 
     class Meta:
         app_label = 'main_app'
@@ -47,3 +46,9 @@ class OrderForm( forms.ModelForm):
         app_label = 'main_app'
         model = Order
         fields = ( 'comment', 'amount')
+
+class OrderDeleteForm( forms.Form):
+    confirmation = forms.BooleanField( label = _('OrderDeleteCheckbox'))
+
+    class Meta:
+        app_label = 'main_app'
