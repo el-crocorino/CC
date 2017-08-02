@@ -17,7 +17,7 @@
         <li>{{ order.comment|truncatechars:100 }}</li>
         {% if request.user.is_authenticated %}
             {% if order.user.id == request.user.id %}
-                <li><a href="/order/cancel/{{ order.id }}">{% trans "CancelOrder" %}</a> | <a href="/order/update/{{ order.id }}">{% trans "UpdateOrder" %}</a></li>
+                <li><a href="/order/delete/{{ order.id }}">{% trans "CancelOrder" %}</a> | <a href="/order/update/{{ order.id }}">{% trans "UpdateOrder" %}</a></li>
             {% endif %}
         {% endif %}
     </ul>

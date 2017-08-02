@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load i18n %}
+
+{% block title %}
+    {% trans "Trip" %}
+{% endblock %}
+{% block content %}
+    {% if request.user.is_authenticated %}
+        {% if order.user.id == request.user.id %}
+            <h3>{% trans "DeleteOrder" %}</h3>            
+            {% include "trip/abstract.html" with trip=order.trip %}
+            {% include "order/abstract.html" %}
+            <form enctype="multipart/form-data" action="/order/delete/{{ order.id }}" method="POST">
+                {% csrf_token %}
+                {{ orderDeleteForm.as_p }}
+                <input type="submit" value="{% trans "ConfirmOrderDeletion" %}">
+            </form>
+        {% else %}    
+            User and order id dont match
+        {% endif %}
+    {% endif %}
+{% endblock %}
