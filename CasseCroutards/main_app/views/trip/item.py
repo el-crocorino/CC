@@ -10,11 +10,11 @@ def trip_item( pRequest, pTripId):
     '''
     trip = Trip.objects.get( id = pTripId)
     trip.orders = Order.objects.filter( trip = pTripId)
-    print(trip.orders)
-    print(trip.__dict__)
+    
     return render(pRequest, 'trip/item.html', {
         'trip': trip, 
         'showTripUser': True, 
+        'showTripOrder': True, 
         'showOrderUser': True,
         'showOrderTrip': False
         })

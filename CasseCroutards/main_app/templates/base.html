@@ -23,7 +23,7 @@
               </li>
               <li class="nav-item">
                 {% if request.user.is_authenticated %}
-                    <a href="/user/profile/{{ user.id }}">{{ user.first_name }}</a>
+                    <a href="{% url 'user_item' pUserId=user.id %}">{{ user.first_name }}</a>
                 {% else %}
                     <a href="{% url 'user_create' %}">{% trans "SignUp" %}</a>
                 {% endif %}

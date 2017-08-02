@@ -14,9 +14,15 @@
         <li>{% trans "Description" %}: {{ trip.comment|truncatechars:100 }}</li>
         {% if request.user.is_authenticated %}
             {% if trip.user.id == request.user.id %}
-                <li><a href="/trip/delete/{{ trip.id }}">{% trans "DeleteTrip" %}</a> | <a href="/trip/update/{{ trip.id }}">{% trans "UpdateTrip" %}</a></li>
+                <li><a href="{% url 'trip_delete' pTripId=trip.id %}">{% trans "DeleteTrip" %}</a> | <a href="/trip/update/{{ trip.id }}">{% trans "UpdateTrip" %}</a></li>
             {% else %}
-                <li><a href="/order/new/{{ trip.id }}">{% trans "PlaceOrder" %}</a> | <a href="/order/cancel/{{ trip.id }}">{% trans "CancelOrder" %}</a></li>
+                <li>
+                {% if trip.currentUserHasOrder%}
+                    <a href="{% url 'order_delete' pOrderId=trip.currentUserOrder.id %}">{% trans "CancelOrder" %}</a>
+                {% else %}
+                    <a href="{% url 'order_create' pTripId=trip.id %}">{% trans "PlaceOrder" %}</a>
+                {% endif %}
+                </li>
             {% endif %}
         {% endif %}
     </ul>

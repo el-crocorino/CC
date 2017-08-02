@@ -8,9 +8,9 @@
 
 {% block content %}
     {% if user.is_authenticated %}
-        {% trans "LoggedInWelcomeMessage" %} <a href="/user/profile/{{ user.id }}">{{ user.first_name }}</a>! <a href="{% url 'logout' %}">{% trans "SignOut" %}</a>
+        {% trans "LoggedInWelcomeMessage" %} <a href="{% url 'user_item' pUserId=user.id %}">{{ user.first_name }}</a>! <a href="{% url 'logout' %}">{% trans "SignOut" %}</a>
     {% else %}            
-        {% trans "WelcomeMessage" %}<a href="{% url 'login' %}">{% trans "SignIn" %}</a> or <a href="/user/new">{% trans "SignUp" %}</a>
+        {% trans "WelcomeMessage" %}<a href="{% url 'login' %}">{% trans "SignIn" %}</a> or <a href="{% url 'user_create' %}">{% trans "SignUp" %}</a>
     {% endif %}
     <br />
     {% trans "AvailableTrips" %} : 
@@ -18,10 +18,12 @@
         <hr>
         {% include "trip/abstract.html" %}
     {% endfor %}
+    {% if user.is_authenticated %}
     <h3>{% trans "AddTrip" %}</h3>
-    <form enctype="multipart/form-data" action="trip/new/" method="POST">
+    <form enctype="multipart/form-data" action="{% url 'trip_create' %}" method="POST">
         {% csrf_token %}
         {{ addTripForm.as_p }}
         <input type="submit" value="{% trans "Save" %}">
     </form>
+    {% endif %}
 {% endblock %}

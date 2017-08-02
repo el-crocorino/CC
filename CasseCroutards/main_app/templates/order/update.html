@@ -10,7 +10,7 @@
         {% if order.user.id == request.user.id %}
             <h3>{% trans "UpdateOrder" %}</h3>            
             {% include "trip/abstract.html" with trip=order.trip %}
-            <form enctype="multipart/form-data" action="/order/update/{{ order.id }}" method="POST">
+            <form enctype="multipart/form-data" action="{% url 'order_update' pOrderId=order.id %}" method="POST">
                 {% csrf_token %}
                 {{ updateOrderForm.as_p }}
                 <input type="submit" value="{% trans "Save" %}">
