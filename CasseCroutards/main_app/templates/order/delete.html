@@ -11,7 +11,7 @@
             <h3>{% trans "DeleteOrder" %}</h3>            
             {% include "trip/abstract.html" with trip=order.trip %}
             {% include "order/abstract.html" %}
-            <form enctype="multipart/form-data" action="/order/delete/{{ order.id }}" method="POST">
+            <form enctype="multipart/form-data" action="{% url 'order_delete' pOrderId=order.id %}" method="POST">
                 {% csrf_token %}
                 {{ orderDeleteForm.as_p }}
                 <input type="submit" value="{% trans "ConfirmOrderDeletion" %}">

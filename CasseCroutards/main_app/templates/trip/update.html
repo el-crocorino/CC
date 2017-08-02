@@ -9,7 +9,7 @@
     {% if request.user.is_authenticated %}
         {% if trip.user.id == request.user.id %}
             <h3>{% trans "UpdateTrip" %}</h3>
-            <form enctype="multipart/form-data" action="/trip/update/{{ trip.id }}" method="POST">
+            <form enctype="multipart/form-data" action="{% url 'trip_update' pTripId=trip.id %}" method="POST">
                 {% csrf_token %}
                 {{ updateTripForm.as_p }}
                 <input type="submit" value="{% trans "Save" %}">

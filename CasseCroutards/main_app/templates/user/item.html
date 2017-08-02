@@ -19,7 +19,7 @@
         <li>{% trans "avatar" %} : <img src="{{ user.avatar.url }}" alt=""></li>
         <li>{% trans "ratio" %} : {{ user.ratio }}</li>
     </ul>
-    <a href="/user/update/{{ user.id }}">{% trans "Update profile" %}</a>
+    <a href="{% url 'user_update' pUserId=user.id %}">{% trans "Update profile" %}</a>
 
     <h2>{% trans "Trips" %}</h2>
     {% for trip in trips %}

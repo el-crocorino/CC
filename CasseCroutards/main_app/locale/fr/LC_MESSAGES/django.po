@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-02 07:01+0200\n"
+"POT-Creation-Date: 2017-08-02 21:19+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -124,16 +124,22 @@ msgstr "Bonjour petit Casse-Croûtard !"
 msgid "AvailableTrips"
 msgstr "Prochains voyages à venir"
 
-#: templates/index.html:21
+#: templates/index.html:22
 msgid "AddTrip"
 msgstr "Proposer un nouveau voyage"
 
-#: templates/index.html:25 templates/order/update.html:16
+#: templates/index.html:26 templates/order/update.html:16
 #: templates/trip/update.html:15
 msgid "Save"
 msgstr "Enregistrer"
 
-#: templates/order/abstract.html:20 templates/trip/abstract.html:19
+#: templates/order/abstract.html:17
+#, fuzzy
+#| msgid "PlaceOrder"
+msgid "OrderMore"
+msgstr "Voir plus"
+
+#: templates/order/abstract.html:20 templates/trip/abstract.html:21
 msgid "CancelOrder"
 msgstr "Annuler ma commande"
 
@@ -143,7 +149,7 @@ msgstr "Annuler ma commande"
 msgid "UpdateOrder"
 msgstr "Mettre à jour le voyage"
 
-#: templates/order/create.html:6 templates/trip/abstract.html:19
+#: templates/order/create.html:6 templates/trip/abstract.html:23
 msgid "PlaceOrder"
 msgstr "Passer commande"
 
@@ -221,7 +227,7 @@ msgstr "Mettre à jour le voyage"
 msgid "UpdateTrip"
 msgstr "Mettre à jour le voyage"
 
-#: templates/trip/abstract.html:24 templates/user/item.html:28
+#: templates/trip/abstract.html:30 templates/user/item.html:28
 #, fuzzy
 #| msgid "PlaceOrder"
 msgid "Orders"

@@ -95,6 +95,22 @@ class Trip( models.Model):
         if len(self.city_end) > 10:
             description += '...'
         return description
+
+    def getOrders(self, pUserId):
+        '''
+        Gets trip orders list and checks if user has already placed one
+    
+        @param int pUserId User id    
+        '''
+
+        self.orders = Order.objects.filter( trip = self.id)
+
+        for order in self.orders:
+            if order.user.id == pUserId:
+                self.currentUserHasOrder = True
+                self.currentUserOrder = order
+            else:
+                self.currentUserHasOrder = False
     
 class Order( models.Model):
     '''

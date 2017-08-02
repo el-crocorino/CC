@@ -4,7 +4,7 @@
 <div style="background-color: #ccffcc">
     {% if showOrderTrip %}
         <div>
-            <a href="/trip/{{ order.trip.id }}">{{ order.trip }} - {{ order.trip.user.first_name }}</a>
+            <a href="{% url 'trip_item' pTripId=order.trip.id %}">{{ order.trip }} - {{ order.trip.user.first_name }}</a>
         </div>
     {% endif %}
     {% if showOrderUser and order.user.id != request.user.id %}
@@ -14,10 +14,10 @@
     {% endif %}
     <ul>
         <li>{{ order.amount }}</li>
-        <li>{{ order.comment|truncatechars:100 }}</li>
+        <li>{{ order.comment|truncatechars:100 }} | <a href="{% url 'order_item' pOrderId=order.id %}">{% trans "OrderMore" %}</li></a>
         {% if request.user.is_authenticated %}
             {% if order.user.id == request.user.id %}
-                <li><a href="/order/delete/{{ order.id }}">{% trans "CancelOrder" %}</a> | <a href="/order/update/{{ order.id }}">{% trans "UpdateOrder" %}</a></li>
+                <li><a href="{% url 'order_delete' pOrderId=order.id %}">{% trans "CancelOrder" %}</a> | <a href="{% url 'order_update' pOrderId=order.id %}">{% trans "UpdateOrder" %}</a></li>
             {% endif %}
         {% endif %}
     </ul>

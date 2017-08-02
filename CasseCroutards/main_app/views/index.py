@@ -7,10 +7,12 @@ def index( pRequest):
     Homepage
     '''
     trips = Trip.objects.all()
+
     for trip in trips:
-        trip.orders = Order.objects.filter( trip = trip.id)
+        trip.getOrders(pRequest.user.id)
 
     addTripForm = TripForm
+    
     return render(pRequest, 'index.html', {
         'trips': trips, 
         'addTripForm' : addTripForm, 

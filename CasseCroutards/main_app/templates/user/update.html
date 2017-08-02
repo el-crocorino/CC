@@ -16,7 +16,7 @@
     {% if request.user.is_authenticated %}
         {% if user.id == request.user.id %}
             <h3>{% trans "UpdateProfile" %}</h3>
-            <form enctype="multipart/form-data" action="/user/update/{{ user.id }}/" method="POST">
+            <form enctype="multipart/form-data" action="{% url 'user_update' pUserId=user.id %}" method="POST">
                 {% csrf_token %}
                 {{ updateUserForm.as_p }}
                 <input type="submit" value="Submit">
