@@ -4,6 +4,7 @@ from django.views.static import serve
 from . import views
 
 urlpatterns = [
+
     url(r'^login/$', views.login_view, name = 'login'),   
     url(r'^logout/$', views.logout_view, name = 'logout'),  
 
@@ -22,6 +23,7 @@ urlpatterns = [
     url( r'^order/delete/(?P<pOrderId>[0-9]+)$', views.order_delete, name = 'order_delete'), 
 
     url( r'^$', views.index, name = 'index'), 
+    
 ]
 
 if settings.DEBUG:
