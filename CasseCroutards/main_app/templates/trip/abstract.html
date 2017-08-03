@@ -30,6 +30,9 @@
         <p>{% trans "Orders" %} :</p> 
         {% for order in trip.orders %}
             {% include "order/abstract.html" with showOrderTrip=False %}
+            <a href="{% url 'order_create' pTripId=trip.id %}">{% trans "PlaceOrder" %}</a>
+        {% empty %}
+            {% trans "EmpyOrders" %} - <a href="{% url 'order_create' pTripId=trip.id %}">{% trans "PlaceOrder" %}</a>
         {% endfor %}
     {% endif %}
 </div>
