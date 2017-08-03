@@ -122,7 +122,7 @@ class Order( models.Model):
     RUNNING = 2
     HONORED = 3
 
-    status = (
+    Status = (
         (REFUSED, 'Refused'),
         (PENDING, 'Pending'),
         (ACCEPTED, 'Accepted'),
@@ -134,7 +134,7 @@ class Order( models.Model):
     trip = models.ForeignKey( Trip, on_delete = models.CASCADE)
     comment = models.TextField( max_length = 1500, default = '')
     amount = models.DecimalField( max_digits = 5, decimal_places = 2, default = 0.00)
-    status = models.IntegerField( default = 0)
+    status = models.IntegerField( choices = Status, default = PENDING)
     created = models.DateTimeField( auto_now_add = True)
     updated = models.DateTimeField( auto_now_add = True)
 
