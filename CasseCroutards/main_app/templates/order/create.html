@@ -4,6 +4,7 @@
 
 {% block content %}
   <h2>{% trans "PlaceOrder" %}</h2>
+  {% include "trip/abstract.html" with trip=orderTrip%}
   <form method="POST" action=".">
     {% csrf_token %}
         {{ orderForm.as_p }}

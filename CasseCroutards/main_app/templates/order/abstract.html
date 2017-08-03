@@ -20,7 +20,9 @@
             {% if order.user.id == request.user.id %}
                 <li><a href="{% url 'order_delete' pOrderId=order.id %}">{% trans "CancelOrder" %}</a> | <a href="{% url 'order_update' pOrderId=order.id %}">{% trans "UpdateOrder" %}</a></li>
             {% else  %}
-                <li><a href="{% url 'order_accept' pOrderId=order.id %}">{% trans "AcceptOrder" %}</a> | <a href="{% url 'order_refuse' pOrderId=order.id %}">{% trans "RefuseOrder" %}</a></li>
+                {% if order.trip.user.id == request.user.id %}
+                    <li><a href="{% url 'order_accept' pOrderId=order.id %}">{% trans "AcceptOrder" %}</a> | <a href="{% url 'order_refuse' pOrderId=order.id %}">{% trans "RefuseOrder" %}</a></li>                    
+                {% endif %}
             {% endif %}
         {% endif %}
     </ul>

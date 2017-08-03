@@ -142,7 +142,13 @@ class Order( models.Model):
         app_label = 'main_app'
     
     def __str__( self):
-        return str(self.id) + ' | ' + self.user.first_name + ' - ' + str(self.amount)
+        return str(self.id) + ' | ' + self.user.first_name + ' - ' + str(self.amount) + ': ' + str(self.get_status_display())
+
+    def get_status_display( self):        
+        return self.Status[self.status][1]
+
+#class OrderAdmin( admin.ModelAdmin):
+    #list_display('id', 'user', 'trip' 'amount', 'status', 'created', 'updated')        
     
 
 class Item( models.Model):

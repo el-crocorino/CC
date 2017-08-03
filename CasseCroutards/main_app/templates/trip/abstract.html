@@ -30,9 +30,14 @@
         <p>{% trans "Orders" %} :</p> 
         {% for order in trip.orders %}
             {% include "order/abstract.html" with showOrderTrip=False %}
-            <a href="{% url 'order_create' pTripId=trip.id %}">{% trans "PlaceOrder" %}</a>
+            {% if trip.user.id != request.user.id and trip.currentUserHasOrder == False %}
+                <a href="{% url 'order_create' pTripId=trip.id %}">{% trans "PlaceOrder" %}</a> 
+            {% endif %}
         {% empty %}
-            {% trans "EmpyOrders" %} - <a href="{% url 'order_create' pTripId=trip.id %}">{% trans "PlaceOrder" %}</a>
+            {% trans "EmpyOrders" %} - 
+            {% if trip.user.id != request.user.id %}
+                <a href="{% url 'order_create' pTripId=trip.id %}">{% trans "PlaceOrder" %}</a> 
+            {% endif %}
         {% endfor %}
     {% endif %}
 </div>
