@@ -21,6 +21,8 @@ urlpatterns = [
     url( r'^order/new/(?P<pTripId>[0-9]+)/$', views.order_create, name = 'order_create'), 
     url( r'^order/update/(?P<pOrderId>[0-9]+)$', views.order_update, name = 'order_update'), 
     url( r'^order/delete/(?P<pOrderId>[0-9]+)$', views.order_delete, name = 'order_delete'), 
+    url( r'^order/accept/(?P<pOrderId>[0-9]+)$', views.order_accept, name = 'order_accept'), 
+    url( r'^order/refuse/(?P<pOrderId>[0-9]+)$', views.order_refuse, name = 'order_refuse'), 
 
     url( r'^$', views.index, name = 'index'), 
     

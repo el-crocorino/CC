@@ -3,7 +3,7 @@
 <div style="background-color: #669999">
     <img src="{{ user.avatar.url }}" alt="">
     <ul>
-        <li>{{ user.first_name }} {{ user.last_name }}</li>
+        <li><a href="{% url 'user_item' pUserId=user.id %}">{{ user.first_name }} {{ user.last_name }}</a></li>
         <li>{{ user.location }}</li>
     </ul>
 </div>

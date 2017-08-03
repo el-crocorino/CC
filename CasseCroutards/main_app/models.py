@@ -142,7 +142,7 @@ class Order( models.Model):
         app_label = 'main_app'
     
     def __str__( self):
-        return self.user.first_name + ' - ' + str(self.amount)
+        return str(self.id) + ' | ' + self.user.first_name + ' - ' + str(self.amount)
     
 
 class Item( models.Model):
