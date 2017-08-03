@@ -115,11 +115,26 @@ class Trip( models.Model):
 class Order( models.Model):
     '''
     Order Model
-    '''
+    '''    
+    REFUSED = -1
+    PENDING = 0
+    ACCEPTED = 1
+    RUNNING = 2
+    HONORED = 3
+
+    status = (
+        (REFUSED, 'Refused'),
+        (PENDING, 'Pending'),
+        (ACCEPTED, 'Accepted'),
+        (RUNNING, 'Running'),
+        (HONORED, 'Honored'),
+        )
+
     user = models.ForeignKey( settings.AUTH_USER_MODEL, on_delete = models.CASCADE)
     trip = models.ForeignKey( Trip, on_delete = models.CASCADE)
     comment = models.TextField( max_length = 1500, default = '')
     amount = models.DecimalField( max_digits = 5, decimal_places = 2, default = 0.00)
+    status = models.IntegerField( default = 0)
     created = models.DateTimeField( auto_now_add = True)
     updated = models.DateTimeField( auto_now_add = True)
 
