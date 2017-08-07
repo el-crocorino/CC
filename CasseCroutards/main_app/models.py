@@ -150,14 +150,39 @@ class Order( models.Model):
     def get_status_display( self):   
         return self.Status[self.status][1]
 
-class Item( models.Model):
+class TripItem( models.Model):
     '''
-    Item Model
+    Trip Item Model
+    Gets displayed in trip to offer user a selected list of goods
     '''
-    order = models.ForeignKey( Order)
+    trip = models.ForeignKey( Trip)
+    title = models.TextField( max_length = 150)
+    description = models.TextField( max_length = 500)
+    average_value = models.DecimalField( max_digits = 5, decimal_places = 2, default = 0.00)
+    average_qty = models.IntegerField( default = 1)
 
     class Meta:
         app_label = 'main_app'
+    
+    def __str__( self):
+        return str(self.id) + ' | ' + self.title
+
+class OrderItem( models.Model):
+    '''
+    Order Item Model
+    Refers to a TripItem object : a user can order a specific item as listed in Trip object
+    '''
+    tripItem = models.ForeignKey( TripItem)
+    order = models.ForeignKey( Order)
+    user = models.ForeignKey( settings.AUTH_USER_MODEL, on_delete = models.CASCADE)
+    amount = models.DecimalField( max_digits = 5, decimal_places = 2, default = 0.00)
+    quantity = models.IntegerField( default = 1)
+
+    class Meta:
+        app_label = 'main_app'
+    
+    def __str__( self):
+        return str(self.id) + ' | ' + self.user.first_name + ' : ' + self.tripItem.title + ' - ' + str(self.amount) + '/ ' + str(self.quantity)
     
 
 class Appointment( models.Model):
