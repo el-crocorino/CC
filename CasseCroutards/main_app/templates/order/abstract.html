@@ -21,8 +21,7 @@
                 <li>{{ order.get_status_display }}</li>
                 <li><a href="{% url 'order_delete' pOrderId=order.id %}">{% trans "CancelOrder" %}</a> | <a href="{% url 'order_update' pOrderId=order.id %}">{% trans "UpdateOrder" %}</a></li>                
             {% else  %}
-                {% if order.trip.user.id == request.user.id %}  
-                    {{ order.status }}
+                {% if order.trip.user.id == request.user.id %} 
                     <li>{{ order.get_status_display }}</li>
                     {% if order.status == 0 %}
                         <li><a href="{% url 'order_accept' pOrderId=order.id %}">{% trans "AcceptOrder" %}</a> | <a href="{% url 'order_refuse' pOrderId=order.id %}">{% trans "RefuseOrder" %}</a></li>                  

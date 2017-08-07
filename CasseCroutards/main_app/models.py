@@ -119,11 +119,11 @@ class Order( models.Model):
     '''
     Order Model
     '''    
-    REFUSED = -1
-    PENDING = 0
-    ACCEPTED = 1
-    RUNNING = 2
-    HONORED = 3
+    REFUSED = 0
+    PENDING = 1
+    ACCEPTED = 2
+    RUNNING = 3
+    HONORED = 4
 
     Status = (
         (REFUSED, 'refused'),

@@ -23,7 +23,7 @@ def order_update( pRequest, pOrderId):
             order.amount = orderForm.cleaned_data['amount']
             order.status = order.PENDING
             order.updated = datetime.now()
-            print(order)
+            
             order.save()
 
             url = reverse('order_item', kwargs = {'pOrderId': pOrderId})
