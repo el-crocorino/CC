@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from django.http import HttpResponseRedirect
+from django.core.urlresolvers import reverse
 from datetime import datetime
 
 from main_app.models import Order
@@ -19,11 +21,14 @@ def order_update( pRequest, pOrderId):
 
             order.comment = orderForm.cleaned_data['comment']
             order.amount = orderForm.cleaned_data['amount']
+            order.status = order.PENDING
             order.updated = datetime.now()
-
+            
             order.save()
 
-            return render(pRequest, 'order/item.html', {'order': order, 'trip': order.trip})
+            url = reverse('order_item', kwargs = {'pOrderId': pOrderId})
+            return HttpResponseRedirect( url)
+            #return render(pRequest, 'order/item.html', {'order': order, 'trip': order.trip})
     else:
         order = Order.objects.get( id = pOrderId)
         updateOrderForm = OrderForm( initial = {

@@ -26,8 +26,18 @@
         {% include "trip/abstract.html" %}
     {% endfor %}
     <h2>{% trans "Orders" %}</h2>
-    {% for order in orders %}
-        {% include "order/abstract.html" %}
+    <h3>{% trans "Placed" %}</h3>
+    {% for order in placedOrders %}
+        {% include "order/abstract.html" with showTripUser=True %}
+    {% endfor %}
+    <h3>{% trans "Requested" %}</h3>
+    {% for trip in trips %}
+        {% if trip.orders.all %}
+            <a href="/trip/{{ trip.id }}">{{ trip }}</a>
+            {% for order in trip.orders %}
+                {% include "order/abstract.html" with showOrderTrip=False %}
+            {% endfor %}
+        {% endif %}
     {% endfor %}
 
 {% endblock %}

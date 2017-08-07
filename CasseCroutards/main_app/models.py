@@ -106,20 +106,38 @@ class Trip( models.Model):
         self.orders = Order.objects.filter( trip = self.id)
 
         for order in self.orders:
+            
             if order.user.id == pUserId:
                 self.currentUserHasOrder = True
                 self.currentUserOrder = order
             else:
                 self.currentUserHasOrder = False
+
+            order.statusAsText = order.get_status_display()
     
 class Order( models.Model):
     '''
     Order Model
-    '''
+    '''    
+    REFUSED = 0
+    PENDING = 1
+    ACCEPTED = 2
+    RUNNING = 3
+    HONORED = 4
+
+    Status = (
+        (REFUSED, 'refused'),
+        (PENDING, 'pending'),
+        (ACCEPTED, 'accepted'),
+        (RUNNING, 'running'),
+        (HONORED, 'honored'),
+        )
+
     user = models.ForeignKey( settings.AUTH_USER_MODEL, on_delete = models.CASCADE)
     trip = models.ForeignKey( Trip, on_delete = models.CASCADE)
     comment = models.TextField( max_length = 1500, default = '')
     amount = models.DecimalField( max_digits = 5, decimal_places = 2, default = 0.00)
+    status = models.IntegerField( choices = Status, default = PENDING)
     created = models.DateTimeField( auto_now_add = True)
     updated = models.DateTimeField( auto_now_add = True)
 
@@ -127,8 +145,10 @@ class Order( models.Model):
         app_label = 'main_app'
     
     def __str__( self):
-        return self.user.first_name + ' - ' + str(self.amount)
-    
+        return str(self.id) + ' | ' + self.user.first_name + ' - ' + str(self.amount) + ': ' + str(self.get_status_display())
+
+    def get_status_display( self):   
+        return self.Status[self.status][1]
 
 class Item( models.Model):
     '''
@@ -148,3 +168,22 @@ class Appointment( models.Model):
 
     class Meta:
         app_label = 'main_app'
+
+
+class Comment( models.Model):
+    '''
+    Comment Model 
+
+    TODO Later in CC-43
+    See : https://medium.com/@bhrigu/django-how-to-add-foreignkey-to-multiple-models-394596f06e84
+    '''
+    user = models.ForeignKey( settings.AUTH_USER_MODEL, on_delete = models.CASCADE)
+    #parentId = models.ForeignKey( Order)
+    text = models.TextField( max_length = 1500, default = '')
+    created = models.DateTimeField( auto_now_add = True)
+    updated = models.DateTimeField( auto_now_add = True)
+
+
+    class Meta:
+        app_label = 'main_app'
+
