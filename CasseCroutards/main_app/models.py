@@ -160,6 +160,8 @@ class TripItem( models.Model):
     description = models.TextField( max_length = 500)
     average_value = models.DecimalField( max_digits = 5, decimal_places = 2, default = 0.00)
     average_qty = models.IntegerField( default = 1)
+    created = models.DateTimeField( auto_now_add = True)
+    updated = models.DateTimeField( auto_now_add = True)
 
     class Meta:
         app_label = 'main_app'
@@ -177,6 +179,8 @@ class OrderItem( models.Model):
     user = models.ForeignKey( settings.AUTH_USER_MODEL, on_delete = models.CASCADE)
     amount = models.DecimalField( max_digits = 5, decimal_places = 2, default = 0.00)
     quantity = models.IntegerField( default = 1)
+    created = models.DateTimeField( auto_now_add = True)
+    updated = models.DateTimeField( auto_now_add = True)
 
     class Meta:
         app_label = 'main_app'
