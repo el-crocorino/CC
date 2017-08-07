@@ -1,8 +1,9 @@
 from django import forms
-from .models import Trip, Order
-from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import get_user_model
+from django.contrib.auth.forms import UserCreationForm
 from django.utils.translation import ugettext_lazy as _
+
+from main_app.models import Trip, TripItem, Order, OrderItem
 
 
 '''
@@ -40,6 +41,12 @@ class TripForm( forms.ModelForm):
         model = Trip
         fields = ['date', 'city_start', 'city_end', 'amount_limit', 'participants_limit', 'comment']
 
+class TripItemForm( forms.ModelForm):
+    class Meta:
+        app_label = 'main_app'
+        model = TripItem
+        fields = ['title', 'description', 'average_value', 'average_qty']
+
 class OrderForm( forms.ModelForm):
 
     class Meta:
@@ -52,3 +59,9 @@ class OrderDeleteForm( forms.Form):
 
     class Meta:
         app_label = 'main_app'
+
+class OrderItemForm( forms.ModelForm):
+    class Meta:
+        app_label = 'main_app'
+        model = OrderItem
+        fields = ['amount', 'quantity']
