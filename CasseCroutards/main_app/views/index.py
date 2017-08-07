@@ -11,8 +11,8 @@ def index( pRequest):
     for trip in trips:
         trip.getOrders(pRequest.user.id)
 
-    addTripForm = TripForm(prefix = 'TripForm')
-    addTripItemForm = TripItemForm(prefix = 'tripItemForm')
+    addTripForm = TripForm( prefix = 'TripForm')
+    addTripItemForm = TripItemForm( prefix = 'TripItemForm')
     
     return render(pRequest, 'index.html', {
         'trips': trips, 

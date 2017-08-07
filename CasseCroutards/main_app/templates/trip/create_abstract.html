@@ -22,9 +22,10 @@
             $('button').on('click', function(event) {
 
                 $('.tripItems').append('<hr />');
-                $('.tripItems').append(`<div id="tripItemForm-` + tripItemCounter + `">{{ addTripItemForm.as_p }}</div>`);
+                var formDivId = '{{ addTripItemForm.prefix }}-' + tripItemCounter
+                $('.tripItems').append(`<div id="` + formDivId + `">{{ addTripItemForm.as_p }}</div>`);
                 
-                $.each( $('#tripItemForm-' + tripItemCounter + ' label'), function( pIndex, pElement){
+                $.each( $('#' + formDivId + ' label'), function( pIndex, pElement){
 
                     var newId = 'id_{{ addTripItemForm.prefix }}' + tripItemCounter + '-' + pElement.htmlFor.substring( '{{ addTripItemForm.prefix }}'.length + 4);
 
@@ -34,7 +35,7 @@
                 });
 
 
-                $('#tripItemCounter').val(tripItemCounter);
+                $('#id_TripForm-tripItemCounter').val(tripItemCounter);
                 ++tripItemCounter;
 
             });

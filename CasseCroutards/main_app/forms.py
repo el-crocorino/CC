@@ -36,6 +36,9 @@ Core Forms
 '''
 
 class TripForm( forms.ModelForm):
+
+    tripItemCounter = forms.IntegerField( initial = 0, widget = forms.widgets.HiddenInput())
+
     class Meta:
         app_label = 'main_app'
         model = Trip

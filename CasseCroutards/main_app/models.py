@@ -75,14 +75,14 @@ class Trip( models.Model):
     Trip Model
     '''
     user = models.ForeignKey( settings.AUTH_USER_MODEL, on_delete = models.CASCADE)
-    date = models.DateField()
-    city_start = models.CharField( max_length = 100)
-    city_end = models.CharField( max_length = 100)
-    amount_limit = models.DecimalField( max_digits = 6, decimal_places = 2)
-    participants_limit = models.IntegerField( default = 0)
-    comment = models.TextField( max_length = 1500, default = '')
-    created = models.DateTimeField( auto_now_add = True)
-    updated = models.DateTimeField( auto_now_add = True)
+    date = models.DateField( _( 'tripDate'))
+    city_start = models.CharField( _( 'tripCityStart'), max_length = 100)
+    city_end = models.CharField( _( 'tripCityEnd'), max_length = 100)
+    amount_limit = models.DecimalField( _( 'tripMaxAmount'), max_digits = 6, decimal_places = 2)
+    participants_limit = models.IntegerField( _( 'tripMaxParticipants'), default = 0)
+    comment = models.TextField( _( 'tripDescription'), max_length = 1500, default = '')
+    created = models.DateTimeField( _( 'created'), auto_now_add = True)
+    updated = models.DateTimeField( _( 'updated'), auto_now_add = True)
 
     class Meta:
         app_label = 'main_app'
@@ -135,11 +135,11 @@ class Order( models.Model):
 
     user = models.ForeignKey( settings.AUTH_USER_MODEL, on_delete = models.CASCADE)
     trip = models.ForeignKey( Trip, on_delete = models.CASCADE)
-    comment = models.TextField( max_length = 1500, default = '')
-    amount = models.DecimalField( max_digits = 5, decimal_places = 2, default = 0.00)
-    status = models.IntegerField( choices = Status, default = PENDING)
-    created = models.DateTimeField( auto_now_add = True)
-    updated = models.DateTimeField( auto_now_add = True)
+    comment = models.TextField( _( 'orderDescription'), max_length = 1500, default = '')
+    amount = models.DecimalField( _( 'orderAmount'), max_digits = 5, decimal_places = 2, default = 0.00)
+    status = models.IntegerField( _( 'orderStatus'), choices = Status, default = PENDING)
+    created = models.DateTimeField( _( 'created'), auto_now_add = True)
+    updated = models.DateTimeField( _( 'updated'), auto_now_add = True)
 
     class Meta:
         app_label = 'main_app'
@@ -156,12 +156,12 @@ class TripItem( models.Model):
     Gets displayed in trip to offer user a selected list of goods
     '''
     trip = models.ForeignKey( Trip)
-    title = models.TextField( max_length = 150)
-    description = models.TextField( max_length = 500)
-    average_value = models.DecimalField( max_digits = 5, decimal_places = 2, default = 0.00)
-    average_qty = models.IntegerField( default = 1)
-    created = models.DateTimeField( auto_now_add = True)
-    updated = models.DateTimeField( auto_now_add = True)
+    title = models.TextField( _( 'tripItemTitle'), max_length = 150)
+    description = models.TextField( _( 'tripItemDescription'), max_length = 500)
+    average_value = models.DecimalField( _( 'tripItemAVGValue'), max_digits = 5, decimal_places = 2, default = 0.00, blank=True)
+    average_qty = models.IntegerField( _( 'tripItemAVGQty'), default = 1, blank=True)
+    created = models.DateTimeField( _( 'created'), auto_now_add = True)
+    updated = models.DateTimeField( _( 'updated'), auto_now_add = True)
 
     class Meta:
         app_label = 'main_app'
@@ -177,10 +177,10 @@ class OrderItem( models.Model):
     tripItem = models.ForeignKey( TripItem)
     order = models.ForeignKey( Order)
     user = models.ForeignKey( settings.AUTH_USER_MODEL, on_delete = models.CASCADE)
-    amount = models.DecimalField( max_digits = 5, decimal_places = 2, default = 0.00)
-    quantity = models.IntegerField( default = 1)
-    created = models.DateTimeField( auto_now_add = True)
-    updated = models.DateTimeField( auto_now_add = True)
+    amount = models.DecimalField( _( 'orderItemAmount'), max_digits = 5, decimal_places = 2, default = 0.00)
+    quantity = models.IntegerField( _( 'orderItemQty'), default = 1)
+    created = models.DateTimeField( _( 'created'), auto_now_add = True)
+    updated = models.DateTimeField( _( 'updated'), auto_now_add = True)
 
     class Meta:
         app_label = 'main_app'
