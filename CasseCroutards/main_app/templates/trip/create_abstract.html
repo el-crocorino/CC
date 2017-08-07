@@ -2,10 +2,43 @@
 {% load i18n %}
 
 {% if user.is_authenticated %}
-<h3>{% trans "AddTrip" %}</h3>
-<form enctype="multipart/form-data" action="{% url 'trip_create' %}" method="POST">
-    {% csrf_token %}
-    {{ addTripForm.as_p }}
-    <input type="submit" value="{% trans "Save" %}">
-</form>
+    <h3>{% trans "AddTrip" %}</h3>
+    <form enctype="multipart/form-data" action="{% url 'trip_create' %}" method="POST">
+        {% csrf_token %}
+        {{ addTripForm.as_p }}
+        {% trans "DefineTripItems" %}:
+        <div class="tripItems">            
+        </div>
+        <button type="button" id="addTripItem">{% trans "AddTripItem" %}</button>
+        <input type="hidden" id="tripItemCounter" value="0">
+        <input type="submit" value="{% trans "Save" %}">
+    </form>
+    <script type="text/javascript">
+
+        $(function( ){
+
+            var tripItemCounter = 0;
+
+            $('button').on('click', function(event) {
+
+                $('.tripItems').append('<hr />');
+                $('.tripItems').append(`<div id="tripItemForm-` + tripItemCounter + `">{{ addTripItemForm.as_p }}</div>`);
+                
+                $.each( $('#tripItemForm-' + tripItemCounter + ' label'), function( pIndex, pElement){
+
+                    var newId = 'id_{{ addTripItemForm.prefix }}' + tripItemCounter + '-' + pElement.htmlFor.substring( '{{ addTripItemForm.prefix }}'.length + 4);
+
+                    $('#' + pElement.htmlFor).attr('id', newId)
+                    pElement.htmlFor = newId;
+
+                });
+
+
+                $('#tripItemCounter').val(tripItemCounter);
+                ++tripItemCounter;
+
+            });
+        });
+            
+    </script>
 {% endif %}

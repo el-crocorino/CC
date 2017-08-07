@@ -22,13 +22,13 @@ function crsfSafeMethod(method) {
 
 $.ajaxSetup({
     beforeSend: function( xhr, settings) {
-        if( ! crsfSafeMethod(settins.type) && ! this.crossDomain) {
+        if( ! crsfSafeMethod(settings.type) && ! this.crossDomain) {
             xhr.setRequestHeader("X-CSRFToken", csrftoken)
         }
     }
 });
 
-$('button').on('click', function(event) {
+/*$('button').on('click', function(event) {
 
     event.preventDefault();
     var element = $(this);
@@ -42,4 +42,4 @@ $('button').on('click', function(event) {
         }
     });
 
-});
+});*/

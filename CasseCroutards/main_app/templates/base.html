@@ -8,6 +8,7 @@
         <link rel="stylesheet" type="text/css" href="{% static 'bootstrap-theme.min.css' %}" />
         <link rel="stylesheet" type="text/css" href="{% static 'bootstrap-custom.css' %}" />
         <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
+        <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
     <title>{% trans "PageTitle" %} - {% block title %}{% endblock %}</title>
 </head>
 <body>
@@ -46,7 +47,6 @@
         {% block footer %}
         {% endblock %}
     </footer>
-        <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
         <script src="{% static 'js/main.js' %}"></script>
 </body>
 </html>
