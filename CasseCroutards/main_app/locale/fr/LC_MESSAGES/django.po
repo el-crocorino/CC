@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-02 21:19+0200\n"
+"POT-Creation-Date: 2017-08-07 07:08+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -128,34 +128,41 @@ msgstr "Prochains voyages à venir"
 msgid "AddTrip"
 msgstr "Proposer un nouveau voyage"
 
-#: templates/index.html:26 templates/order/update.html:16
-#: templates/trip/update.html:15
+#: templates/index.html:26 templates/order/refuse.html:15
+#: templates/order/update.html:16 templates/trip/update.html:15
 msgid "Save"
 msgstr "Enregistrer"
 
-#: templates/order/abstract.html:17
-#, fuzzy
-#| msgid "PlaceOrder"
-msgid "OrderMore"
-msgstr "Voir plus"
-
-#: templates/order/abstract.html:20 templates/trip/abstract.html:21
+#: templates/order/abstract.html:22 templates/trip/abstract.html:21
 msgid "CancelOrder"
 msgstr "Annuler ma commande"
 
-#: templates/order/abstract.html:20 templates/order/update.html:11
+#: templates/order/abstract.html:22 templates/order/update.html:11
 #, fuzzy
 #| msgid "UpdateTrip"
 msgid "UpdateOrder"
 msgstr "Mettre à jour le voyage"
 
+#: templates/order/abstract.html:27
+#, fuzzy
+#| msgid "PlaceOrder"
+msgid "AcceptOrder"
+msgstr "Passer commande"
+
+#: templates/order/abstract.html:27
+#, fuzzy
+#| msgid "PlaceOrder"
+msgid "RefuseOrder"
+msgstr "Passer commande"
+
 #: templates/order/create.html:6 templates/trip/abstract.html:23
+#: templates/trip/abstract.html:37
 msgid "PlaceOrder"
 msgstr "Passer commande"
 
 #: templates/order/delete.html:6 templates/order/item.html:9
-#: templates/order/update.html:6 templates/trip/item.html:6
-#: templates/trip/update.html:6
+#: templates/order/refuse.html:6 templates/order/update.html:6
+#: templates/trip/item.html:6 templates/trip/update.html:6
 #, fuzzy
 #| msgid "AddTrip"
 msgid "Trip"
@@ -213,6 +220,14 @@ msgstr "Commentaire"
 msgid "Amount"
 msgstr "Montant"
 
+#: templates/order/item.html:23
+msgid "Status"
+msgstr "Statut"
+
+#: templates/order/refuse.html:13
+msgid "OrderRefuseReason"
+msgstr "Veuillez indiquer la raison de votre refus"
+
 #: templates/trip/abstract.html:14
 msgid "Description"
 msgstr "Description"
@@ -231,6 +246,12 @@ msgstr "Mettre à jour le voyage"
 #, fuzzy
 #| msgid "PlaceOrder"
 msgid "Orders"
+msgstr "Passer commande"
+
+#: templates/trip/abstract.html:34
+#, fuzzy
+#| msgid "PlaceOrder"
+msgid "EmpyOrders"
 msgstr "Passer commande"
 
 #: templates/user/item.html:6
@@ -259,6 +280,16 @@ msgstr "Mettre à jour le voyage"
 msgid "Trips"
 msgstr "Proposer un nouveau voyage"
 
+#: templates/user/item.html:29
+#, fuzzy
+#| msgid "PlaceOrder"
+msgid "Placed"
+msgstr "Passer commande"
+
+#: templates/user/item.html:33
+msgid "Requested"
+msgstr "Obligatoire"
+
 #: templates/user/update.html:6
 #, fuzzy
 #| msgid "UpdateTrip"
@@ -270,6 +301,11 @@ msgstr "Mettre à jour le voyage"
 #| msgid "UpdateTrip"
 msgid "UpdateProfile"
 msgstr "Mettre à jour le voyage"
+
+#, fuzzy
+#~| msgid "PlaceOrder"
+#~ msgid "OrderMore"
+#~ msgstr "Voir plus"
 
 #~ msgid "Logout"
 #~ msgstr "Déconnexion"
