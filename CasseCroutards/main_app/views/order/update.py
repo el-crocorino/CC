@@ -1,14 +1,18 @@
-from django.shortcuts import render
-from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
+from django.contrib.auth.decorators import login_required
+from django.http import HttpResponseRedirect
+from django.shortcuts import render
+
 from datetime import datetime
 
 from main_app.models import Order
 from main_app.forms import OrderForm
 
+@login_required
 def order_update( pRequest, pOrderId):
     '''
     Order creation
+    @param int pOrderId Order id
     '''
 
     if pRequest.method == 'POST':

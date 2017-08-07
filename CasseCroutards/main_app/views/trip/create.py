@@ -1,9 +1,13 @@
+from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 
-#from main_app.models import Trip
 from main_app.forms import TripForm
 
+@login_required
 def trip_create( pRequest):
+    '''
+    Trip creation view
+    '''
 
     form = TripForm( pRequest.POST)
 
