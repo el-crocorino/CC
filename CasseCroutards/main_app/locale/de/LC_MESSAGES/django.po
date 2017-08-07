@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-02 21:19+0200\n"
+"POT-Creation-Date: 2017-08-07 07:08+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -120,30 +120,35 @@ msgstr ""
 msgid "AddTrip"
 msgstr ""
 
-#: templates/index.html:26 templates/order/update.html:16
-#: templates/trip/update.html:15
+#: templates/index.html:26 templates/order/refuse.html:15
+#: templates/order/update.html:16 templates/trip/update.html:15
 msgid "Save"
 msgstr ""
 
-#: templates/order/abstract.html:17
-msgid "OrderMore"
-msgstr ""
-
-#: templates/order/abstract.html:20 templates/trip/abstract.html:21
+#: templates/order/abstract.html:22 templates/trip/abstract.html:21
 msgid "CancelOrder"
 msgstr ""
 
-#: templates/order/abstract.html:20 templates/order/update.html:11
+#: templates/order/abstract.html:22 templates/order/update.html:11
 msgid "UpdateOrder"
 msgstr ""
 
+#: templates/order/abstract.html:27
+msgid "AcceptOrder"
+msgstr ""
+
+#: templates/order/abstract.html:27
+msgid "RefuseOrder"
+msgstr ""
+
 #: templates/order/create.html:6 templates/trip/abstract.html:23
+#: templates/trip/abstract.html:37
 msgid "PlaceOrder"
 msgstr ""
 
 #: templates/order/delete.html:6 templates/order/item.html:9
-#: templates/order/update.html:6 templates/trip/item.html:6
-#: templates/trip/update.html:6
+#: templates/order/refuse.html:6 templates/order/update.html:6
+#: templates/trip/item.html:6 templates/trip/update.html:6
 msgid "Trip"
 msgstr ""
 
@@ -195,6 +200,14 @@ msgstr ""
 msgid "Amount"
 msgstr ""
 
+#: templates/order/item.html:23
+msgid "Status"
+msgstr ""
+
+#: templates/order/refuse.html:13
+msgid "OrderRefuseReason"
+msgstr ""
+
 #: templates/trip/abstract.html:14
 msgid "Description"
 msgstr ""
@@ -209,6 +222,10 @@ msgstr ""
 
 #: templates/trip/abstract.html:30 templates/user/item.html:28
 msgid "Orders"
+msgstr ""
+
+#: templates/trip/abstract.html:34
+msgid "EmpyOrders"
 msgstr ""
 
 #: templates/user/item.html:6
@@ -229,6 +246,14 @@ msgstr ""
 
 #: templates/user/item.html:24
 msgid "Trips"
+msgstr ""
+
+#: templates/user/item.html:29
+msgid "Placed"
+msgstr ""
+
+#: templates/user/item.html:33
+msgid "Requested"
 msgstr ""
 
 #: templates/user/update.html:6
