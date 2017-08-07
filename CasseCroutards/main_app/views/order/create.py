@@ -1,11 +1,15 @@
-from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
+from django.shortcuts import render
+
 from main_app.forms import OrderForm
 from main_app.models import Trip
 
+@login_required
 def order_create( pRequest, pTripId):
     '''
-    Order creation
+    Order creation view
+    @param int pTripId Trip id
     '''
 
     orderTrip = Trip.objects.get( id = pTripId)

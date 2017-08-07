@@ -1,12 +1,15 @@
-from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
+from django.shortcuts import render
 
 from main_app.models import Order
 from main_app.forms import OrderDeleteForm
 
+@login_required
 def order_delete( pRequest, pOrderId):
     '''
-    Order deletion
+    Order deletion view
+    @param int pOrderId Order id
     '''
 
     order = Order.objects.get( id = pOrderId)

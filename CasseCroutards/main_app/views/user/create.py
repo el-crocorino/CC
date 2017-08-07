@@ -1,6 +1,6 @@
-from django.shortcuts import render
-from django.http import HttpResponseRedirect
 from django.contrib.auth import authenticate, login
+from django.http import HttpResponseRedirect
+from django.shortcuts import render
 
 from main_app.forms import SignUpForm
 

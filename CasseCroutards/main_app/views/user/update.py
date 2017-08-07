@@ -1,11 +1,16 @@
-from django.shortcuts import render
-from django.http import HttpResponseRedirect
 from django.contrib.auth import get_user_model
+from django.contrib.auth.decorators import login_required
+from django.http import HttpResponseRedirect
+from django.shortcuts import render
+
 from main_app.forms import UserUpdateForm
 
-
-
+@login_required
 def user_update( pRequest, pUserId):
+    '''
+    User update view
+    @param int pUserId User id
+    '''
 
     user = get_user_model().objects.get( id = pUserId)
 
