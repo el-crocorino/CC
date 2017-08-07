@@ -23,7 +23,7 @@
             {% else  %}
                 {% if order.trip.user.id == request.user.id %} 
                     <li>{{ order.get_status_display }}</li>
-                    {% if order.status == 0 %}
+                    {% if order.status == order.PENDING %}
                         <li><a href="{% url 'order_accept' pOrderId=order.id %}">{% trans "AcceptOrder" %}</a> | <a href="{% url 'order_refuse' pOrderId=order.id %}">{% trans "RefuseOrder" %}</a></li>                  
                     {% endif %}
                 {% endif %}
