@@ -106,11 +106,14 @@ class Trip( models.Model):
         self.orders = Order.objects.filter( trip = self.id)
 
         for order in self.orders:
+            
             if order.user.id == pUserId:
                 self.currentUserHasOrder = True
                 self.currentUserOrder = order
             else:
                 self.currentUserHasOrder = False
+
+            order.statusAsText = order.get_status_display()
     
 class Order( models.Model):
     '''
@@ -123,11 +126,11 @@ class Order( models.Model):
     HONORED = 3
 
     Status = (
-        (REFUSED, 'Refused'),
-        (PENDING, 'Pending'),
-        (ACCEPTED, 'Accepted'),
-        (RUNNING, 'Running'),
-        (HONORED, 'Honored'),
+        (REFUSED, 'refused'),
+        (PENDING, 'pending'),
+        (ACCEPTED, 'accepted'),
+        (RUNNING, 'running'),
+        (HONORED, 'honored'),
         )
 
     user = models.ForeignKey( settings.AUTH_USER_MODEL, on_delete = models.CASCADE)
@@ -144,12 +147,9 @@ class Order( models.Model):
     def __str__( self):
         return str(self.id) + ' | ' + self.user.first_name + ' - ' + str(self.amount) + ': ' + str(self.get_status_display())
 
-    def get_status_display( self):        
+    def get_status_display( self):   
+        print(self.status)     
         return self.Status[self.status][1]
-
-#class OrderAdmin( admin.ModelAdmin):
-    #list_display('id', 'user', 'trip' 'amount', 'status', 'created', 'updated')        
-    
 
 class Item( models.Model):
     '''
@@ -169,3 +169,22 @@ class Appointment( models.Model):
 
     class Meta:
         app_label = 'main_app'
+
+
+class Comment( models.Model):
+    '''
+    Comment Model 
+
+    TODO Later in CC-43
+    See : https://medium.com/@bhrigu/django-how-to-add-foreignkey-to-multiple-models-394596f06e84
+    '''
+    user = models.ForeignKey( settings.AUTH_USER_MODEL, on_delete = models.CASCADE)
+    #parentId = models.ForeignKey( Order)
+    text = models.TextField( max_length = 1500, default = '')
+    created = models.DateTimeField( auto_now_add = True)
+    updated = models.DateTimeField( auto_now_add = True)
+
+
+    class Meta:
+        app_label = 'main_app'
+
