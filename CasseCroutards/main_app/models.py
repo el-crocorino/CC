@@ -148,7 +148,6 @@ class Order( models.Model):
         return str(self.id) + ' | ' + self.user.first_name + ' - ' + str(self.amount) + ': ' + str(self.get_status_display())
 
     def get_status_display( self):   
-        print(self.status)     
         return self.Status[self.status][1]
 
 class Item( models.Model):
