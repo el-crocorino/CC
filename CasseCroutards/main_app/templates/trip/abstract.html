@@ -12,6 +12,19 @@
         <li>{% trans "Start" %}: {{ trip.city_start }}</li>
         <li>{% trans "Destination" %}: {{ trip.city_end }}</li>
         <li>{% trans "Description" %}: {{ trip.comment|truncatechars:100 }}</li>
+        <li>{% trans "TripItems" %}:
+            <ul>
+                {% for item in trip.items %}  
+                    {% if showExtendedTripItems %}
+                        <li>{% include "tripItem/item.html" %}</li>
+                    {% else %}                  
+                        <li>{% include "tripItem/abstract.html" %}</li>
+                    {% endif %}
+                {% empty %}
+                    {% trans "EmptyItems" %}
+                {% endfor %}
+            </ul>
+        </li>
         {% if request.user.is_authenticated %}
             {% if trip.user.id == request.user.id %}
                 <li><a href="{% url 'trip_delete' pTripId=trip.id %}">{% trans "DeleteTrip" %}</a> | <a href="/trip/update/{{ trip.id }}">{% trans "UpdateTrip" %}</a></li>

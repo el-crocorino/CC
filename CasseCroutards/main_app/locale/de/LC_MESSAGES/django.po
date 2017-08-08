@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-08 20:56+0200\n"
+"POT-Creation-Date: 2017-08-08 21:34+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -108,47 +108,50 @@ msgstr ""
 msgid "tripDescription"
 msgstr ""
 
-#: models.py:84 models.py:141 models.py:163 models.py:182
+#: models.py:84 models.py:147 models.py:169 models.py:188
 msgid "created"
 msgstr ""
 
-#: models.py:85 models.py:142 models.py:164 models.py:183
+#: models.py:85 models.py:148 models.py:170 models.py:189
 msgid "updated"
 msgstr ""
 
-#: models.py:138
+#: models.py:144
 msgid "orderDescription"
 msgstr ""
 
-#: models.py:139
+#: models.py:145
 msgid "orderAmount"
 msgstr ""
 
-#: models.py:140
+#: models.py:146
 msgid "orderStatus"
 msgstr ""
 
-#: models.py:159
+#: models.py:165 templates/tripItem/abstract.html:3
+#: templates/tripItem/item.html:4
 msgid "tripItemTitle"
 msgstr ""
 
-#: models.py:160
+#: models.py:166 templates/tripItem/item.html:15
 msgid "tripItemDescription"
 msgstr ""
 
-#: models.py:161
+#: models.py:167 templates/tripItem/abstract.html:5
+#: templates/tripItem/item.html:6
 msgid "tripItemAVGValue"
 msgstr ""
 
-#: models.py:162
+#: models.py:168 templates/tripItem/abstract.html:11
+#: templates/tripItem/item.html:12
 msgid "tripItemAVGQty"
 msgstr ""
 
-#: models.py:180
+#: models.py:186
 msgid "orderItemAmount"
 msgstr ""
 
-#: models.py:181
+#: models.py:187
 msgid "orderItemQty"
 msgstr ""
 
@@ -184,7 +187,7 @@ msgstr ""
 msgid "AvailableTrips"
 msgstr ""
 
-#: templates/order/abstract.html:22 templates/trip/abstract.html:21
+#: templates/order/abstract.html:22 templates/trip/abstract.html:34
 msgid "CancelOrder"
 msgstr ""
 
@@ -200,8 +203,8 @@ msgstr ""
 msgid "RefuseOrder"
 msgstr ""
 
-#: templates/order/create.html:6 templates/trip/abstract.html:23
-#: templates/trip/abstract.html:37
+#: templates/order/create.html:6 templates/trip/abstract.html:36
+#: templates/trip/abstract.html:50
 msgid "PlaceOrder"
 msgstr ""
 
@@ -276,19 +279,27 @@ msgstr ""
 msgid "Description"
 msgstr ""
 
-#: templates/trip/abstract.html:17
+#: templates/trip/abstract.html:15
+msgid "TripItems"
+msgstr ""
+
+#: templates/trip/abstract.html:24
+msgid "EmptyItems"
+msgstr ""
+
+#: templates/trip/abstract.html:30
 msgid "DeleteTrip"
 msgstr ""
 
-#: templates/trip/abstract.html:17 templates/trip/update.html:11
+#: templates/trip/abstract.html:30 templates/trip/update.html:11
 msgid "UpdateTrip"
 msgstr ""
 
-#: templates/trip/abstract.html:30 templates/user/item.html:28
+#: templates/trip/abstract.html:43 templates/user/item.html:28
 msgid "Orders"
 msgstr ""
 
-#: templates/trip/abstract.html:34
+#: templates/trip/abstract.html:47
 msgid "EmpyOrders"
 msgstr ""
 
@@ -302,6 +313,14 @@ msgstr ""
 
 #: templates/trip/create_abstract.html:12
 msgid "AddTripItem"
+msgstr ""
+
+#: templates/tripItem/item.html:16
+msgid "Update"
+msgstr ""
+
+#: templates/tripItem/item.html:16
+msgid "Delete"
 msgstr ""
 
 #: templates/user/item.html:6
