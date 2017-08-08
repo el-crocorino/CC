@@ -318,30 +318,24 @@ msgid "Description"
 msgstr "Description"
 
 #: templates/trip/abstract.html:15
-#, fuzzy
-#| msgid "AddTrip"
 msgid "TripItems"
-msgstr "Proposer un nouveau voyage"
+msgstr "Produits disponibles"
 
 #: templates/trip/abstract.html:24
 msgid "EmptyItems"
 msgstr "Pas de produits précisés"
 
 #: templates/trip/abstract.html:30
-#, fuzzy
-#| msgid "UpdateTrip"
 msgid "DeleteTrip"
-msgstr "Mettre à jour le voyage"
+msgstr "Supprimer le voyage"
 
 #: templates/trip/abstract.html:30 templates/trip/update.html:11
 msgid "UpdateTrip"
 msgstr "Mettre à jour le voyage"
 
 #: templates/trip/abstract.html:43 templates/user/item.html:28
-#, fuzzy
-#| msgid "PlaceOrder"
 msgid "Orders"
-msgstr "Passer commande"
+msgstr "Commandes"
 
 #: templates/trip/abstract.html:47
 #, fuzzy

@@ -315,10 +315,8 @@ msgid "Description"
 msgstr "Description"
 
 #: templates/trip/abstract.html:15
-#, fuzzy
-#| msgid "AddTrip"
 msgid "TripItems"
-msgstr "Propose a new trip"
+msgstr "Available products"
 
 #: templates/trip/abstract.html:24
 msgid "EmptyItems"
