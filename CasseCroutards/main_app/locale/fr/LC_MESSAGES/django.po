@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-07 07:08+0200\n"
+"POT-Creation-Date: 2017-08-08 20:56+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: forms.py:51
+#: forms.py:61
 msgid "OrderDeleteCheckbox"
 msgstr "Je souhaite annuler cette commande"
 
@@ -88,21 +88,107 @@ msgstr "Utilisateur"
 msgid "users"
 msgstr "Utilisateurs"
 
-#: templates/base.html:11
+#: models.py:78
+#, fuzzy
+#| msgid "Date"
+msgid "tripDate"
+msgstr "Date"
+
+#: models.py:79
+msgid "tripCityStart"
+msgstr "Ville de départ"
+
+#: models.py:80
+msgid "tripCityEnd"
+msgstr "Ville de destination"
+
+#: models.py:81
+#, fuzzy
+#| msgid "Amount"
+msgid "tripMaxAmount"
+msgstr "Montant"
+
+#: models.py:82
+#, fuzzy
+#| msgid "Participants"
+msgid "tripMaxParticipants"
+msgstr "Participants"
+
+#: models.py:83
+#, fuzzy
+#| msgid "Description"
+msgid "tripDescription"
+msgstr "Description"
+
+#: models.py:84 models.py:141 models.py:163 models.py:182
+msgid "created"
+msgstr "Créé"
+
+#: models.py:85 models.py:142 models.py:164 models.py:183
+#, fuzzy
+#| msgid "UpdateTrip"
+msgid "updated"
+msgstr "Mis à jour"
+
+#: models.py:138
+#, fuzzy
+#| msgid "Description"
+msgid "orderDescription"
+msgstr "Description"
+
+#: models.py:139
+#, fuzzy
+#| msgid "Amount"
+msgid "orderAmount"
+msgstr "Montant"
+
+#: models.py:140
+#, fuzzy
+#| msgid "Status"
+msgid "orderStatus"
+msgstr "Statut"
+
+#: models.py:159
+msgid "tripItemTitle"
+msgstr "Nom"
+
+#: models.py:160
+#, fuzzy
+#| msgid "Description"
+msgid "tripItemDescription"
+msgstr "Description"
+
+#: models.py:161
+msgid "tripItemAVGValue"
+msgstr "Prix"
+
+#: models.py:162
+msgid "tripItemAVGQty"
+msgstr "Quantité"
+
+#: models.py:180
+msgid "orderItemAmount"
+msgstr "Montant"
+
+#: models.py:181
+msgid "orderItemQty"
+msgstr "Quantité"
+
+#: templates/base.html:12
 msgid "PageTitle"
 msgstr "Les Casse-Croûtards"
 
-#: templates/base.html:28 templates/index.html:13 templates/user/create.html:6
+#: templates/base.html:29 templates/index.html:13 templates/user/create.html:6
 msgid "SignUp"
 msgstr "M'inscrire"
 
-#: templates/base.html:33 templates/index.html:11
+#: templates/base.html:34 templates/index.html:11
 #, fuzzy
 #| msgid "SignIn"
 msgid "SignOut"
 msgstr "Me déconnecter"
 
-#: templates/base.html:35 templates/index.html:13 templates/user/login.html:6
+#: templates/base.html:36 templates/index.html:13 templates/user/login.html:9
 msgid "SignIn"
 msgstr "Me connecter"
 
@@ -123,15 +209,6 @@ msgstr "Bonjour petit Casse-Croûtard !"
 #: templates/index.html:16
 msgid "AvailableTrips"
 msgstr "Prochains voyages à venir"
-
-#: templates/index.html:22
-msgid "AddTrip"
-msgstr "Proposer un nouveau voyage"
-
-#: templates/index.html:26 templates/order/refuse.html:15
-#: templates/order/update.html:16 templates/trip/update.html:15
-msgid "Save"
-msgstr "Enregistrer"
 
 #: templates/order/abstract.html:22 templates/trip/abstract.html:21
 msgid "CancelOrder"
@@ -228,6 +305,11 @@ msgstr "Statut"
 msgid "OrderRefuseReason"
 msgstr "Veuillez indiquer la raison de votre refus"
 
+#: templates/order/refuse.html:15 templates/order/update.html:16
+#: templates/trip/create_abstract.html:14 templates/trip/update.html:15
+msgid "Save"
+msgstr "Enregistrer"
+
 #: templates/trip/abstract.html:14
 msgid "Description"
 msgstr "Description"
@@ -253,6 +335,20 @@ msgstr "Passer commande"
 #| msgid "PlaceOrder"
 msgid "EmpyOrders"
 msgstr "Passer commande"
+
+#: templates/trip/create.html:4 templates/trip/create_abstract.html:5
+msgid "AddTrip"
+msgstr "Proposer un nouveau voyage"
+
+#: templates/trip/create_abstract.html:9
+msgid "DefineTripItems"
+msgstr "Précisez si besoin les produits que vous pourrez ramener à vos participants"
+
+#: templates/trip/create_abstract.html:12
+#, fuzzy
+#| msgid "AddTrip"
+msgid "AddTripItem"
+msgstr "Proposer un nouveau voyage"
 
 #: templates/user/item.html:6
 #, fuzzy
@@ -290,6 +386,10 @@ msgstr "Passer commande"
 msgid "Requested"
 msgstr "Obligatoire"
 
+#: templates/user/login.html:5
+msgid "Login"
+msgstr "Connexion"
+
 #: templates/user/update.html:6
 #, fuzzy
 #| msgid "UpdateTrip"
@@ -309,9 +409,6 @@ msgstr "Mettre à jour le voyage"
 
 #~ msgid "Logout"
 #~ msgstr "Déconnexion"
-
-#~ msgid "Login"
-#~ msgstr "Connexion"
 
 #~ msgid "Voyage"
 #~ msgstr "Voyage"
