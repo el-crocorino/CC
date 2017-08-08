@@ -1,0 +1,17 @@
+{% load staticfiles %}
+{% load i18n %}
+<ul>
+    <li>{% trans "tripItemTitle" %}: {{ item.title }} | 
+        {% if item.average_value %}
+        {% trans "tripItemAVGValue" %}: {{ item.average_value }}
+        {% endif %}
+        {% if item.average_value and item.average_qty %}
+        /
+        {% endif %}
+        {% if item.average_qty %}
+        {% trans "tripItemAVGQty" %}: {{ item.average_qty }}
+        {% endif %}
+    </li>
+    <li>{% trans "tripItemDescription" %}: {{ item.title }}</li>
+    <li><a href="">{% trans "Update" %}</a> | <a href="">{% trans "Delete" %}</a></li>
+</ul>

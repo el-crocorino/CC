@@ -1,0 +1,13 @@
+{% load staticfiles %}
+{% load i18n %}
+{% trans "tripItemTitle" %}: {{ item.title }} | 
+{% if item.average_value %}
+    {% trans "tripItemAVGValue" %}: {{ item.average_value }}
+{% endif %}
+{% if item.average_value and item.average_qty %}
+    /
+{% endif %}
+{% if item.average_qty %}
+    {% trans "tripItemAVGQty" %}: {{ item.average_qty }}
+{% endif %}
+

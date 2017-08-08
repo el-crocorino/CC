@@ -10,6 +10,7 @@ def index( pRequest):
 
     for trip in trips:
         trip.getOrders(pRequest.user.id)
+        trip.getItems()
 
     addTripForm = TripForm( prefix = 'TripForm')
     addTripItemForm = TripItemForm( prefix = 'TripItemForm')
@@ -21,5 +22,6 @@ def index( pRequest):
         'showTripUser': True, 
         'showTripOrder': True, 
         'showOrderUser': True,
-        'showOrderTrip': False
+        'showOrderTrip': False,
+        'showExtendedTripItems': False,
         })

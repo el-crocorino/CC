@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-08 20:56+0200\n"
+"POT-Creation-Date: 2017-08-08 21:34+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -119,55 +119,58 @@ msgstr "Participants"
 msgid "tripDescription"
 msgstr "Description"
 
-#: models.py:84 models.py:141 models.py:163 models.py:182
+#: models.py:84 models.py:147 models.py:169 models.py:188
 msgid "created"
 msgstr "Created"
 
-#: models.py:85 models.py:142 models.py:164 models.py:183
+#: models.py:85 models.py:148 models.py:170 models.py:189
 #, fuzzy
 #| msgid "UpdateTrip"
 msgid "updated"
 msgstr "Update trip informations"
 
-#: models.py:138
+#: models.py:144
 #, fuzzy
 #| msgid "Description"
 msgid "orderDescription"
 msgstr "Description"
 
-#: models.py:139
+#: models.py:145
 #, fuzzy
 #| msgid "Amount"
 msgid "orderAmount"
 msgstr "Amount"
 
-#: models.py:140
+#: models.py:146
 msgid "orderStatus"
 msgstr "Status"
 
-#: models.py:159
+#: models.py:165 templates/tripItem/abstract.html:3
+#: templates/tripItem/item.html:4
 msgid "tripItemTitle"
 msgstr "Name"
 
-#: models.py:160
+#: models.py:166 templates/tripItem/item.html:15
 #, fuzzy
 #| msgid "Description"
 msgid "tripItemDescription"
 msgstr "Description"
 
-#: models.py:161
+#: models.py:167 templates/tripItem/abstract.html:5
+#: templates/tripItem/item.html:6
 msgid "tripItemAVGValue"
-msgstr "Value"
+msgstr "Average price"
 
-#: models.py:162
+#: models.py:168 templates/tripItem/abstract.html:11
+#: templates/tripItem/item.html:12
 msgid "tripItemAVGQty"
-msgstr "Quantity"
+msgstr "Average quantity"
 
-#: models.py:180
+#: models.py:186
 msgid "orderItemAmount"
 msgstr "Amount"
 
-#: models.py:181
+#: models.py:187
 msgid "orderItemQty"
 msgstr "Quantity"
 
@@ -207,7 +210,7 @@ msgstr "Hi there, fellow hitchsnacker!"
 msgid "AvailableTrips"
 msgstr "Next trips to come"
 
-#: templates/order/abstract.html:22 templates/trip/abstract.html:21
+#: templates/order/abstract.html:22 templates/trip/abstract.html:34
 msgid "CancelOrder"
 msgstr "Cancel order"
 
@@ -229,8 +232,8 @@ msgstr "Place order"
 msgid "RefuseOrder"
 msgstr "Place order"
 
-#: templates/order/create.html:6 templates/trip/abstract.html:23
-#: templates/trip/abstract.html:37
+#: templates/order/create.html:6 templates/trip/abstract.html:36
+#: templates/trip/abstract.html:50
 msgid "PlaceOrder"
 msgstr "Place order"
 
@@ -311,23 +314,33 @@ msgstr "Save"
 msgid "Description"
 msgstr "Description"
 
-#: templates/trip/abstract.html:17
+#: templates/trip/abstract.html:15
+#, fuzzy
+#| msgid "AddTrip"
+msgid "TripItems"
+msgstr "Propose a new trip"
+
+#: templates/trip/abstract.html:24
+msgid "EmptyItems"
+msgstr "No product specified"
+
+#: templates/trip/abstract.html:30
 #, fuzzy
 #| msgid "UpdateTrip"
 msgid "DeleteTrip"
 msgstr "Update trip informations"
 
-#: templates/trip/abstract.html:17 templates/trip/update.html:11
+#: templates/trip/abstract.html:30 templates/trip/update.html:11
 msgid "UpdateTrip"
 msgstr "Update trip informations"
 
-#: templates/trip/abstract.html:30 templates/user/item.html:28
+#: templates/trip/abstract.html:43 templates/user/item.html:28
 #, fuzzy
 #| msgid "PlaceOrder"
 msgid "Orders"
 msgstr "Place order"
 
-#: templates/trip/abstract.html:34
+#: templates/trip/abstract.html:47
 #, fuzzy
 #| msgid "PlaceOrder"
 msgid "EmpyOrders"
@@ -346,6 +359,18 @@ msgstr "Add products your offer to bring back to your trip's participants"
 #| msgid "AddTrip"
 msgid "AddTripItem"
 msgstr "Propose a new trip"
+
+#: templates/tripItem/item.html:16
+#, fuzzy
+#| msgid "UpdateTrip"
+msgid "Update"
+msgstr "Update trip informations"
+
+#: templates/tripItem/item.html:16
+#, fuzzy
+#| msgid "UpdateTrip"
+msgid "Delete"
+msgstr "Update trip informations"
 
 #: templates/user/item.html:6
 #, fuzzy

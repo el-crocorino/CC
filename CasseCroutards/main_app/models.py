@@ -114,6 +114,12 @@ class Trip( models.Model):
                 self.currentUserHasOrder = False
 
             order.statusAsText = order.get_status_display()
+
+    def getItems(self):
+        '''
+        Gets trip items
+        '''
+        self.items = TripItem.objects.filter( trip = self.id)
     
 class Order( models.Model):
     '''
