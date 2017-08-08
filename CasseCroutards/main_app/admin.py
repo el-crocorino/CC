@@ -1,4 +1,5 @@
 from django.contrib import admin
+from django.core import urlresolvers
 from main_app.models import Trip, TripItem, User, Order
 
 # Register your models here.
@@ -16,6 +17,19 @@ class TripItemAdmin( admin.ModelAdmin):
     Admin TripItem class
     '''
     list_display = ['id', 'trip', 'title', 'average_value', 'average_qty', 'created', 'updated']
+    
+    '''
+    See : 
+    https://stackoverflow.com/questions/163823/can-list-display-in-a-django-modeladmin-display-attributes-of-foreignkey-field
+    https://stackoverflow.com/questions/28832897/link-in-django-admin-to-foreign-key-object
+    
+    list_display = ['id', 'link_to_Trip', 'title', 'average_value', 'average_qty', 'created', 'updated']
+
+    def link_to_Trip(self, obj):
+        link = urlresolvers.reverse("admin:trip", args = [obj.trip.id]) #model name has to be lowercase
+        return u'<a href="%s">%s</a>' % (link, obj.trip.name)
+    link_to_Trip.allow_tags = True
+    '''
 
 
 class UserAdmin( admin.ModelAdmin):
