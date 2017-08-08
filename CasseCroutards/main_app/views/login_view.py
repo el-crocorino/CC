@@ -24,6 +24,7 @@ def login_view( pRequest):
             if user is not None:
                 if user.is_active:
                     login( pRequest, user)
+                    # TODO : add a check if 'next is empty : redirect to index page'
                     return HttpResponseRedirect( pRequest.POST.get('next','/accounts/profile/'))
                 else:
                     print("The account is not active")

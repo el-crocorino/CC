@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from main_app.models import Trip, Order
-from main_app.forms import TripForm
+from main_app.forms import TripForm, TripItemForm
 
 def index( pRequest):
     '''
@@ -11,11 +11,13 @@ def index( pRequest):
     for trip in trips:
         trip.getOrders(pRequest.user.id)
 
-    addTripForm = TripForm
+    addTripForm = TripForm( prefix = 'TripForm')
+    addTripItemForm = TripItemForm( prefix = 'TripItemForm')
     
     return render(pRequest, 'index.html', {
         'trips': trips, 
         'addTripForm' : addTripForm, 
+        'addTripItemForm' : addTripItemForm, 
         'showTripUser': True, 
         'showTripOrder': True, 
         'showOrderUser': True,
