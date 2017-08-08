@@ -164,8 +164,8 @@ class TripItem( models.Model):
     trip = models.ForeignKey( Trip)
     title = models.TextField( _( 'tripItemTitle'), max_length = 150)
     description = models.TextField( _( 'tripItemDescription'), max_length = 500)
-    average_value = models.DecimalField( _( 'tripItemAVGValue'), max_digits = 5, decimal_places = 2, default = 0.00, blank=True)
-    average_qty = models.IntegerField( _( 'tripItemAVGQty'), default = 1, blank=True)
+    average_value = models.DecimalField( _( 'tripItemAVGValue'), max_digits = 5, decimal_places = 2, default = 0.00, blank = True)
+    average_qty = models.IntegerField( _( 'tripItemAVGQty'), default = 0, blank = True)
     created = models.DateTimeField( _( 'created'), auto_now_add = True)
     updated = models.DateTimeField( _( 'updated'), auto_now_add = True)
 
