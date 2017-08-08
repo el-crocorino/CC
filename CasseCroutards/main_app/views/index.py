@@ -1,4 +1,7 @@
+import datetime
+
 from django.shortcuts import render
+
 from main_app.models import Trip, Order
 from main_app.forms import TripForm, TripItemForm
 
@@ -6,7 +9,8 @@ def index( pRequest):
     '''
     Homepage
     '''
-    trips = Trip.objects.all()
+    now = datetime.datetime.now()
+    trips = Trip.objects.filter(date__gte = now).order_by('date')
 
     for trip in trips:
         trip.getOrders(pRequest.user.id)
