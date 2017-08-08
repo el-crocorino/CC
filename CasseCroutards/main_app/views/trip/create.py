@@ -1,6 +1,7 @@
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 
+from main_app.models import TripItem
 from main_app.forms import TripForm, TripItemForm
 
 @login_required
@@ -17,32 +18,39 @@ def trip_create( pRequest):
         trip = tripForm.save( commit = False)
 
         trip.user = pRequest.user
+        
+        trip.save()
 
-        itemsSaved = False
+        itemsSaved = True
+        tripItemIds = []
 
-        for i in range(0, tripItemCounter):
+        for i in range(0, tripItemCounter + 1):
         
             itemSaved = False
             
             # TODO : ajouter un check if key exists (au cas où un item ait été supprimé)
             tripItemForm = TripItemForm( pRequest.POST, prefix = "TripItemForm" + str(i))
-            print(pRequest.POST)
-            print("TripItemForm" + str(i))
-            print(tripItemForm)
             tripItemForm.trip = trip
-            print(tripItemForm.is_valid())
-            print(tripItemForm.errors)
         
             if tripItemForm.is_valid():
-                tripItemForm.trip = trip
-                print(tripItemForm)
-                tripItemForm.save()
+
+                tripItem = tripItemForm.save( commit = False)
+                tripItem.trip = trip
+                tripItem.save()
+
+                tripItemIds.append( tripItem.id)
+
                 itemSaved = True
 
             itemsSaved = itemsSaved and itemSaved 
         
-        if itemsSaved:
-            trip.save()
+        if not itemsSaved:
+
+            trip.delete()
+
+            for itemId in tripItemIds:
+                tripItem = TripItem.objects.get( id = itemId)
+                tripItem.delete()
 
 
     return HttpResponseRedirect('/')

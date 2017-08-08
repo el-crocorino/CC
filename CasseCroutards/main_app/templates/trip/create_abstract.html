@@ -27,9 +27,10 @@
                 
                 $.each( $('#' + formDivId + ' label'), function( pIndex, pElement){
 
-                    var newId = 'id_{{ addTripItemForm.prefix }}' + tripItemCounter + '-' + pElement.htmlFor.substring( '{{ addTripItemForm.prefix }}'.length + 4);
+                    var newName = '{{ addTripItemForm.prefix }}' + tripItemCounter + '-' + pElement.htmlFor.substring( '{{ addTripItemForm.prefix }}'.length + 4);
+                    var newId = 'id_' + newName;
 
-                    $('#' + pElement.htmlFor).attr('id', newId)
+                    $('#' + pElement.htmlFor).attr('id', newId).attr('name', newName)
                     pElement.htmlFor = newId;
 
                 });
