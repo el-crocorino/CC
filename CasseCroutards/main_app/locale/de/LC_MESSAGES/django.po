@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-07 07:08+0200\n"
+"POT-Creation-Date: 2017-08-08 20:56+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: forms.py:51
+#: forms.py:61
 msgid "OrderDeleteCheckbox"
 msgstr ""
 
@@ -84,19 +84,87 @@ msgstr ""
 msgid "users"
 msgstr ""
 
-#: templates/base.html:11
+#: models.py:78
+msgid "tripDate"
+msgstr ""
+
+#: models.py:79
+msgid "tripCityStart"
+msgstr ""
+
+#: models.py:80
+msgid "tripCityEnd"
+msgstr ""
+
+#: models.py:81
+msgid "tripMaxAmount"
+msgstr ""
+
+#: models.py:82
+msgid "tripMaxParticipants"
+msgstr ""
+
+#: models.py:83
+msgid "tripDescription"
+msgstr ""
+
+#: models.py:84 models.py:141 models.py:163 models.py:182
+msgid "created"
+msgstr ""
+
+#: models.py:85 models.py:142 models.py:164 models.py:183
+msgid "updated"
+msgstr ""
+
+#: models.py:138
+msgid "orderDescription"
+msgstr ""
+
+#: models.py:139
+msgid "orderAmount"
+msgstr ""
+
+#: models.py:140
+msgid "orderStatus"
+msgstr ""
+
+#: models.py:159
+msgid "tripItemTitle"
+msgstr ""
+
+#: models.py:160
+msgid "tripItemDescription"
+msgstr ""
+
+#: models.py:161
+msgid "tripItemAVGValue"
+msgstr ""
+
+#: models.py:162
+msgid "tripItemAVGQty"
+msgstr ""
+
+#: models.py:180
+msgid "orderItemAmount"
+msgstr ""
+
+#: models.py:181
+msgid "orderItemQty"
+msgstr ""
+
+#: templates/base.html:12
 msgid "PageTitle"
 msgstr ""
 
-#: templates/base.html:28 templates/index.html:13 templates/user/create.html:6
+#: templates/base.html:29 templates/index.html:13 templates/user/create.html:6
 msgid "SignUp"
 msgstr ""
 
-#: templates/base.html:33 templates/index.html:11
+#: templates/base.html:34 templates/index.html:11
 msgid "SignOut"
 msgstr ""
 
-#: templates/base.html:35 templates/index.html:13 templates/user/login.html:6
+#: templates/base.html:36 templates/index.html:13 templates/user/login.html:9
 msgid "SignIn"
 msgstr ""
 
@@ -114,15 +182,6 @@ msgstr ""
 
 #: templates/index.html:16
 msgid "AvailableTrips"
-msgstr ""
-
-#: templates/index.html:22
-msgid "AddTrip"
-msgstr ""
-
-#: templates/index.html:26 templates/order/refuse.html:15
-#: templates/order/update.html:16 templates/trip/update.html:15
-msgid "Save"
 msgstr ""
 
 #: templates/order/abstract.html:22 templates/trip/abstract.html:21
@@ -208,6 +267,11 @@ msgstr ""
 msgid "OrderRefuseReason"
 msgstr ""
 
+#: templates/order/refuse.html:15 templates/order/update.html:16
+#: templates/trip/create_abstract.html:14 templates/trip/update.html:15
+msgid "Save"
+msgstr ""
+
 #: templates/trip/abstract.html:14
 msgid "Description"
 msgstr ""
@@ -226,6 +290,18 @@ msgstr ""
 
 #: templates/trip/abstract.html:34
 msgid "EmpyOrders"
+msgstr ""
+
+#: templates/trip/create.html:4 templates/trip/create_abstract.html:5
+msgid "AddTrip"
+msgstr ""
+
+#: templates/trip/create_abstract.html:9
+msgid "DefineTripItems"
+msgstr ""
+
+#: templates/trip/create_abstract.html:12
+msgid "AddTripItem"
 msgstr ""
 
 #: templates/user/item.html:6
@@ -254,6 +330,10 @@ msgstr ""
 
 #: templates/user/item.html:33
 msgid "Requested"
+msgstr ""
+
+#: templates/user/login.html:5
+msgid "Login"
 msgstr ""
 
 #: templates/user/update.html:6
