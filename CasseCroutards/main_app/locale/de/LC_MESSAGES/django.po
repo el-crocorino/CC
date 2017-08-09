@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-08 21:34+0200\n"
+"POT-Creation-Date: 2017-08-09 06:54+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -128,8 +128,7 @@ msgstr ""
 msgid "orderStatus"
 msgstr ""
 
-#: models.py:165 templates/tripItem/abstract.html:3
-#: templates/tripItem/item.html:4
+#: models.py:165
 msgid "tripItemTitle"
 msgstr ""
 
@@ -137,12 +136,12 @@ msgstr ""
 msgid "tripItemDescription"
 msgstr ""
 
-#: models.py:167 templates/tripItem/abstract.html:5
+#: models.py:167 templates/tripItem/abstract.html:6
 #: templates/tripItem/item.html:6
 msgid "tripItemAVGValue"
 msgstr ""
 
-#: models.py:168 templates/tripItem/abstract.html:11
+#: models.py:168 templates/tripItem/abstract.html:12
 #: templates/tripItem/item.html:12
 msgid "tripItemAVGQty"
 msgstr ""
@@ -155,19 +154,19 @@ msgstr ""
 msgid "orderItemQty"
 msgstr ""
 
-#: templates/base.html:12
+#: templates/base.html:13
 msgid "PageTitle"
 msgstr ""
 
-#: templates/base.html:29 templates/index.html:13 templates/user/create.html:6
+#: templates/base.html:30 templates/index.html:13 templates/user/create.html:6
 msgid "SignUp"
 msgstr ""
 
-#: templates/base.html:34 templates/index.html:11
+#: templates/base.html:35 templates/index.html:11
 msgid "SignOut"
 msgstr ""
 
-#: templates/base.html:36 templates/index.html:13 templates/user/login.html:9
+#: templates/base.html:37 templates/index.html:13 templates/user/login.html:9
 msgid "SignIn"
 msgstr ""
 
@@ -315,11 +314,11 @@ msgstr ""
 msgid "AddTripItem"
 msgstr ""
 
-#: templates/tripItem/item.html:16
+#: templates/tripItem/abstract.html:15 templates/tripItem/item.html:16
 msgid "Update"
 msgstr ""
 
-#: templates/tripItem/item.html:16
+#: templates/tripItem/abstract.html:15 templates/tripItem/item.html:16
 msgid "Delete"
 msgstr ""
 
@@ -361,4 +360,12 @@ msgstr ""
 
 #: templates/user/update.html:18
 msgid "UpdateProfile"
+msgstr ""
+
+#: views/tripItem/delete.py:21
+msgid "tripItemDeletion"
+msgstr ""
+
+#: views/tripItem/delete.py:24
+msgid "tripItemDeletionError"
 msgstr ""
