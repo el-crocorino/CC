@@ -13,12 +13,13 @@ function getCookie(name) {
     }
     return cookieValue;
 }
-var csrftoken = getCookie('csrftoken');
 
 function crsfSafeMethod(method) {
     // No csrf protection needed for these methods
     return(/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
 }
+
+var csrftoken = getCookie('csrftoken');
 
 $.ajaxSetup({
     beforeSend: function( xhr, settings) {

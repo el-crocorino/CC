@@ -17,6 +17,8 @@ urlpatterns = [
     url( r'^trip/delete/(?P<pTripId>[0-9]+)$', views.trip_delete, name = 'trip_delete'), 
     url( r'^trip/update/(?P<pTripId>[0-9]+)$', views.trip_update, name = 'trip_update'), 
 
+    url( r'^tripItem/delete/$', views.tripItem_delete, name = 'tripItem_delete'), 
+
     url( r'^order/(?P<pOrderId>[0-9]+)/$', views.order_item, name = 'order_item'),
     url( r'^order/new/(?P<pTripId>[0-9]+)/$', views.order_create, name = 'order_create'), 
     url( r'^order/update/(?P<pOrderId>[0-9]+)$', views.order_update, name = 'order_update'), 
