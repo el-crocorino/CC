@@ -1,6 +1,6 @@
 {% load staticfiles %}
 {% load i18n %}
-<ul>
+<ul id="tripItem-{{ item.id }}">
     <li>{{ item.title }} | 
         {% if item.average_value %}
         {% trans "tripItemAVGValue" %}: {{ item.average_value }}
@@ -13,5 +13,5 @@
         {% endif %}
     </li>
     <li>{% trans "tripItemDescription" %}: {{ item.title }}</li>
-    <li><a href="">{% trans "Update" %}</a> | <a href="">{% trans "Delete" %}</a></li>
+    <li><a class="tripItemUpdate" href="">{% trans "Update" %}</a> | <a class="tripItemDelete" data-id="{{ item.id }}" href="">{% trans "Delete" %}</a></li>
 </ul>

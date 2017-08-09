@@ -19,7 +19,7 @@
 
             var tripItemCounter = 0;
 
-            $('button').on('click', function(event) {
+            $('#addTripItem').on('click', function(event) {
 
                 $('.tripItems').append('<hr />');
                 var formDivId = '{{ addTripItemForm.prefix }}-' + tripItemCounter

@@ -1,13 +1,18 @@
 {% load staticfiles %}
 {% load i18n %}
-{{ item.title }}:
-{% if item.average_value %}
-    {% trans "tripItemAVGValue" %}: {{ item.average_value }}
-{% endif %}
-{% if item.average_value and item.average_qty %}
-    /
-{% endif %}
-{% if item.average_qty %}
-    {% trans "tripItemAVGQty" %}: {{ item.average_qty }}
-{% endif %}
+<p id="tripItem-{{ item.id }}">  
+    {{ item.title }}:
+    {% if item.average_value %}
+        {% trans "tripItemAVGValue" %}: {{ item.average_value }}
+    {% endif %}
+    {% if item.average_value and item.average_qty %}
+        /
+    {% endif %}
+    {% if item.average_qty %}
+        {% trans "tripItemAVGQty" %}: {{ item.average_qty }}
+    {% endif %}  
+    {% if item.trip.user.id == request.user.id %}
+        <a class="tripItemUpdate" href="">{% trans "Update" %}</a> | <a class="tripItemDelete" data-id="{{ item.id }}" href="">{% trans "Delete" %}</a>
+    {% endif %}      
+</p>
 
