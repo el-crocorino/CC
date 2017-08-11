@@ -19,14 +19,22 @@ function crsfSafeMethod(method) {
     return(/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
 }
 
+/*
+ * Appends html form to add tripItem, updates tripItem counter
+ *
+ * @param DOMObject pDivElement  Div wheer html form will be append to
+ * @param string pPrefix Form prefix
+ * @param iut pTripItemCounter Trip items count
+ * @param string pTripitemForm Trip item add form
+ */
 function addTripItem( pDivElement, pPrefix, pTripItemCounter, pTripItemForm) {
-    console.log(pDivElement)
 
     pDivElement.append('<hr />');
 
     var formDivId = pPrefix + '-' + pTripItemCounter;
 
     pDivElement.append(`<div id="` + formDivId + `">` + pTripItemForm + `</div>`);
+    //pDivElement.append(`<button type="button" id="deleteTripItem" >{% trans "deleteTripItem" %}</button>`);
     
     $.each( $( '#' + formDivId + ' label'), function( pIndex, pElement) {
 
@@ -41,12 +49,36 @@ function addTripItem( pDivElement, pPrefix, pTripItemCounter, pTripItemForm) {
     var idFieldNewName = pPrefix + pTripItemCounter + '-id';
 
     $( '#id_' + pPrefix + '-id').attr( 'id', 'id_' + idFieldNewName).attr( 'name', idFieldNewName).val( 'new');
-    //$( '#id_TripForm-pTripItemCounter').val( pTripItemCounter);
-    
+        
     return ++pTripItemCounter;
 
 
 }
+
+/*
+ * Deletes tripItem and removes corresponding html
+ *
+ * @param DOMObject pElement Button who called function, containing trip item id
+ */
+function deleteTripItem( pElement) {
+
+    var itemId = pElement.attr("data-id");
+
+    $.ajax({
+        url: '/tripItem/delete/',
+        type: 'POST',
+        data: {"itemId" : itemId},
+        success: function(response){
+            success: function(response){
+                $('#tripItem-' + itemId).html(' ' + response);
+            }
+        }
+    });
+
+}
+
+
+                
 
 var csrftoken = getCookie('csrftoken');
 

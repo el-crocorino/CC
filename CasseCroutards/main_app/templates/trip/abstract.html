@@ -56,20 +56,8 @@
         $( function(){
 
             $('.tripItemDelete').on('click', function(event) {
-
                 event.preventDefault();
-                var element = $(this);
-                var itemId = element.attr("data-id");
-
-                $.ajax({
-                    url: '/tripItem/delete/',
-                    type: 'POST',
-                    data: {"itemId" : itemId},
-                    success: function(response){
-                        $('#tripItem-' + itemId).html(' ' + response);
-                    }
-                });
-
+                deleteTripItem( $(this));
             });
         });
             
