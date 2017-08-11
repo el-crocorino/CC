@@ -24,7 +24,7 @@
                     {% trans "EmptyItems" %}
                 {% endfor %}
             </ul>
-        </li>
+        </li>{{  trip }}
         {% if request.user.is_authenticated %}
             {% if trip.user.id == request.user.id %}
                 <li><a href="{% url 'trip_delete' pTripId=trip.id %}">{% trans "DeleteTrip" %}</a> | <a href="/trip/update/{{ trip.id }}">{% trans "UpdateTrip" %}</a></li>

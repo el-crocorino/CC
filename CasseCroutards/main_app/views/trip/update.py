@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 
@@ -31,42 +33,59 @@ def trip_update( pRequest, pTripId):
             tripItemCounter = tripForm.cleaned_data['tripItemCounter'] 
             itemsSaved = True
             tripItemIds = []
+            print(pRequest.POST)
 
-            for i in range(0, tripItemCounter + 1):
+            for i in range(0, tripItemCounter):
 
                 itemSaved = False
 
-                if pRequest.POST['TripItemForm' + str(i) + '-title']: 
-            
+                if pRequest.POST['TripItemForm' + str(i) + '-title'] != None: 
+                    print("TripItemForm" + str(i))
                     tripItemForm = TripItemForm( pRequest.POST, prefix = "TripItemForm" + str(i))
                     tripItemForm.trip = trip
                 
                     if tripItemForm.is_valid():
 
-                        #TODO : ajouter un check : si item a un id => il existe => le mettre à jour
-                        #s'il n'en a pas => il n'existe pas => le créer
+                        if tripItemForm.cleaned_data['id'] != 'new':
+                            print(tripItemForm.cleaned_data['id'])
 
-                        tripItem = tripItemForm.save( commit = False)
-                        tripItem.trip = trip
-                        tripItem.save()
+                            tripItem = TripItem.objects.get( id = tripItemForm.cleaned_data['id'])
+                            
+                            tripItem.title = tripItemForm.cleaned_data['title']
+                            tripItem.description = tripItemForm.cleaned_data['description']
+                            tripItem.average_value = tripItemForm.cleaned_data['average_value']
+                            tripItem.average_qty = tripItemForm.cleaned_data['average_qty']
+                            tripItem.updated = datetime.now()
+                            
+                            tripItem.save()
 
-                        tripItemIds.append( tripItem.id)
+                        else:
+
+                            tripItem = tripItemForm.save( commit = False)
+                            tripItem.trip = trip
+                            tripItem.save()
+
+                            tripItemIds.append( tripItem.id)
 
                         itemSaved = True
+                    else:
+                        print(pRequest.POST)
+                        print(tripItemForm)    
+                        print(tripItemForm.errors)   
 
+                    print(tripItemForm.cleaned_data['title'])
+                    print(itemSaved)
                     itemsSaved = itemsSaved and itemSaved 
+                    print(itemsSaved)
             
             if not itemsSaved:
+                pass
 
-                trip.delete()
+                #trip.delete()
 
-                for itemId in tripItemIds:
-                    tripItem = TripItem.objects.get( id = itemId)
-                    tripItem.delete()
-
-
-
-
+                #for itemId in tripItemIds:
+                #    tripItem = TripItem.objects.get( id = itemId)
+                #    tripItem.delete()
 
             return render(pRequest, 'trip/item.html', {'trip': trip})
 
@@ -89,6 +108,7 @@ def trip_update( pRequest, pTripId):
         for index, item in enumerate( trip.items, start = 0):
             
             updateTripItemForm = TripItemForm( prefix = 'TripItemForm' + str( index), initial = {
+                'id' : item.id,
                 'title': item.title,
                 'description': item.description,
                 'average_value': item.average_value,

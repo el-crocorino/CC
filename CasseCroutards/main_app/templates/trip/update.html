@@ -29,27 +29,11 @@
                 $(function( ){
 
                     var tripItemCounter = {% if updateTripItemForms|length > 0 %}{{ updateTripItemForms|length }}{% else %}0{% endif %};
-
+                    console.log(tripItemCounter)
                     $('#addTripItem').on('click', function(event) {
-
-                        $('.tripItems').append('<hr />');
-                        var formDivId = '{{ addTripItemForm.prefix }}-' + tripItemCounter
-                        $('.tripItems').append(`<div id="` + formDivId + `">{{ addTripItemForm.as_p }}</div>`);
-                        
-                        $.each( $('#' + formDivId + ' label'), function( pIndex, pElement){
-
-                            var newName = '{{ addTripItemForm.prefix }}' + tripItemCounter + '-' + pElement.htmlFor.substring( '{{ addTripItemForm.prefix }}'.length + 4);
-                            var newId = 'id_' + newName;
-
-                            $('#' + pElement.htmlFor).attr('id', newId).attr('name', newName)
-                            pElement.htmlFor = newId;
-
-                        });
-
-
+                        tripItemCounter = addTripItem( $('.tripItems'), '{{ addTripItemForm.prefix }}', tripItemCounter, `{{ addTripItemForm.as_p }}`);
+                        console.log(tripItemCounter)
                         $('#id_TripForm-tripItemCounter').val(tripItemCounter);
-                        ++tripItemCounter;
-
                     });
                 });
                     
