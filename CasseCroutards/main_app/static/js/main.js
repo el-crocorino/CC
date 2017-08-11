@@ -19,6 +19,35 @@ function crsfSafeMethod(method) {
     return(/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
 }
 
+function addTripItem( pDivElement, pPrefix, pTripItemCounter, pTripItemForm) {
+    console.log(pDivElement)
+
+    pDivElement.append('<hr />');
+
+    var formDivId = pPrefix + '-' + pTripItemCounter;
+
+    pDivElement.append(`<div id="` + formDivId + `">` + pTripItemForm + `</div>`);
+    
+    $.each( $( '#' + formDivId + ' label'), function( pIndex, pElement) {
+
+        var newName = pPrefix + pTripItemCounter + '-' + pElement.htmlFor.substring( pPrefix.length + 4);
+        var newId = 'id_' + newName;
+
+        $( '#' + pElement.htmlFor).attr( 'id', newId).attr( 'name', newName);
+        pElement.htmlFor = newId;
+
+    });
+
+    var idFieldNewName = pPrefix + pTripItemCounter + '-id';
+
+    $( '#id_' + pPrefix + '-id').attr( 'id', 'id_' + idFieldNewName).attr( 'name', idFieldNewName).val( 'new');
+    //$( '#id_TripForm-pTripItemCounter').val( pTripItemCounter);
+    
+    return ++pTripItemCounter;
+
+
+}
+
 var csrftoken = getCookie('csrftoken');
 
 $.ajaxSetup({

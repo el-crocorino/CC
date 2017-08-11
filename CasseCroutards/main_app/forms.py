@@ -45,10 +45,13 @@ class TripForm( forms.ModelForm):
         fields = ['date', 'city_start', 'city_end', 'amount_limit', 'participants_limit', 'comment']
 
 class TripItemForm( forms.ModelForm):
+
+    id = forms.CharField( widget = forms.widgets.HiddenInput())
+
     class Meta:
         app_label = 'main_app'
         model = TripItem
-        fields = ['title', 'description', 'average_value', 'average_qty']
+        fields = ['id', 'title', 'description', 'average_value', 'average_qty']
 
 class OrderForm( forms.ModelForm):
 

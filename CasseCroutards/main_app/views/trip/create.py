@@ -24,25 +24,26 @@ def trip_create( pRequest):
         itemsSaved = True
         tripItemIds = []
 
-        for i in range(0, tripItemCounter + 1):
+        for i in range(0, tripItemCounter):
         
             itemSaved = False
+
+            if pRequest.POST['TripItemForm' + str(i) + '-title'] != None: 
+
+                tripItemForm = TripItemForm( pRequest.POST, prefix = "TripItemForm" + str(i))
+                tripItemForm.trip = trip
             
-            # TODO : ajouter un check if key exists (au cas où un item ait été supprimé)
-            tripItemForm = TripItemForm( pRequest.POST, prefix = "TripItemForm" + str(i))
-            tripItemForm.trip = trip
-        
-            if tripItemForm.is_valid():
+                if tripItemForm.is_valid():
 
-                tripItem = tripItemForm.save( commit = False)
-                tripItem.trip = trip
-                tripItem.save()
+                    tripItem = tripItemForm.save( commit = False)
+                    tripItem.trip = trip
+                    tripItem.save()
 
-                tripItemIds.append( tripItem.id)
+                    tripItemIds.append( tripItem.id)
 
-                itemSaved = True
+                    itemSaved = True
 
-            itemsSaved = itemsSaved and itemSaved 
+                itemsSaved = itemsSaved and itemSaved 
         
         if not itemsSaved:
 

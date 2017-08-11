@@ -12,8 +12,31 @@
             <form enctype="multipart/form-data" action="{% url 'trip_update' pTripId=trip.id %}" method="POST">
                 {% csrf_token %}
                 {{ updateTripForm.as_p }}
+
+                {% for updateTripItemForm in updateTripItemForms %}
+                    {{ updateTripItemForm.as_p }}
+                {% empty %}
+                {% endfor %}
+
+                {% trans "DefineTripItems" %}:
+                <div class="tripItems">            
+                </div>
+                <button type="button" id="addTripItem">{% trans "AddTripItem" %}</button>
                 <input type="submit" value="{% trans "Save" %}">
             </form>
+            <script type="text/javascript">
+
+                $(function( ){
+
+                    var tripItemCounter = {% if updateTripItemForms|length > 0 %}{{ updateTripItemForms|length }}{% else %}0{% endif %};
+                    
+                    $('#addTripItem').on('click', function(event) {
+                        tripItemCounter = addTripItem( $('.tripItems'), '{{ addTripItemForm.prefix }}', tripItemCounter, `{{ addTripItemForm.as_p }}`);
+                        $('#id_TripForm-tripItemCounter').val(tripItemCounter);
+                    });
+                });
+                    
+            </script>
         {% endif %}
     {% endif %}
 {% endblock %}
