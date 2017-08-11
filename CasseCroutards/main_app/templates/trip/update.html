@@ -29,10 +29,9 @@
                 $(function( ){
 
                     var tripItemCounter = {% if updateTripItemForms|length > 0 %}{{ updateTripItemForms|length }}{% else %}0{% endif %};
-                    console.log(tripItemCounter)
+                    
                     $('#addTripItem').on('click', function(event) {
                         tripItemCounter = addTripItem( $('.tripItems'), '{{ addTripItemForm.prefix }}', tripItemCounter, `{{ addTripItemForm.as_p }}`);
-                        console.log(tripItemCounter)
                         $('#id_TripForm-tripItemCounter').val(tripItemCounter);
                     });
                 });
