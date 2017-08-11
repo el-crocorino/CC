@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-09 06:54+0200\n"
+"POT-Creation-Date: 2017-08-11 20:29+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,422 +17,354 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: forms.py:61
+#: forms.py:64
 msgid "OrderDeleteCheckbox"
-msgstr "I want to cancel this order."
+msgstr ""
 
 #: models.py:18
 msgid "email address"
-msgstr "Email address"
+msgstr ""
 
 #: models.py:19 templates/user/item.html:13 templates/user/update.html:11
 msgid "first name"
-msgstr "First name"
+msgstr ""
 
 #: models.py:20 templates/user/item.html:14 templates/user/update.html:12
 msgid "last name"
-msgstr "Last name"
+msgstr ""
 
 #: models.py:21 templates/user/item.html:15 templates/user/update.html:13
 msgid "date joined"
-msgstr "Date joined"
+msgstr ""
 
 #: models.py:23
 msgid "staff status"
-msgstr "Staff status"
+msgstr ""
 
 #: models.py:25
 msgid "Designates whether the user can log into this admin site."
-msgstr "Designates whether the user can log into this admin site"
+msgstr ""
 
 #: models.py:28
 msgid "active"
-msgstr "active"
+msgstr ""
 
 #: models.py:31
 msgid ""
 "Designates whether this user should be treated as active. Unselect this "
 "instead of deleting accounts."
 msgstr ""
-"Designates whether this user should be treated as active. Unselect this "
-"instead of deleting accounts."
 
 #: models.py:36 templates/user/item.html:17
 msgid "location"
-msgstr "Location"
+msgstr ""
 
 #: models.py:37 templates/user/item.html:16 templates/user/update.html:14
 msgid "birth date"
-msgstr "Birth date"
+msgstr ""
 
 #: models.py:38
-#, fuzzy
-#| msgid "Destination"
 msgid "presentation"
-msgstr "Destination"
+msgstr ""
 
 #: models.py:39 templates/user/item.html:19
 msgid "avatar"
-msgstr "Avatar"
+msgstr ""
 
 #: models.py:40 templates/user/item.html:20
 msgid "ratio"
-msgstr "Ratio"
+msgstr ""
 
 #: models.py:51
 msgid "user"
-msgstr "User"
+msgstr ""
 
 #: models.py:52
 msgid "users"
-msgstr "Users"
+msgstr ""
 
 #: models.py:78
-#, fuzzy
-#| msgid "Date"
 msgid "tripDate"
-msgstr "Date"
+msgstr ""
 
 #: models.py:79
 msgid "tripCityStart"
-msgstr "Start city"
+msgstr ""
 
 #: models.py:80
 msgid "tripCityEnd"
-msgstr "Destination city"
+msgstr ""
 
 #: models.py:81
-#, fuzzy
-#| msgid "Amount"
 msgid "tripMaxAmount"
-msgstr "Amount"
+msgstr ""
 
 #: models.py:82
-#, fuzzy
-#| msgid "Participants"
 msgid "tripMaxParticipants"
-msgstr "Participants"
+msgstr ""
 
 #: models.py:83
-#, fuzzy
-#| msgid "Description"
 msgid "tripDescription"
-msgstr "Description"
+msgstr ""
 
 #: models.py:84 models.py:147 models.py:169 models.py:188
 msgid "created"
-msgstr "Created"
+msgstr ""
 
 #: models.py:85 models.py:148 models.py:170 models.py:189
-#, fuzzy
-#| msgid "UpdateTrip"
 msgid "updated"
-msgstr "Update trip informations"
+msgstr ""
 
 #: models.py:144
-#, fuzzy
-#| msgid "Description"
 msgid "orderDescription"
-msgstr "Description"
+msgstr ""
 
 #: models.py:145
-#, fuzzy
-#| msgid "Amount"
 msgid "orderAmount"
-msgstr "Amount"
+msgstr ""
 
 #: models.py:146
 msgid "orderStatus"
-msgstr "Status"
+msgstr ""
 
 #: models.py:165
 msgid "tripItemTitle"
-msgstr "Name"
+msgstr ""
 
 #: models.py:166 templates/tripItem/item.html:15
-#, fuzzy
-#| msgid "Description"
 msgid "tripItemDescription"
-msgstr "Description"
+msgstr ""
 
 #: models.py:167 templates/tripItem/abstract.html:6
 #: templates/tripItem/item.html:6
 msgid "tripItemAVGValue"
-msgstr "Average price"
+msgstr ""
 
 #: models.py:168 templates/tripItem/abstract.html:12
 #: templates/tripItem/item.html:12
 msgid "tripItemAVGQty"
-msgstr "Average quantity"
+msgstr ""
 
 #: models.py:186
 msgid "orderItemAmount"
-msgstr "Amount"
+msgstr ""
 
 #: models.py:187
 msgid "orderItemQty"
-msgstr "Quantity"
+msgstr ""
 
 #: templates/base.html:13
 msgid "PageTitle"
-msgstr "The Hitchsnackers"
+msgstr ""
 
 #: templates/base.html:30 templates/index.html:13 templates/user/create.html:6
 msgid "SignUp"
-msgstr "Sign up"
+msgstr ""
 
 #: templates/base.html:35 templates/index.html:11
-#, fuzzy
-#| msgid "SignIn"
 msgid "SignOut"
-msgstr "Sign out"
+msgstr ""
 
 #: templates/base.html:37 templates/index.html:13 templates/user/login.html:9
 msgid "SignIn"
-msgstr "Sign in"
+msgstr ""
 
 #: templates/index.html:6
 msgid "WelcomeTitle"
-msgstr "Welcome!"
+msgstr ""
 
 #: templates/index.html:11
-#, fuzzy
-#| msgid "WelcomeMessage"
 msgid "LoggedInWelcomeMessage"
-msgstr "Hi there, "
+msgstr ""
 
 #: templates/index.html:13
 msgid "WelcomeMessage"
-msgstr "Hi there, fellow hitchsnacker!"
+msgstr ""
 
 #: templates/index.html:16
 msgid "AvailableTrips"
-msgstr "Next trips to come"
+msgstr ""
 
 #: templates/order/abstract.html:22 templates/trip/abstract.html:34
 msgid "CancelOrder"
-msgstr "Cancel order"
+msgstr ""
 
 #: templates/order/abstract.html:22 templates/order/update.html:11
-#, fuzzy
-#| msgid "UpdateTrip"
 msgid "UpdateOrder"
-msgstr "Update trip informations"
+msgstr ""
 
 #: templates/order/abstract.html:27
-#, fuzzy
-#| msgid "PlaceOrder"
 msgid "AcceptOrder"
-msgstr "Place order"
+msgstr ""
 
 #: templates/order/abstract.html:27
-#, fuzzy
-#| msgid "PlaceOrder"
 msgid "RefuseOrder"
-msgstr "Place order"
+msgstr ""
 
 #: templates/order/create.html:6 templates/trip/abstract.html:36
 #: templates/trip/abstract.html:50
 msgid "PlaceOrder"
-msgstr "Place order"
+msgstr ""
 
 #: templates/order/delete.html:6 templates/order/item.html:9
 #: templates/order/refuse.html:6 templates/order/update.html:6
 #: templates/trip/item.html:6 templates/trip/update.html:6
-#, fuzzy
-#| msgid "AddTrip"
 msgid "Trip"
-msgstr "Trip"
+msgstr ""
 
 #: templates/order/delete.html:11
-#, fuzzy
-#| msgid "PlaceOrder"
 msgid "DeleteOrder"
-msgstr "Place order"
+msgstr ""
 
 #: templates/order/delete.html:17
 msgid "ConfirmOrderDeletion"
-msgstr "Cancel order"
+msgstr ""
 
 #: templates/order/item.html:6
-#, fuzzy
-#| msgid "PlaceOrder"
 msgid "Order"
-msgstr "Place order"
+msgstr ""
 
 #: templates/order/item.html:11
 msgid "Traveler"
-msgstr "Traveler"
+msgstr ""
 
 #: templates/order/item.html:12 templates/order/item.html:20
 msgid "Date"
-msgstr "Date"
+msgstr ""
 
 #: templates/order/item.html:13 templates/trip/abstract.html:12
 msgid "Start"
-msgstr "Start"
+msgstr ""
 
 #: templates/order/item.html:14 templates/trip/abstract.html:13
 msgid "Destination"
-msgstr "Destination"
+msgstr ""
 
 #: templates/order/item.html:15
 msgid "Summary"
-msgstr "Summary"
+msgstr ""
 
 #: templates/order/item.html:16
 msgid "Participants"
-msgstr "Participants"
+msgstr ""
 
 #: templates/order/item.html:18
 msgid "MyOrder"
-msgstr "My order"
+msgstr ""
 
 #: templates/order/item.html:21
 msgid "Comment"
-msgstr "Comment"
+msgstr ""
 
 #: templates/order/item.html:22
 msgid "Amount"
-msgstr "Amount"
+msgstr ""
 
 #: templates/order/item.html:23
 msgid "Status"
-msgstr "Status"
+msgstr ""
 
 #: templates/order/refuse.html:13
 msgid "OrderRefuseReason"
-msgstr "Please give a short explanation why you had to refuse that order"
+msgstr ""
 
 #: templates/order/refuse.html:15 templates/order/update.html:16
-#: templates/trip/create_abstract.html:14 templates/trip/update.html:15
+#: templates/trip/create_abstract.html:13 templates/trip/update.html:25
 msgid "Save"
-msgstr "Save"
+msgstr ""
 
 #: templates/trip/abstract.html:14
 msgid "Description"
-msgstr "Description"
+msgstr ""
 
 #: templates/trip/abstract.html:15
 msgid "TripItems"
-msgstr "Available products"
+msgstr ""
 
 #: templates/trip/abstract.html:24
 msgid "EmptyItems"
-msgstr "No product specified"
+msgstr ""
 
 #: templates/trip/abstract.html:30
-#, fuzzy
-#| msgid "UpdateTrip"
 msgid "DeleteTrip"
-msgstr "Update trip informations"
+msgstr ""
 
 #: templates/trip/abstract.html:30 templates/trip/update.html:11
 msgid "UpdateTrip"
-msgstr "Update trip informations"
+msgstr ""
 
 #: templates/trip/abstract.html:43 templates/user/item.html:28
-#, fuzzy
-#| msgid "PlaceOrder"
 msgid "Orders"
-msgstr "Place order"
+msgstr ""
 
 #: templates/trip/abstract.html:47
-#, fuzzy
-#| msgid "PlaceOrder"
 msgid "EmpyOrders"
-msgstr "Place order"
+msgstr ""
 
 #: templates/trip/create.html:4 templates/trip/create_abstract.html:5
 msgid "AddTrip"
-msgstr "Propose a new trip"
+msgstr ""
 
-#: templates/trip/create_abstract.html:9
+#: templates/trip/create_abstract.html:9 templates/trip/update.html:21
 msgid "DefineTripItems"
-msgstr "Add products your offer to bring back to your trip's participants"
+msgstr ""
 
-#: templates/trip/create_abstract.html:12
-#, fuzzy
-#| msgid "AddTrip"
+#: templates/trip/create_abstract.html:12 templates/trip/update.html:24
 msgid "AddTripItem"
-msgstr "Propose a new trip"
+msgstr ""
 
 #: templates/tripItem/abstract.html:15 templates/tripItem/item.html:16
-#, fuzzy
-#| msgid "UpdateTrip"
 msgid "Update"
-msgstr "Update trip informations"
+msgstr ""
 
 #: templates/tripItem/abstract.html:15 templates/tripItem/item.html:16
-#, fuzzy
-#| msgid "UpdateTrip"
 msgid "Delete"
-msgstr "Update trip informations"
+msgstr ""
 
 #: templates/user/item.html:6
-#, fuzzy
-#| msgid "UpdateTrip"
 msgid "UserProfile"
-msgstr "Update trip informations"
+msgstr ""
 
 #: templates/user/item.html:12 templates/user/update.html:10
 msgid "email"
-msgstr "Email"
+msgstr ""
 
 #: templates/user/item.html:18
 msgid "bio"
-msgstr "Presentation"
+msgstr ""
 
 #: templates/user/item.html:22
-#, fuzzy
-#| msgid "UpdateTrip"
 msgid "Update profile"
-msgstr "Update trip informations"
+msgstr ""
 
 #: templates/user/item.html:24
-#, fuzzy
-#| msgid "AddTrip"
 msgid "Trips"
-msgstr "Trip"
+msgstr ""
 
 #: templates/user/item.html:29
-#, fuzzy
-#| msgid "PlaceOrder"
 msgid "Placed"
-msgstr "Place order"
+msgstr ""
 
 #: templates/user/item.html:33
 msgid "Requested"
-msgstr "Requested"
+msgstr ""
 
 #: templates/user/login.html:5
 msgid "Login"
-msgstr "login"
+msgstr ""
 
 #: templates/user/update.html:6
-#, fuzzy
-#| msgid "UpdateTrip"
 msgid "UpdateUserProfile"
-msgstr "Update trip informations"
+msgstr ""
 
 #: templates/user/update.html:18
-#, fuzzy
-#| msgid "UpdateTrip"
 msgid "UpdateProfile"
-msgstr "Update trip informations"
+msgstr ""
 
 #: views/tripItem/delete.py:21
 msgid "tripItemDeletion"
-msgstr " has been deleted."
+msgstr ""
 
 #: views/tripItem/delete.py:24
-msgid ": error while trying to delete it."
-msgstr "Description"
-
-#, fuzzy
-#~| msgid "PlaceOrder"
-#~ msgid "OrderMore"
-#~ msgstr "more"
-
-#~ msgid "Logout"
-#~ msgstr "Logout"
+msgid "tripItemDeletionError"
+msgstr ""

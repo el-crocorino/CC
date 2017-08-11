@@ -9,3 +9,12 @@ h2 {
 p strong {
     color:grey;
 }
+
+.navbar-nav li {
+    list-style-type: none;
+    padding-right: 20px;
+}
+
+.navbar-nav li:last-child{
+    padding-right: 0;
+}
