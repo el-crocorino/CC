@@ -66,16 +66,16 @@ function addTripItem( pDivElement, pPrefix, pTripItemCounter, pTripItemForm) {
 function deleteTripItem( pElement) {
 
     var itemId = pElement.attr("data-id");
-
+    console.log( pElement.parent())
     if( itemId.substring(0, 3) == 'new') {
-        $('#TripItemForm-' + itemId.substring(3)).remove();
+        pElement.parent().remove();
     } else {
         $.ajax({
             url: '/tripItem/delete/',
             type: 'POST',
             data: {"itemId" : itemId},
             success: function(response){
-                $('#TripItemForm-' + itemId).html(' ' + response);
+                pElement.parent().html(' ' + response);
             }
         });
     }
