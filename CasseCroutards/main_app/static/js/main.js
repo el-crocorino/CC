@@ -69,9 +69,7 @@ function deleteTripItem( pElement) {
         type: 'POST',
         data: {"itemId" : itemId},
         success: function(response){
-            success: function(response){
-                $('#tripItem-' + itemId).html(' ' + response);
-            }
+            $('#tripItem-' + itemId).html(' ' + response);
         }
     });
 
