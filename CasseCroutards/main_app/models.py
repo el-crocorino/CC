@@ -182,7 +182,6 @@ class OrderItem( models.Model):
     '''
     tripItem = models.ForeignKey( TripItem)
     order = models.ForeignKey( Order)
-    user = models.ForeignKey( settings.AUTH_USER_MODEL, on_delete = models.CASCADE)
     amount = models.DecimalField( _( 'orderItemAmount'), max_digits = 5, decimal_places = 2, default = 0.00)
     quantity = models.IntegerField( _( 'orderItemQty'), default = 1)
     created = models.DateTimeField( _( 'created'), auto_now_add = True)

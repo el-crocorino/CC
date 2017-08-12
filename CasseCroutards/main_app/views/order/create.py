@@ -2,8 +2,8 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 
-from main_app.forms import OrderForm
-from main_app.models import Trip
+from main_app.forms import OrderForm, OrderItemForm
+from main_app.models import Trip, OrderItem
 
 @login_required
 def order_create( pRequest, pTripId):
@@ -13,6 +13,7 @@ def order_create( pRequest, pTripId):
     '''
 
     orderTrip = Trip.objects.get( id = pTripId)
+    orderTrip.getItems()
 
     if pRequest.method == 'POST':
 
@@ -35,8 +36,16 @@ def order_create( pRequest, pTripId):
             'orderTrip': orderTrip
             }) 
     else:
-        orderForm = OrderForm()     
+
+        orderForm = OrderForm()
+        orderItemForms = []
+
+        for tripItem in orderTrip.items:
+            orderItemForm = OrderItemForm()
+            orderItemForms.append( orderForm)
+
         return render(pRequest, 'order/create.html', {
-            'orderForm' : orderForm, 
-            'orderTrip': orderTrip
+            'orderForm' : orderForm,
+            'orderItemForms' : orderItemForms, 
+            'orderTrip': orderTrip, 
             }) 

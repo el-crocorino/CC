@@ -67,7 +67,10 @@ class OrderDeleteForm( forms.Form):
         app_label = 'main_app'
 
 class OrderItemForm( forms.ModelForm):
+
+    id = forms.CharField( widget = forms.widgets.HiddenInput())
+
     class Meta:
         app_label = 'main_app'
         model = OrderItem
-        fields = ['amount', 'quantity']
+        fields = ['id', 'amount', 'quantity']
