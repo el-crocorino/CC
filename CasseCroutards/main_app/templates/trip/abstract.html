@@ -24,7 +24,7 @@
                     {% trans "EmptyItems" %}
                 {% endfor %}
             </ul>
-        </li>{{  trip }}
+        </li>
         {% if request.user.is_authenticated %}
             {% if trip.user.id == request.user.id %}
                 <li><a href="{% url 'trip_delete' pTripId=trip.id %}">{% trans "DeleteTrip" %}</a> | <a href="/trip/update/{{ trip.id }}">{% trans "UpdateTrip" %}</a></li>
@@ -50,29 +50,5 @@
             <a href="{% url 'order_create' pTripId=trip.id %}">{% trans "PlaceOrder" %}</a> 
         {% endif %}
     {% endif %}
-
-    <script type="text/javascript">
-
-        $( function(){
-
-            $('.tripItemDelete').on('click', function(event) {
-
-                event.preventDefault();
-                var element = $(this);
-                var itemId = element.attr("data-id");
-
-                $.ajax({
-                    url: '/tripItem/delete/',
-                    type: 'POST',
-                    data: {"itemId" : itemId},
-                    success: function(response){
-                        $('#tripItem-' + itemId).html(' ' + response);
-                    }
-                });
-
-            });
-        });
-            
-    </script>
 
 </div>

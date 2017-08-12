@@ -20,4 +20,16 @@
     {% endfor %}
     {% include "trip/create_abstract.html" %}
 
+    <script type="text/javascript">
+
+        $( function(){
+
+            $('.tripItemDelete').on('click', function(event) {
+                event.preventDefault();
+                deleteTripItem( $(this));
+            });
+        });
+            
+    </script>
+
 {% endblock %}
