@@ -17,6 +17,7 @@ def trip_update( pRequest, pTripId):
         
         tripForm = TripForm( pRequest.POST, prefix = "TripForm")
         
+        # save trip infos
         if tripForm.is_valid():
 
             trip = Trip.objects.get( id = pTripId)
@@ -34,10 +35,12 @@ def trip_update( pRequest, pTripId):
             itemsSaved = True
             tripItemIds = []
 
+            #save trip items infos
             for i in range(0, tripItemCounter):
 
                 itemSaved = False
 
+                # check if data for given index exists in post query
                 if pRequest.POST.get('TripItemForm' + str(i) + '-title', None) != None: 
 
                     tripItemForm = TripItemForm( pRequest.POST, prefix = "TripItemForm" + str(i))
@@ -45,6 +48,7 @@ def trip_update( pRequest, pTripId):
                 
                     if tripItemForm.is_valid():
 
+                        # if trip item already exists
                         if tripItemForm.cleaned_data['id'] != 'new':
 
                             tripItem = TripItem.objects.get( id = tripItemForm.cleaned_data['id'])
@@ -57,6 +61,7 @@ def trip_update( pRequest, pTripId):
                             
                             tripItem.save()
 
+                        # if new trip item
                         else:
 
                             tripItem = tripItemForm.save( commit = False)
@@ -69,6 +74,7 @@ def trip_update( pRequest, pTripId):
 
                     itemsSaved = itemsSaved and itemSaved 
             
+            # if error while saving trip items
             if not itemsSaved:
 
                 trip.delete()
@@ -77,6 +83,11 @@ def trip_update( pRequest, pTripId):
                     tripItem = TripItem.objects.get( id = itemId)
                     tripItem.delete()
 
+
+            # Get trip infos form item diplay after updated
+            trip.getOrders(pRequest.user.id)
+            trip.getItems() 
+
             return render(pRequest, 'trip/item.html', {'trip': trip})
 
     else:
@@ -84,6 +95,7 @@ def trip_update( pRequest, pTripId):
         trip = Trip.objects.get( id = pTripId)
         trip.items = TripItem.objects.filter( trip = pTripId)
         
+        # set trip form
         updateTripForm = TripForm( prefix = 'TripForm',  initial = {
             'date' : trip.date, 
             'city_start' : trip.city_start, 
@@ -93,6 +105,7 @@ def trip_update( pRequest, pTripId):
             'comment' : trip.comment
             })
 
+        # set existing trip items forms
         updateTripItemForms = []
         
         for index, item in enumerate( trip.items, start = 0):
@@ -107,6 +120,7 @@ def trip_update( pRequest, pTripId):
 
             updateTripItemForms.append( updateTripItemForm)
         
+        #set new trip item form
         addTripItemForm = TripItemForm( prefix = 'TripItemForm')
 
         return render( pRequest, 'trip/update.html', {
