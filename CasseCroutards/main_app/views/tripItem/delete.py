@@ -10,7 +10,7 @@ def tripItem_delete( pRequest):
     tripItemId = pRequest.POST.get( 'itemId', None)
     responseMessage = ''
 
-    if tripItemId:
+    if tripItemId and tripItemId != 'new':
     
         tripItem = TripItem.objects.get( id = tripItemId)
     

@@ -34,6 +34,12 @@
                         tripItemCounter = addTripItem( $('.tripItems'), '{{ addTripItemForm.prefix }}', tripItemCounter, `{{ addTripItemForm.as_p }}`);
                         $('#id_TripForm-tripItemCounter').val(tripItemCounter);
                     });
+
+                    $(document).on('click', '.tripItemDelete', function(event) {
+                        event.preventDefault();
+                        deleteTripItem( $(this));
+                    });
+                    
                 });
                     
             </script>

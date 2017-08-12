@@ -26,15 +26,19 @@ function crsfSafeMethod(method) {
  * @param string pPrefix Form prefix
  * @param iut pTripItemCounter Trip items count
  * @param string pTripitemForm Trip item add form
+ * @returns int Updated trip item counter
  */
 function addTripItem( pDivElement, pPrefix, pTripItemCounter, pTripItemForm) {
-
-    pDivElement.append('<hr />');
-
+    
     var formDivId = pPrefix + '-' + pTripItemCounter;
 
-    pDivElement.append(`<div id="` + formDivId + `">` + pTripItemForm + `</div>`);
-    //pDivElement.append(`<button type="button" id="deleteTripItem" >{% trans "deleteTripItem" %}</button>`);
+    var divContainer = $(document.createElement('div'));
+    divContainer.attr( 'id', formDivId);
+    divContainer.append( '<hr />');
+    divContainer.append( pTripItemForm);
+    divContainer.append( `<a class="tripItemDelete" data-id='new` + pTripItemCounter + `' href="">{% trans "deleteTripItem" %}</a>`);
+
+    pDivElement.append(divContainer)
     
     $.each( $( '#' + formDivId + ' label'), function( pIndex, pElement) {
 
@@ -52,7 +56,6 @@ function addTripItem( pDivElement, pPrefix, pTripItemCounter, pTripItemForm) {
         
     return ++pTripItemCounter;
 
-
 }
 
 /*
@@ -64,14 +67,18 @@ function deleteTripItem( pElement) {
 
     var itemId = pElement.attr("data-id");
 
-    $.ajax({
-        url: '/tripItem/delete/',
-        type: 'POST',
-        data: {"itemId" : itemId},
-        success: function(response){
-            $('#tripItem-' + itemId).html(' ' + response);
-        }
-    });
+    if( itemId.substring(0, 3) == 'new') {
+        $('#TripItemForm-' + itemId.substring(3)).remove();
+    } else {
+        $.ajax({
+            url: '/tripItem/delete/',
+            type: 'POST',
+            data: {"itemId" : itemId},
+            success: function(response){
+                $('#TripItemForm-' + itemId).html(' ' + response);
+            }
+        });
+    }
 
 }
 
