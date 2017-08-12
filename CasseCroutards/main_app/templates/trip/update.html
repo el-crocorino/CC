@@ -14,7 +14,11 @@
                 {{ updateTripForm.as_p }}
 
                 {% for updateTripItemForm in updateTripItemForms %}
-                    {{ updateTripItemForm.as_p }}
+                    <div class="tripItemFrom-{{ updateTripItemForm.id.value }}">    
+                        <hr />                    
+                        {{ updateTripItemForm.as_p }}
+                        <a class="tripItemDelete" data-id='{{ updateTripItemForm.id.value }}' href="">{% trans "deleteTripItem" %}</a>
+                    </div>
                 {% empty %}
                 {% endfor %}
 

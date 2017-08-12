@@ -28,7 +28,7 @@ def trip_create( pRequest):
         
             itemSaved = False
 
-            if pRequest.POST['TripItemForm' + str(i) + '-title'] != None: 
+            if pRequest.POST.get('TripItemForm' + str(i) + '-title', None) != None: 
 
                 tripItemForm = TripItemForm( pRequest.POST, prefix = "TripItemForm" + str(i))
                 tripItemForm.trip = trip
