@@ -37,12 +37,15 @@ def order_create( pRequest, pTripId):
             }) 
     else:
 
-        orderForm = OrderForm()
+        orderForm = OrderForm( prefix = 'OrderForm')
         orderItemForms = []
 
         for tripItem in orderTrip.items:
-            orderItemForm = OrderItemForm()
-            orderItemForms.append( orderForm)
+        
+            orderItemForm = OrderItemForm( {'tripItemId' : tripItem.id}, prefix = 'OrderItemForm' + str(tripItem.id))        
+            orderItemForm.tripItem = tripItem        
+            orderItemForms.append( orderItemForm)
+
 
         return render(pRequest, 'order/create.html', {
             'orderForm' : orderForm,

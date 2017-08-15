@@ -8,6 +8,17 @@
   <form method="POST" action=".">
     {% csrf_token %}
         {{ orderForm.as_p }}
+        {% for orderItemForm in orderItemForms %}
+            <div id="{{ orderItemForm.prefix }}" class="orderItemForm">
+                {{ orderItemForm.tripItem.title }}
+                {{ orderItemForm.tripItem.description }}
+                {{ orderItemForm.tripItem.average_value }}
+                {{ orderItemForm.tripItem.average_qty }}
+                {{ orderItemForm.as_p }}                
+            </div>
+        {% empty %}
+            Kikoo
+        {% endfor %}
     <input type="submit" value="Submit" />
   </form>
 {% endblock %}

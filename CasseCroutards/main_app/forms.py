@@ -11,6 +11,7 @@ User Management Forms
 '''
 
 class LoginForm( forms.Form):
+
     email = forms.EmailField( label = 'E-Mail Address', max_length = 256)
     password = forms.CharField( widget = forms.PasswordInput())
     
@@ -61,6 +62,7 @@ class OrderForm( forms.ModelForm):
         fields = ( 'comment', 'amount')
 
 class OrderDeleteForm( forms.Form):
+
     confirmation = forms.BooleanField( label = _('OrderDeleteCheckbox'))
 
     class Meta:
@@ -68,7 +70,7 @@ class OrderDeleteForm( forms.Form):
 
 class OrderItemForm( forms.ModelForm):
 
-    id = forms.CharField( widget = forms.widgets.HiddenInput())
+    tripItemId = forms.CharField( widget = forms.widgets.HiddenInput())
 
     class Meta:
         app_label = 'main_app'

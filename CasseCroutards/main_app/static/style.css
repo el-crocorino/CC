@@ -18,3 +18,7 @@ p strong {
 .navbar-nav li:last-child{
     padding-right: 0;
 }
+
+.orderItemForm {
+    border-bottom: 1px solid #000000;
+}
